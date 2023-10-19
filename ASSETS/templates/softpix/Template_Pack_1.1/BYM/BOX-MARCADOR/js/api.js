@@ -200,27 +200,15 @@ function runTemplateUpdate() {
                        
                             strikes.innerText = `${totalB}   -   ${totalS}`;
 
-                    let colorDebase = "rgb(255, 255, 255)";
+                            const colorDeBase = "rgb(255, 255, 255)";
 
-                    hombre_primerax = hombre_primera
-                    hombre_segundax = hombre_segunda
-                    hombre_tercerax = hombre_tercera
-                
-
-                    if (hombre_primera === 1 ){
-                           Hombre_primera.style.backgroundColor = colorDebase;
-    
-                    }
-                     
-                    if (hombre_segunda === 1){
-                        Hombre_segunda.style.backgroundColor = colorDebase;
-    
-                    }
-                       
-                    if (hombre_tercera === 1){
-                         Hombre_tercera.style.backgroundColor = colorDebase;
-    
-                    }
+                            function actualizarColor(elemento, valor) {
+                              elemento.style.backgroundColor = valor === 1 ? colorDeBase : '';
+                            }
+                            
+                            actualizarColor(Hombre_primera, hombre_primera);
+                            actualizarColor(Hombre_segunda, hombre_segunda);
+                            actualizarColor(Hombre_tercera, hombre_tercera);
                        
                     carreras_homeclub  ? carreras_homeclub  :carreras_homeclub=  '00' 
                     carreras_visitante ? carreras_visitante  : carreras_visitante=  '00'
