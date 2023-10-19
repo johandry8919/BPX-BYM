@@ -1,0 +1,153 @@
+body{
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: bold;
+
+}
+
+
+.container {
+  width: 533.2599px;
+  height: 730px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  right: 139px;
+  top: 319px;
+  transform-origin: top right;
+  color: white;
+  padding: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bx-lanzador {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.cont-1 {
+  min-width: 100%;
+  height: 150.646px;
+  position: relative;
+  top: 10px;
+  opacity: 0;
+}
+
+.cont-2 {
+  min-width: 100%;
+  height: 117.646px;
+  position: relative;
+  top: 22%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  opacity: 0;
+  z-index: 500;
+}
+
+.cont-2 .logo {
+  width: 104px;
+  height: 107px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.cont-2 .info {
+  width: 432px;
+  height: 107px;
+  background-image: url("../img/cont-3.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 10;
+
+}
+
+.cont-2 .info div {
+  width: 100%;
+  height: 65.43px;
+  left: 10.3vh;
+  top: 4px;
+  box-sizing: border-box;
+  background-color:#aa3208;
+  color: rgb(255, 255, 255);
+  font-size: 35px;
+  position: absolute;
+  letter-spacing: 2px;
+}
+.cont-3 .cont .info  p{
+ opacity: 0;
+}
+
+.cont-2 .info h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.cont-3 {
+  width: 100%;
+  height: 442px;
+  background-image: url("../img/Relevista.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: 25px;
+  z-index: 0;
+  opacity: 0;
+ 
+
+  color: rgb(0, 0, 0);
+}
+
+.cont-3 .cont {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-top: 15px;
+}
+.cont-3 .cont .info {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.cont-3 .cont .info p {
+  margin-right: 25px;
+  margin-left: 25px;
+  font-size: 35px;
+  text-transform: uppercase;
+  line-height: 67px;
+  text-wrap: wrap;
+  letter-spacing: 2px;
+  z-index: 10;
+}
+
+
+.cont-3 .cont .info .color {
+  height: 50px;
+  width: 90px;
+  position: absolute;
+  right: 22px;
+  bottom: 10px;
+  background-color:#be1e32;
+  z-index: 0;
+  opacity: 0;
+}
+

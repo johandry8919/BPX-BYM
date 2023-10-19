@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+
+}
+
+.container {
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    border-radius: solid 1px red;
+
+}
+
+
+
+.video-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    object-fit: cover;
+    z-index: -1;
+}
+
+.cont-1 {
+    position: absolute;
+    width: 560px;
+    top: -50px;
+    height:1180px;
+    text-align: center;
+    z-index: 1000;
+   
+    transform: translate(-550px, 0%) scale(3)  rotate(-5deg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    
+}
+
+.cont-2 .logo {
+    position: absolute;
+    width: 300px;
+    height: 93px;
+    top:5px;
+    right: 400px;
+   
+    margin: auto;
+    text-align: center;
+    z-index: 1000;
+    align-items: center;
+    text-align: center;
+    transition:   transform 530ms ; 
+    transform:  scale(1.1) ;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 0;
+
+
+}
+
+.cont-1.zoomed {
+    transform: translate(229px, 0%) rotate(-8.8deg) scale(1);
+    transition:   transform 440ms ; 
+    width: 569px;
+   
+
+}
+
+.logo.zoomed {
+    transform: scale(1);
+    opacity: 1;
+
+
+}
+
+
+.cont-2 {
+    position: absolute;
+    width: 1100px;
+    top: 17%;
+    right: 0;
+    height: 650px;
+    text-align: center;
+    z-index: 1000;
+}
+
+
+.cont-2 .cont {
+    position: absolute;
+    width: 1020px;
+    height: 400px;
+    top: 32%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+
+
+
+}
+
+
+.cont-2 .cont .info p {
+    font-size: 50px;
+    text-transform: uppercase;
+    text-wrap: wrap;
+    letter-spacing: 3px;
+    line-height: 80px;
+    margin-right: 100px;
+    opacity: 0;
+    
+}
+.cont-2 .cont  .info1 .logos_equipo {
+   width: 95px;
+   height:95px;
+   border-radius: 100%;
+   border: solid 1px;
+   text-align: center;
+   display: flex;
+   align-items: center;
+   right: 40px;
+   position: absolute;
+   border: none;
+   opacity: 0;
+}
+
+.cont-2 .cont .info img {
+    margin-right: 40px;
+}
+
+
+.cont-2 .cont .info .name1 {
+    margin-left: 20px;
+
+
+
+}
+
+.cont-2 .cont .info .name2 {
+    margin-left: 38px;
+
+
+
+}
+
+.cont-2 .cont .info .name3 {
+    margin-left: 70px;
+
+}
+
+.cont-2 .cont .info .name4 {
+    margin-left: 90px;
+
+}
+
+.cont-2 .cont .info .name5 {
+    margin-left: 115px;
+
+}
+
+
+
+.cont-2 .cont .info {
+    width: 100%;
+    height: 80px;
+    text-align: end;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    flex-direction: row;
+    color: white;
+
+
+
+
+
+
+}

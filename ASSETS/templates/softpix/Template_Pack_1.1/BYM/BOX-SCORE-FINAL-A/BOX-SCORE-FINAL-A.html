@@ -1,0 +1,163 @@
+<head>
+  <!-- ### CASPAR ### -->
+  <script src="../../js/gsap3.2.6.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../css/spx_layout.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/spx_fonts.css" />
+  <script type="text/javascript" src="../../js/spx_interface.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    type="text/css"
+    id="DynamicTheme"
+    href="css/styles.css"
+  />
+
+  <script type="text/javascript">
+    window.SPXGCTemplateDefinition = {
+      description: "",
+      playserver: "OVERLAY",
+      playchannel: "1",
+      playlayer: "1",
+      webplayout: "1",
+      out: "manual",
+      dataformat: "json",
+      uicolor: "3",
+      DataFields: [
+        {
+          field: "comment",
+          ftype: "textfield",
+          title: "BOX-SCORE-FINAL-A",
+          value: "BOX-SCORE-FINAL-A",
+        },
+         {
+          field: "f0",
+          ftype: "textfield",
+          title: "ID DEL JUEGO",
+          value: "23+2+4++3",
+        },
+        {
+          field: "f0",
+          ftype: "textfield",
+          title: "ID DEL JUEGO",
+          value: "23+2+4++3",
+        },
+        {
+          field: "f1",
+          ftype: "textfield",
+          title: "G",
+          value: "",
+        },
+        {
+          field: "f2",
+          ftype: "textfield",
+          title: "P",
+          value: "",
+        },
+        {
+          field: "f3",
+          ftype: "textfield",
+          title: "S",
+          value: "",
+        },
+
+      ],
+    };
+  </script>
+</head>
+<body>
+  <div
+    id="container"
+    class="container SPXWindow SPX_AUTOSIZE"
+    data-spx-remember="Use either SPX_AUTOSIZE or SPX_FIXSIZE"
+  >
+    <div id="final" class="final"></div>
+    <div id="banerTop" class="baner-top"></div>
+    <div id="baner_botton" class="baner_botton">
+      <div class="text-conte">
+
+        
+        <div id="G"></div>
+        <div id="P"></div>
+        <div id="S"></div>
+
+
+         </div>
+    </div>
+    <div id="CHE" class="CHE"></div>
+
+    <div class="cont-1">
+      <div id="cont-left" class="cont-left">
+        <div class="logo1">
+          <img
+            id="id_equipo_visitante"
+            width="255"
+            height="65"
+            src=""
+            alt=""
+          />
+        </div>
+        <div class="logo2">
+          <img
+            id="id_equipo_homeclub"
+            width="255"
+            height="70"
+            src=""
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div id="cont-center" class="cont-center">
+
+        <div id="posicion_1_visitante" class="numbrer number1">1</div>
+        <div id="posicion_2_visitante"class="numbrer number1">2</div>
+        <div id="posicion_3_visitante" class="numbrer number1">3</div>
+        <div id="posicion_4_visitante" class="numbrer number1">0</div>
+        <div id="posicion_5_visitante" class="numbrer number1">0</div>
+        <div id="posicion_6_visitante" class="numbrer number1">0</div>
+        <div id="posicion_7_visitante" class="numbrer number1">0</div>
+        <div id="posicion_8_visitante" class="numbrer number1">0</div>
+        <div id="posicion_9_visitante" class="numbrer number1">0</div>
+    
+
+
+        <div id="posicion_1_homeclub" class="numbrer number1">0</div>
+        <div id="posicion_2_homeclub" class="numbrer number1">0</div>
+        <div id="posicion_3_homeclub" class="numbrer number1">0</div>
+        <div id="posicion_4_homeclub"class="numbrer number1">0</div>
+        <div id="posicion_5_homeclub"class="numbrer number1">0</div>
+        <div id="posicion_6_homeclub"class="numbrer number1">0</div>
+        <div id="posicion_7_homeclub" class="numbrer number1">0</div>
+        <div id="posicion_8_homeclub"class="numbrer number1">0</div>
+        <div id="posicion_9_homeclub"class="numbrer number1">0</div>
+      </div>
+
+
+        <!-- ### C H E ### -->
+      <div id="cont-right" class="cont-right">
+        <div id="Carreras_visitante" class="numbrer number2">0</div>
+        <div id="hits_visitante"  class="numbrer number2">0</div>
+        <div id="errores_visitante"  class="numbrer number2">0</div>
+        <div id="Carreras_homeclub" class="numbrer number2"></div>
+        <div id="hits_homeclub" class="numbrer number2">5</div>
+        <div id="errores_homeclub" class="numbrer number2">6</div>
+      </div>
+        <!-- ### C H E ### -->
+    </div>
+
+    <div style="opacity: 0;" id="f0"></div>
+    <div style="opacity: 0;" id="f1"> </div>
+    <div style="opacity: 0;" id="f2"> </div>
+    <div style="opacity: 0;" id="f3"> </div>
+  </div>
+  <script src="../_js/jquery-3.0.0.min.js"></script>
+  <script src="js/animaciones.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/temStyles.js"></script>
+</body>

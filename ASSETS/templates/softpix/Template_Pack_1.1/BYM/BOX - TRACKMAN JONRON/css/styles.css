@@ -1,0 +1,138 @@
+body {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    left: 89px;
+    width: 335px;
+    height: 650px;
+    bottom: 150px;
+    box-sizing: border-box;
+    justify-content: center;
+    position: absolute;
+
+}
+
+.cont {
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+
+}
+
+.cont-1 {
+    width: 310px;
+    height: 80px;
+
+
+}
+
+.cont-1 .cont {
+    width: 310px;
+    height: 80px;
+    background-image: url('../img/cont-1.jpg');
+    opacity: 0;
+
+
+}
+
+.cont-1 .cont .logoPatrocinio {
+    width: 200px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: 40px;
+
+
+}
+
+.cont-2 {
+    width: 300px;
+    height: 45px;
+    margin-top: 1px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.cont-2 .cont {
+    width: 310px;
+    height: 42px;
+    background-image: url('../img/cont-2.jpg');
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    color: white;
+    align-items: center;
+}
+
+.cont-2 .cont .name {
+    align-items: center;
+    margin-left: 30px;
+    font-family: 4em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.cont-2 .cont .logo_equipo {
+    width: 50px;
+    height: 42px;
+}
+
+.cont-3 .cont div {
+    position: absolute;
+    width: 255px;
+    font-size: 3em;
+    left: 25px;
+    text-align: center;
+}
+
+.cont-3 .cont .velociadad {
+    top: 55px;
+    color: #ffffff;
+
+
+
+}
+
+.cont-3 .cont .distancia {
+    bottom: 15px;
+    color: white;
+
+
+}
+
+.cont-3 {
+    width: 324px;
+    height: 270px;
+
+}
+
+.cont-3 .cont {
+    width: 324px;
+    height: 270px;
+    background-image: url('../img/cont-3.png');
+    margin-top: 5px;
+    opacity: 0;
+
+}
+
+.cont-4 {
+    width: 310px;
+    height: 150px;
+    margin-top: 10px;
+
+
+}
+
+.cont-4 .cont {
+    width: 310px;
+    height: 150px;
+    background-image: url('../img/cont-4.jpg');
+    margin-top: 10px;
+    opacity: 0;
+}

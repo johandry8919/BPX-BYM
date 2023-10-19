@@ -1,0 +1,210 @@
+body{
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: bold;
+
+}
+
+
+.container {
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  width:1008px;
+  height: 220px;
+  bottom: 135px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: white;
+}
+
+.final {
+    width: 84px;
+    height: 37px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background-image: url("../img/final.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0;
+  
+   
+  }
+.baner-top{
+    width: 558px;
+    height:38px;
+    background-image: url('../img/lienzo.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin-left: 25.4%;
+    opacity: 0;
+    z-index: 0;
+    position: absolute;
+    top: 10px;
+}
+.baner_botton{
+    width: 815px;
+    height:50px;
+    background-image: url('../img/baner_botton.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+    left: 0;
+    opacity: 0;
+    z-index: 0;
+    position: absolute;
+    bottom: 0px;
+  
+}
+
+
+.baner_botton .text-conte{
+  width:100%;
+  height:50px;
+  display: flex;
+  font-size: 23px;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+}
+.baner_botton .text-conte div{
+  position: relative;
+  padding: 2px;
+}
+.baner_botton .text-conte div:nth-child(1){
+margin-left: 60px;
+width: 200px;
+ 
+ 
+}
+.baner_botton .text-conte div:nth-child(2){
+  margin-left: 80px;
+  width: 200px;
+ 
+ 
+ 
+ 
+}
+.baner_botton .text-conte div:nth-child(3){
+margin-left: 75px;
+width: 200px;
+ 
+
+ 
+}
+
+.CHE {
+  width:190px;
+  height: 38px;
+  position: absolute;
+  top: 10px;
+  right: 4px;
+  background-image: url("../img/CHE.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0;
+ 
+}
+
+.cont-1 {
+  width:1008px;
+  height: 134px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position:absolute;
+  top: 40px;
+  box-sizing: border-box;
+}
+
+
+.cont-1 .cont-left {
+  width: 275px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  position:absolute;
+  left: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  align-items: center;
+  top: 0;
+  opacity: 0;
+
+}
+
+.cont-1 .cont-left .logo1 {
+  width: 100%;
+  height: auto;
+}
+.cont-1 .cont-left .logo2 {
+  width: 100%;
+  height: auto;
+ 
+}
+
+.cont-1 .cont-center {
+  width: 564px;
+  height: 130px;
+  position:absolute;
+  background-image: url("../img/pizarra1.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 0;
+  left: 25%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  opacity: 0;
+  z-index: 500;
+}
+
+.cont-1 .cont-center .numbrer {
+  width: 62px;
+  height: 55px;
+  text-align: center;
+  position:relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  opacity: 0;
+  margin-left: 0.40px;
+  margin-top: 3px;
+  font-weight: bold;
+
+  }
+  
+
+
+.cont-1 .cont-right {
+  width: 188px;
+  height: 130px;
+  background-image: url("../img/pizarra.png");
+  background-repeat: no-repeat;
+  background-size:contain;
+  position:absolute;
+  right: 3px;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 0;
+  color: rgb(0, 0, 0);
+}
+
+.cont-1 .cont-right .numbrer {
+    width: 62px;
+    height: 63px;
+    text-align: center;
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    font-weight: bold;
+
+  }
+

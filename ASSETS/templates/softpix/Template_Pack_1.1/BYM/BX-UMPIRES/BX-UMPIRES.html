@@ -1,0 +1,123 @@
+<head>
+    <script src="../../js/gsap3.2.6.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/spx_layout.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/spx_fonts.css" />
+    <script type="text/javascript" src="../../js/spx_interface.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+  
+    <link
+      rel="stylesheet"
+      type="text/css"
+      id="DynamicTheme"
+      href="css/styles.css"
+    />
+
+
+<script>
+  
+  // Template settings
+  var dev = false,
+  gotVideo = false,
+  gotImage = false,
+  gotLoop = false,
+  gotWipe = false,
+  gotContent = true,
+  fadeIn = true,
+  fadeOut = false;
+
+</script>
+
+<script type="text/javascript">
+window.SPXGCTemplateDefinition = {
+    "description": "",
+    "playserver": "OVERLAY",
+    "playchannel": "1",
+    "playlayer": "1",
+    "webplayout": "1",
+    "out": "manual",
+    "dataformat": "json",
+    "uicolor": "3",
+    "DataFields": [
+        {
+            "field" : "comment",
+            "ftype" : "textfield",
+            "title" : "BX-UMPIRES",
+            "value" : "BX-UMPIRES"
+        },
+        {
+          field: "f0",
+          ftype: "textfield",
+          title: "principal",
+          value: "",
+        },
+
+        {
+          field: "f1",
+          ftype: "textfield",
+          title: "primera",
+          value: "",
+        },
+
+        {
+          field: "f2",
+          ftype: "textfield",
+          title: "segunda",
+          value: "",
+        },
+
+        {
+          field: "f3",
+          ftype: "textfield",
+          title: "tercera",
+          value: "",
+        },
+
+    ]
+};
+
+
+</script>
+
+
+</head>
+<body>
+<div id="container" class="container   SPXWindow SPX_AUTOSIZE" data-spx-remember="Use either SPX_AUTOSIZE or SPX_FIXSIZE">
+    <div class="cont-title">
+        <div id="title" class="title">
+            <h1 >ÁRBITROS</h1>
+        </div>
+    </div>
+    <div id="cont1" class="cont1">
+        
+        <div class="cont"> 
+        <div class="info principal">
+            <p id="principal_left">principal:</p>
+            <p id="principal_right"></p>
+        </div>
+        <div class="info primera">
+            <p id="primera_left">primera:</p>
+            <p id="primera_right"></p>
+        </div>
+        <div class="info segunda">
+            <p id="segunda_left">segunda:</p>
+            <p id="segunda_right"></p>
+        </div>
+        <div class="info tercera">
+            <p id="tercera_left">tercera:</p>
+            <p id="tercera_right"></p>
+        </div>
+        </div>
+    </div>
+    <div style="opacity: 0" id="f0"></div>
+    <div style="opacity: 0" id="f1"></div>
+    <div style="opacity: 0" id="f2"></div>
+    <div style="opacity: 0" id="f3"></div>
+</div >
+<script src="../_js/jquery-3.0.0.min.js"></script>
+<script src="js/animaciones.js"></script>
+<script src="js/api.js"></script>
+<script src=""></script>
+
+</body>

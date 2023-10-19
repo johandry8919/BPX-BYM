@@ -1,0 +1,144 @@
+<!-- ### CASPAR ### -->
+<script src="../../js/gsap3.2.6.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/spx_layout.css" />
+<link rel="stylesheet" type="text/css" href="../../css/spx_fonts.css" />
+<script type="text/javascript" src="../../js/spx_interface.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" type="text/css" id="DynamicTheme" href="css/styles.css" />
+
+<script type="text/javascript">
+  window.SPXGCTemplateDefinition = {
+    description: "",
+    playserver: "OVERLAY",
+    playchannel: "1",
+    playlayer: "1",
+    webplayout: "1",
+    out: "manual",
+    dataformat: "json",
+    uicolor: "3",
+    DataFields: [
+      {
+        field: "comment",
+        ftype: "textfield",
+        title: "2-ER-TURNO-BATE",
+        value: "2-ER-TURNO-BATE",
+      },
+
+      {
+        field: "f0",
+        ftype: "textfield",
+        title: "ID DEL JUEGO",
+        value: "23+2+4++3",
+      },
+
+
+
+    ],
+  };
+</script>
+</head>
+
+<body>
+  <div id="container" class="container SPXWindow SPX_AUTOSIZE"
+    data-spx-remember="Use either SPX_AUTOSIZE or SPX_FIXSIZE">
+
+    <div class="cont-1">
+      <div class="cont-name">
+        <div id="f1_gfx" class="name name_1"></div>
+        <div id="f0_gfx" class="name name_2"> </div>
+      </div>
+
+      <div class="cont_logo_equipos">
+        <div id="id_equipo_homeclub" class="logo_equipo logo_equipo_1">
+          <img id="fondo_homeclut" height="60" width="100%">
+
+          <div class="carreras_homeclub">
+            <p id="carreras_homeclub"></p>
+          </div>
+
+        </div>
+        <div id="id_equipo_visitante" class="logo_equipo logo_equipo_2">
+          <img id="fondo_visitante" height="60" width="100%">
+          <div class="carreras_visitante">
+            <p id="carreras_visitante"></p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="cont-2">
+        <div class="innin">
+          <div id="animate_fondo" class="animate_fondo"></div>
+          <div style="color: black;" id="inning" class="iniit"></div>
+          <div id="alta_vaja" class="alta_vaja">
+            <img id="initt_alta-baja" style="text-align: center;" width="30" height="30">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cont-3">
+        <div id="animacion_aout" style="color: red;" class="animacion_aout">
+          <p style="opacity: 0;" id="animacion_O"> O</p>
+          <p style="opacity: 0;" id="animacion_U"> U</p>
+          <p style="opacity: 0;" id="animacion_T"> T</p>
+        </div>
+        <div id="animeradio" class="animeradio"></div>
+
+        <div id="cont-base" class="cont-base">
+          <div id="hombre_primera"></div>
+          <div id="hombre_segunda"></div>
+          <div id="hombre_tercera"></div>
+        </div>
+        <div id="outs" class="outs">
+        </div>
+      </div>
+
+      <div id="cont" class="cont-4">
+
+        <div style="opacity: 0;" id="bolas" class="bolas"></div>
+        <div style="opacity: 0;" id="xrt" class="xrt">-</div>
+        <div style="opacity: 0;" id="strain" class="strain"></div>
+
+      </div>
+      <div id="cont-5" class="cont-5">
+
+
+
+      </div>
+      <div id="cont-6" class="cont-6">
+        <div id="temporada" class="temporada"></div>
+        <div id="lineup" class="lineup">
+          <img height="50" width="100%" id="lineuP">
+
+          <div></div>
+        </div>
+
+        <div id="cont" class="cont">
+          <div id="barra_equipos" class="barra_equipos">
+            <div id="barras" class="barras"></div>
+            <div id="barras_text" class="barras_text">
+              <video width="100" height="60" autoplay muted id="video"></video>
+
+              <div style="display: flex;" id="f1_gfx1"></div>
+            </div>
+            <div id="infoContainer" class="barras_text_info">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="opacity: 0" id="f3"></div>
+    <div style="opacity: 0" id="f0"></div>
+  </div>
+
+  <script src="../_js/jquery-3.0.0.min.js"></script>
+  <script src="js/animaciones.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/temStyles.js"></script>
+
+</body>

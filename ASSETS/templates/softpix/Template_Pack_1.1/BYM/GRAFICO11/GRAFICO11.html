@@ -1,0 +1,117 @@
+<head>
+    <!-- ### CASPAR ### -->
+    <script src="../../js/gsap3.2.6.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/spx_layout.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/spx_fonts.css" />
+    <script type="text/javascript" src="../../js/spx_interface.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+  
+    <link
+      rel="stylesheet"
+      type="text/css"
+      id="DynamicTheme"
+      href="css/styles.css"
+    />
+  
+      
+  
+  
+    <script type="text/javascript">
+      window.SPXGCTemplateDefinition = {
+        description: "",
+        playserver: "OVERLAY",
+        playchannel: "1",
+        playlayer: "1",
+        webplayout: "1",
+        out: "manual",
+        dataformat: "json",
+        uicolor: "3",
+        DataFields: [
+          {
+            field: "comment",
+            ftype: "textfield",
+            title: "GRAFICO11",
+            value: "GRAFICO11",
+          },
+
+          
+          {
+                  "field": "f3",
+                  "ftype": "filelist",
+                  "title": "Elija la imagen del patrocinador",
+                  "assetfolder" : "/media/images/bg/" ,
+                  "extension" : "png",
+                  "value": "none",
+              },
+  
+         
+        ],
+      };
+    </script>
+  </head>
+  <body>
+  
+    
+    <div
+      id="container"
+      class="container SPXWindow SPX_AUTOSIZE"
+      data-spx-remember="Use either SPX_AUTOSIZE or SPX_FIXSIZE"
+    >
+
+    <div id="video-container" class="video-container">
+      <video class="videos"  autoplay muted id="video">
+        Tu navegador no admite videos.
+      </video>
+
+
+      <div id="cont-1" class="cont-1 " id="animacion">
+
+        
+
+      </div>
+
+      <div class="cont-2">
+
+        <div  class="logo">
+          <img id="logoPatrocinio" height="95" width="290" src="" alt="">
+        </div>
+
+
+        <div  id="cont1" class="cont"> 
+          <div class="info principal">
+              <p  style="color: #000;" class="name1" id="principal_left">moises gomez</p>
+              <p style="background-color:#be1e32; padding: 0 10px;" class="name1 " id="principal_right">101.05 m/h</p>
+          </div>
+          <div  style="color: #000;" class="info primera">
+              <p  style="color: #000;" class="name2" id="primera_left">maike garcia</p>
+              <p  style="color: #000;" class="name2" id="primera_right">101.05 m/h</p>
+          </div>
+          <div class="info segunda">
+              <p  style="color: #000;" class="name3" id="segunda_left">harond castro</p>
+              <p  style="color: #000;" class="name3"id="segunda_right">101.05 m/h</p>
+          </div>
+          <div class="info tercera">
+              <p   style="color: #000;" class="name4" id="tercera_left">ildemaro varga</p>
+              <p   style="color: #000;" class="name4" id="tercera_right">101.05 m/h</p>
+          </div>
+          </div>
+
+
+       
+      </div>
+
+      <div style="opacity: 0" id="f3"></div>
+  </div>
+
+  
+   
+  
+    </div>
+    <script src="../_js/jquery-3.0.0.min.js"></script>
+    <script src="js/animaciones.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/temStyles.js"></script>
+   
+  </body>

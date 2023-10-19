@@ -1,0 +1,150 @@
+body{
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: bold;
+
+}
+
+.container {
+  width: 1400px;
+  height: 300px;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  left: 0;
+  padding: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  bottom: 158px;
+  opacity: 0;
+  margin: auto;
+  justify-content: center;
+  padding-top: 20px;
+  z-index: 0;
+}
+.star {
+  width: 700px;
+  height: 45px;
+  position: absolute;
+  top: 4px;
+  background-image: url("star.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  text-align: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.star .record-visitante {
+  margin-left: 10%;
+  font-size: 30px;
+}
+.star .fecha {
+  font-size: 30px;
+}
+.star .record-homeclub {
+  margin-right: 10%;
+  font-size: 30px;
+}
+.container .box-left,
+.box-right {
+  width: 401.3372px;
+  height: 224.752px;
+  position: relative;
+  z-index: 10;
+
+}
+
+.box-center {
+  right: 0;
+  left: 0;
+  top: 0;
+  width: 520.3372px;
+  height: 224.752px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  z-index: 400;
+}
+
+.box-center .box-descricion h1 {
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+
+  width: 100%;
+  margin-top: 15px;
+  position: absolute;
+  top: 0;
+}
+
+.box-center .box-descricion {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  margin: auto;
+  font-size: 25px;
+  width: 535px;
+  height: 225.775px;
+  position: absolute;
+  top: 0;
+  background-image: url('./mymSport_center.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.box-center .box-descricion p {
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+.box-left,
+.box-right {
+  opacity: 0;
+  overflow: hidden;
+}
+
+.styles-left {
+  width: 60px;
+  height: 230px;
+  position: absolute;
+  z-index: 400;
+  rotate: -10deg;
+  top: 40px;
+  opacity: 0;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    118deg,
+    rgba(255, 255, 255, 0.43461134453781514) 46%,
+    rgba(255, 254, 243, 1) 54%,
+    rgba(255, 255, 255, 0.63) 60%
+  );
+ 
+}
+.styles-right {
+  width: 60px;
+  height: 300px;
+  position: absolute;
+  z-index: 400;
+  rotate: 10deg;
+  top: -45px;
+  opacity: 0;
+  left: 0;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    118deg,
+    rgba(248, 248, 248, 0.435) 46%,
+    rgb(212, 212, 212) 54%,
+    rgba(255, 255, 255, 0.63) 60%
+  );
+}

@@ -1,0 +1,66 @@
+
+:root {
+    /* BRAND ACCENT COLORS primary and secondary */
+    --spx-accent-color: #8f8f8f00;
+    
+    /* PLATE 1 */
+    --spx-bgcol1-color: rgba(10, 103, 196, 0);
+    --spx-txcol1-color: rgb(255, 255, 255);
+    --spx-txsha1-color: rgba(0, 0, 0, 0.2);
+    
+    /* PLATE 2 */
+    --spx-bgcol2-color: rgb(57, 74, 91);
+    --spx-txcol2-color: rgb(255, 255, 255);
+    --spx-txsha2-color: rgba(255, 255, 255, 0.4);
+  
+    /* PLATE 3 */ 
+    --spx-bgcol3-color: rgb(37, 51, 64);
+    --spx-txcol3-color: rgb(255, 255, 255);
+    --spx-txsha3-color: rgba(8, 37, 71, 0.2);
+  
+    /* SKEW degrees for angled backgrounds (try also negative values, such as -15deg)*/
+    --skew-amount-degs: -0deg;
+    
+    /* ROUNDING VALUES for backgrounds */
+    --rounding-first:  0.0em;
+    --rounding-second: 0.0em;
+  
+   
+  }
+  
+  /* Use <c#>word</c#> tags for inline text colors */
+  c1 { color: var(--spx-accent-color); }
+  c2 { color: var(--spx-bgcol1-color); }
+  c3 { color: red ;}
+  c4 { color: orange; }
+  c5 { color: yellow; }
+  c6 { color: green; }
+  c7 { color: cyan; }
+  c8 { color: blue; }
+  c9 { color: purple; }
+  
+  
+  @font-face { font-family: "UI-Light";   src: url("../fonts/EncodeSansSemiExpanded-Light.ttf");  }
+  @font-face { font-family: "UI-Regular"; src: url("../fonts/EncodeSansSemiExpanded-Regular.ttf");  }
+  @font-face { font-family: "UI-Bold";    src: url("../fonts/EncodeSansSemiExpanded-Bold.ttf"); }
+  @font-face { font-family: "UI-Black";   src: url("../fonts/EncodeSansSemiExpanded-Black.ttf");   }
+  
+  
+  #f0_gfx{
+    padding: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    }
+    .line1{
+    height: 190px;
+    background-image: url('../img/bg-lowerThird-largo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    }

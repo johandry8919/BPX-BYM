@@ -1,0 +1,111 @@
+<head>
+  <!-- ### CASPAR ### -->
+
+  <link rel="stylesheet" type="text/css" href="../../css/spx_layout.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/spx_fonts.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+
+  <link
+    rel="stylesheet"
+    type="text/css"
+    id="DynamicTheme"
+    href="css/styles.css"
+  />
+
+    
+
+
+  <script type="text/javascript">
+    window.SPXGCTemplateDefinition = {
+      description: "",
+      playserver: "OVERLAY",
+      playchannel: "1",
+      playlayer: "1",
+      webplayout: "1",
+      out: "manual",
+      dataformat: "json",
+      uicolor: "3",
+      DataFields: [
+        {
+          field: "comment",
+          ftype: "textfield",
+          title: "GRAFICO13",
+          value: "GRAFICO13",
+        },
+
+        {
+          field: "f0",
+          ftype: "textfield",
+          title: "ID DEL JUEGO",
+          value: "23+2+4++3",
+        },
+
+        
+        {
+                  "field": "f3",
+                  "ftype": "filelist",
+                  "title": "Elija la imagen del patrocinador",
+                  "assetfolder" : "/media/images/bg/" ,
+                  "extension" : "png",
+                  "value": "none",
+              },
+
+       
+      ],
+    };
+  </script>
+</head>
+<body>
+
+  
+  <div
+    id="container"
+    class="container SPXWindow SPX_AUTOSIZE"
+    data-spx-remember="Use either SPX_AUTOSIZE or SPX_FIXSIZE"
+  >
+
+  <div class="video-container">
+    <video autoplay  muted id="video">
+        Tu navegador no admite videos en formato WebM.
+    </video>
+
+
+    <div class="cont-2">
+      <div class="logo">
+        <img id="logoPatrocinio" height="95" width="290" src="" alt="">
+      </div>
+
+      <div id="cont" class="cont">
+
+        
+      
+        
+      </div>
+      <div id="info_button" class="info-button">MANAGER JOSE MORENO </div>
+
+     </div>
+
+
+     
+    </div>
+
+    <div style="opacity: 0" id="f3"></div>
+    <div style="opacity: 0" id="f0"></div>
+</div>
+
+
+ 
+
+  </div>
+  <script src="../_js/jquery-3.0.0.min.js"></script>
+  <script src="js/animaciones.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/temStyles.js"></script>
+  <script src="../../js/gsap3.2.6.min.js"></script>
+  <script type="text/javascript" src="../../js/spx_interface.js"></script>
+
+ 
+</body>

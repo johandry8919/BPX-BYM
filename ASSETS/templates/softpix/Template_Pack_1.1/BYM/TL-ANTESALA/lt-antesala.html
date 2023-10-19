@@ -1,0 +1,105 @@
+<head>
+
+  
+      <!-- ### CASPAR ### -->
+      <script src="../../js/gsap3.2.6.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/spx_layout.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/spx_fonts.css" />
+    <script type="text/javascript" src="../../js/spx_interface.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+   
+    <link
+      rel="stylesheet"
+      type="text/css"
+      id="DynamicTheme"
+      href="styles.css"
+    />
+
+
+  <script>
+    
+    // Template settings
+    var dev = false,
+    gotVideo = false,
+    gotImage = false,
+    gotLoop = false,
+    gotWipe = false,
+    gotContent = true,
+    fadeIn = true,
+    fadeOut = false;
+
+  </script>
+
+<script type="text/javascript">
+  window.SPXGCTemplateDefinition = {
+      "description": "",
+      "playserver": "OVERLAY",
+      "playchannel": "1",
+      "playlayer": "1",
+      "webplayout": "1",
+      "out": "manual",
+      "dataformat": "json",
+      "uicolor": "1",
+      "DataFields": [
+          {
+              "field" : "comment",
+              "ftype" : "textfield",
+              "title" : "lt-antesala",
+              "value" : "lt-antesala"
+          },
+
+          {
+          field: "f0",
+          ftype: "textfield",
+          title: "ID DEL JUEGO",
+          value: "23+2+4++3",
+        },
+
+      ]
+  };
+
+  
+</script>
+
+
+</head>
+<body>
+<div id="container" class="container   SPXWindow SPX_AUTOSIZE" data-spx-remember="Use either SPX_AUTOSIZE or SPX_FIXSIZE">
+      <div id="star" class="star">
+      
+        <div class="record-visitante" id="record_visitante">30-10</div>
+        <div style="color: #fff;" class="fecha" id="fecha"></div>
+        <div class="record-homeclub" id="record_homeclub">30-10</div>
+      </div>
+  
+  <div id="box-left"  class="box-left">
+    <div id="styles-left" class="styles-left"></div>
+    <img width="100%" id="id_equipo_visitante" src="" alt="visitante">
+  </div>
+      <div id="box-center"   class="box-center">
+       
+
+        <div class="box-descricion">
+          <h1>A CONTINUACION</h1>
+          <p id="nombre_estadio">ESTADIO MUNUMENTAL SIMON BOLIVAR</p>
+         
+
+        </div>
+
+      </div>
+      <div id="box-right"  class="box-right">
+        <div id="styles-right" class="styles-right"></div>
+        <img width="100%"  id="id_equipo_homeclub" src="" alt="homeclub">
+
+      </div>
+
+      <div style="opacity: 0;" id="f0"> </div>
+</div >
+<script src="../_js/jquery-3.0.0.min.js"></script>
+<script src="animaciones.js"></script>
+<script src="api.js"></script>
+<script src="temStyles.js"></script>
+
+</body>

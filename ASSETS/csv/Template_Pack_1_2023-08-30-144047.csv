@@ -1,0 +1,21 @@
+
+# SPX Rundown item CSV export. (More info: https://spxgc.tawk.help/article/help-csv-files)
+
+# description #;Namestrap left
+# playserver #;OVERLAY
+# playchannel #;1
+# playlayer #;5
+# webplayout #;5
+# out #;manual
+# uicolor #;7
+# dataformat #;json
+# relpath #;/softpix/Template_Pack_1.1/bg_box_marcadores/index.html
+# onair #;false
+# project #;bs-box
+# rundown #;asd
+
+# FieldUUIDs #;comment;f0;f99;
+# FieldTypes #;textfield;textfield;filelist;
+# FieldTitls #;bx-score;Fullname;Visual theme;
+
+# ID:auto;[bx-score];;themes/styles.css;

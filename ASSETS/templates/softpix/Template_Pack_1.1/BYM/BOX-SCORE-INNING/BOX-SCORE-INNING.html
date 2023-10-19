@@ -1,0 +1,121 @@
+<head>
+  <!-- ### CASPAR ### -->
+  <script src="../../js/gsap3.2.6.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../css/spx_layout.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/spx_fonts.css" />
+  <script type="text/javascript" src="../../js/spx_interface.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    type="text/css"
+    id="DynamicTheme"
+    href="css/styles.css"
+  />
+
+
+  <script type="text/javascript">
+    window.SPXGCTemplateDefinition = {
+      description: "",
+      playserver: "OVERLAY",
+      playchannel: "1",
+      playlayer: "1",
+      webplayout: "1",
+      out: "manual",
+      dataformat: "json",
+      uicolor: "3",
+      DataFields: [
+        {
+          field: "comment",
+          ftype: "textfield",
+          title: "BOX SCORE INNING",
+          value: "BOX SCORE INNING",
+        },
+
+        {
+          field: "f0",
+          ftype: "textfield",
+          title: "Texto dinamico",
+          value: "MITAD DEL SEGUNDO",
+        },
+
+        {
+          field: "f1",
+          ftype: "textfield",
+          title: "ID DEL JUEGO",
+          value: "23+2+4++3",
+        },
+
+
+        {
+          field: "f3",
+          ftype: "filelist",
+          title: "Elija la imagen del patrocinador",
+          assetfolder: "/media/images/bg/",
+          extension: "png",
+          value: "none",
+        },
+      ],
+    };
+  </script>
+</head>
+<body>
+  <div
+    id="container"
+    class="container SPXWindow SPX_AUTOSIZE"
+    data-spx-remember="Use either SPX_AUTOSIZE or SPX_FIXSIZE"
+  >
+    <div id="CHE" class="CHE"></div>
+
+    <div class="cont-1">
+      <div  id="cont-left" class="cont-left">
+        <div class="logo1">
+          <img id="id_equipo_visitante" width="97.3%" height="75"  alt="" />
+        </div>
+        <div class="logo2">
+          <img id="id_equipo_homeclub" width="97.3%" height="75"  alt="" />
+        </div>
+
+       
+      </div>
+      <div id="mtg" class="mtg">MITAD DEL SEGUNDO </div>
+
+      <div  id="cont-center" class="cont-center">
+        <div id="Carreras_visitante" class="numbrer number1"></div>
+        <div id="Hits_visitante" class="numbrer number1"></div>
+        <div id="Errores_visitante" class="numbrer number1"></div>
+        <div id="Carreras_homeclub"  class="numbrer number2"></div>
+        <div id="Hits_homeclub" class="numbrer number2"></div>
+        <div id="Errores_homeclub" class="numbrer number2"></div>
+      </div>
+
+      <div id="cont-right" class="cont-right">
+        
+       
+      </div>
+
+      <div  id="cont-logo" class="cont-logo">
+        <img
+         id="logoPatrocinio"
+          style="text-align: center"
+          width="80%"
+          src=""
+          alt=""
+        />
+      </div>
+    </div>
+
+    <div style="opacity: 0" id="f3"></div>
+    <div style="opacity: 0" id="f0"></div>
+    <div style="opacity: 0" id="f1"></div>
+  </div>
+  <script src="../_js/jquery-3.0.0.min.js"></script>
+  <script src="js/animaciones.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/temStyles.js"></script>
+</body>

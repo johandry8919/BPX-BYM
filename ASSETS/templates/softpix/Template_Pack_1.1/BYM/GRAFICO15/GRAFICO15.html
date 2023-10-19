@@ -1,0 +1,113 @@
+<head>
+  <!-- ### CASPAR ### -->
+  <script src="../../js/gsap3.2.6.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../css/spx_layout.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/spx_fonts.css" />
+  <script type="text/javascript" src="../../js/spx_interface.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+
+  <link
+    rel="stylesheet"
+    type="text/css"
+    id="DynamicTheme"
+    href="css/styles.css"
+  />
+
+    
+
+
+  <script type="text/javascript">
+    window.SPXGCTemplateDefinition = {
+      description: "",
+      playserver: "OVERLAY",
+      playchannel: "1",
+      playlayer: "1",
+      webplayout: "1",
+      out: "manual",
+      dataformat: "json",
+      uicolor: "3",
+      DataFields: [
+        {
+          field: "comment",
+          ftype: "textfield",
+          title: "GRAFICO15",
+          value: "GRAFICO15",
+        },
+
+        
+        {
+                  "field": "f3",
+                  "ftype": "filelist",
+                  "title": "Elija la imagen del patrocinador",
+                  "assetfolder" : "/media/images/bg/" ,
+                  "extension" : "png",
+                  "value": "none",
+              },
+
+       
+      ],
+    };
+  </script>
+</head>
+<body>
+
+  
+  <div
+    id="container"
+    class="container SPXWindow SPX_AUTOSIZE"
+    data-spx-remember="Use either SPX_AUTOSIZE or SPX_FIXSIZE"
+  >
+
+  <div class="video-container">
+    <video autoplay muted id="video"></video>
+
+
+    <div id="cont-1" class="cont-1 " id="animacion"> </div>
+
+    
+    <div class="cont-2">
+
+      <div class="logo">
+        <img id="logoPatrocinio" height="95" width="290" src="" alt="">
+      </div>
+
+
+      <div id="cont1" class="cont"> 
+        <div class="info info1">
+            <p class="name name1" id="info1">DIEGO RINCONES</p>
+           <div class="logos_equipo" id="logos_equipo"> <img  id="logos_equipos" height="70" width="80%" alt=""></div>
+           
+        </div>
+        <div class="info">
+            <p class="name name2" id="info2">PRIMERO 15 JUEGOS</p>
+           
+        </div>
+        <div class="info ">
+            <p class="name name3" id="info3">5 CA / 7 H / HR / 9 CI / .242 AVG</p>
+           
+        </div>
+        <div class="info">
+            <p class="name name4" id="info4">4 AC / 13 H / 3HR / 15 /.322 AVG</p>
+            
+        </div>
+       
+        </div>
+
+
+     
+    </div>
+    <div style="opacity: 0" id="f3"></div>
+</div>
+
+
+ 
+
+  </div>
+  <script src="../_js/jquery-3.0.0.min.js"></script>
+  <script src="js/animaciones.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/temStyles.js"></script>
+ 
+</body>

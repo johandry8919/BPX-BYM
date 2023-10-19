@@ -1,0 +1,374 @@
+
+
+body{
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: bold;
+
+}
+
+
+.container {
+  position: relative;
+  transform-origin: bottom left;
+  border: 0px;
+  display: block;
+  left: 89px;
+  top: 51px;
+  z-index: 10;
+  opacity: 0;
+  width: 0px;
+  height: 265px;
+  background-image: url("../bg_box_marcadores_top.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  color: rgb(248, 248, 248);
+  z-index: 100;
+}
+
+#miElemento {
+  opacity: 0;
+  height: 180px;
+  width: 0;
+  background-color: #353d50;
+  position: absolute;
+  left: 2.2vw;
+  top: 5%;
+  display: none;
+}
+
+.triangle.up {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 4.5vh;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 20px solid rgb(255, 255, 255);
+}
+
+.triangle.down {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 4.5vh;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 20px solid rgb(255, 255, 255);
+  transform: rotate(180deg);
+}
+
+
+.font1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 0px;
+  width: 390px;
+  height: 85px;
+  position: absolute;
+  bottom: 23px;
+  text-align: center;
+  z-index: 100;
+
+}
+
+.box-top {
+  position: absolute;
+  width: 96.5%;
+  height: 50px;
+  background-image: url("../bg_box_marcadores_botton.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  bottom: 57px;
+  box-sizing: border-box;
+  opacity: 0;
+  color: rgb(0, 0, 0);
+
+}
+
+.box-botton {
+  position: absolute;
+  width: 96.5%;
+  height: 50px;
+  background-image: url("../bg_box_marcadores_botton.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  bottom: 18px;
+  opacity: 0;
+
+}
+
+.box-top .boxscore1 {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex-direction: row;
+  width: 96%;
+  right: 1.5px;
+
+  padding: 0px;
+  opacity: 1;
+
+  height: 35px;
+  margin: auto;
+  margin-top: 2px;
+
+  padding-left: 3px;
+
+}
+
+.box-top .boxscorebackground {
+  width: 80%;
+  opacity: 1;
+  height: 35px;
+  margin-top: 2px;
+  z-index: 300;
+  position: absolute;
+ 
+
+}
+
+.box-botton .visitante {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex-direction: row;
+  width: 97%;
+  right: 1.5px;
+  padding: 0px;
+  opacity: 1;
+  height: 38px;
+  margin: auto;
+  margin-top: 2px;
+  z-index: 200;
+  padding-left: 3px;
+  color: rgb(0, 0, 0);
+  line-height: 35px;
+  letter-spacing: 1px;
+}
+
+.box-top .boxscore1 span {
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.box-botton .visitante span {
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.box-top .boxscore1 span:nth-child(1) {
+  margin-left: 12px;
+}
+
+.box-top .boxscore1 span:nth-child(2) {
+  margin-right: 12px;
+}
+
+.box-botton .visitante span:nth-child(1) {
+  margin-left: 12px;
+}
+
+.box-botton .visitante span:nth-child(2) {
+  margin-right: 12px;
+}
+
+.logos {
+  width: 79px;
+  height: 158px;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+
+}
+
+.logos div{
+  position: absolute;
+  height: auto;
+  border-left: rgb(255, 255, 255)  1px;
+  border-bottom: rgb(255, 255, 255)  1px ;
+}
+
+.logos div:nth-child(1){
+  top: 1px;
+}
+.logos div:nth-child(2){
+  bottom: -11px;
+}
+
+
+.carreras {
+  width: 70.5px;
+  height: 164px;
+  position: absolute;
+ 
+  left: 95px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carreras div {
+  position: absolute;
+  width: 65.5px;
+  font-size: 3em;
+  overflow: hidden;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.carreras .carreras_homeclub {
+  bottom: 15px;
+  opacity: 0;
+  text-align: center;
+}
+
+.carreras .carreras_visitante {
+  top: 15px;
+  opacity: 0;
+}
+
+.outs {
+  position: absolute;
+  width: 74px;
+  height: 75px;
+  right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-image: url('../aout.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.outs div {
+  width: 26px;
+  height: 26px;
+  border-radius: 100%;
+  position: absolute;
+  top: 7px;
+}
+
+.outs .outs1 {
+  left: 4px;
+}
+
+.outs .outs2 {
+  right: 3px;
+}
+
+.outs1.activate {
+  background-color: rgb(255, 255, 255);
+}
+
+.outs2.activate {
+  background-color: rgb(255, 255, 255);
+}
+
+.inning-strikes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  right: 25px;
+  height: 50px;
+  width: 187px;
+  top: 108px;
+  box-sizing: border-box;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.inning-strikes .inning {
+  position: absolute;
+  left: 10px;
+}
+
+.inning-strikes .strikes {
+  position: absolute;
+  right: 10px;
+  top: -30;
+
+
+}
+
+.inning-strikes p {
+  font-size: 2rem;
+}
+
+.bases {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  right: 4px;
+  height: 110px;
+  width: 218px;
+  top: 3px;
+  overflow: hidden;
+
+
+}
+
+.cont-base {
+  height: 90px;
+  width: 200px;
+  margin-left: 5px;
+  box-sizing: border-box;
+  background-image: url('../bases.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.bases .cont-base div {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  transform: rotate(-45deg);
+}
+
+.bases .cont-base div:nth-child(1) {
+  left: 72px;
+  top: 42px;
+}
+
+.bases .cont-base div:nth-child(2) {
+  left: 40px;
+  top: 13px;
+}
+
+.bases .cont-base div:nth-child(3) {
+  left: 8px;
+  top: 42px;
+}
+
+
+.cont {
+  width: 200px;
+  height: 100px;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
