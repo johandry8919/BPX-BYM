@@ -60,9 +60,6 @@ const request2 = fetch(url2, {
 
 }).then(response => response.json());
 
-
-
-
 Promise.all([request1 ,request2])
  .then(([result1 ,result2 ]) => {
 
@@ -75,14 +72,12 @@ Promise.all([request1 ,request2])
                  } = result1.data.juego;
 
                  var jugadores ;
-                 var id_equipos ;
+                 var id_equipos;
 
                  parte == 1 ? jugadores = result2.data.homeclub.peloteros: jugadores = result2.data.visitante.peloteros
                  parte == 1 ?  id_equipos = id_equipo_homeclub: id_equipos = id_equipo_visitante
 
-                
-
-                 posicion_poscampo =['BD' ,'P' , ' C' , '1B', '2B' , '3B' ,' SS' , 'LF' ,'CF' , 'RF']
+                 posicion_poscampo =['BD' ,'BD' , ' C' , '1B', '2B' , '3B' ,' SS' , 'LF' ,'CF' , 'RF']
 
                  const contenedores = document.getElementById('cont');
 
@@ -91,8 +86,6 @@ Promise.all([request1 ,request2])
                  
                      function processNextPlayer() {
                          if (currentIndex < jugadores.length) {
-
-                          console.log(currentIndex)
                              const element = jugadores[currentIndex];
                              const url = new URL("https://bss.qualitybeisbol.com/api/anual-pelotero-ave");
                  
@@ -113,7 +106,7 @@ Promise.all([request1 ,request2])
                                  .then((response) => response.json())
                                  .then((data) => {
 
-                                  data.data[0].AVE == null ? data.data[0].AVE = '0.000': data.data[0].AVE
+                                  data.data[0].AVE == null ? data.data[0].AVE = '.000': data.data[0].AVE
                                      let div = document.createElement("div");
                                      div.innerHTML = `
                                          <div class="info info${currentIndex}">
@@ -125,9 +118,6 @@ Promise.all([request1 ,request2])
                                      `;
 
                                      if(currentIndex >= 8 ){
-                                    
-                                                 
-                                      
                                         const videoElement = document.getElementById("video");
 
                                         // Crea y configura el elemento source una sola vez
@@ -136,9 +126,6 @@ Promise.all([request1 ,request2])
                                         sourceElement.type = "video/webm";
                                         // Agrega el elemento source al video y carga el video
                                         videoElement.appendChild(sourceElement);
-
-
-
                                         const video = document.getElementById('video');
                                         const zoomableDivs = document.querySelector('.logo');
 
@@ -162,8 +149,6 @@ Promise.all([request1 ,request2])
                                      processNextPlayer(); // Llama a la siguiente iteración
                                  });
                          }
-
-                         
                      }
                      
                      processNextPlayer();

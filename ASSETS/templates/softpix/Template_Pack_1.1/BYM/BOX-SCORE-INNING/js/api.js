@@ -90,25 +90,32 @@ Promise.all([request1 ,request2])
                       posicion_bateo_visitante
                     } = result1.data.juego;
 
-                    let = posicion_bateo = '';
-
-
+                    let = posicion_bateo = 0;
+                    var jugadores ;
+                    var id_equipos;
+   
+          
                     if(parte == 1){
                         posicion_bateo = posicion_bateo_homeclub == 9 ? posicion_bateo_homeclub = 8 : posicion_bateo_homeclub
+                        jugadores = result2.data.homeclub.peloteros
+                        id_equipos = id_equipo_homeclub
 
                     }else{
+                     
                         posicion_bateo =  posicion_bateo_visitante == 9 ? posicion_bateo_visitante = 8 : posicion_bateo_visitante
+                        jugadores = result2.data.visitante.peloteros
+                        id_equipos = id_equipo_visitante
 
                     }
 
-                    posicion_poscampo =['BD' ,'P' , ' C' , '1B', '2B' , '3B' ,' SS' , 'LF' ,'CF' , 'RF']
+                    posicion_poscampo =['BD' ,'BD' , ' C' , '1B', '2B' , '3B' ,' SS' , 'LF' ,'CF' , 'RF']
 
                     const contenedores =  document.getElementById('cont-right');
                    
                     function mostrarIndices(valor) {
-                        var jugadores = result2.data.homeclub.peloteros
-                      
                         if (valor >= 0 && valor < jugadores.length) {
+
+                         
                           var inicio = Math.max(0, valor -1);
                           var fin = Math.min(valor + 2, jugadores.length);
                           var valoresAMostrar = jugadores.slice(inicio, fin);
@@ -119,7 +126,7 @@ Promise.all([request1 ,request2])
                             div.innerHTML = `
 
                             <div class="text-cont ">
-                            <div class="bfx">${posicion_poscampo[element.id_poscampo]}</div>
+                            <div class="bfx">${posicion_poscampo[element.posicion_campo]}</div>
                             <div class="bfp">${inicial}.${element.apellido}</div>
                              </div>
                             

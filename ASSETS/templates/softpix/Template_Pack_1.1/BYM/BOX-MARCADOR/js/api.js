@@ -110,6 +110,9 @@ function runTemplateUpdate() {
                             lanzador_visitante_strikes
                         } = result1.data.juego;
 
+                       
+                        
+
 
             
                         let homeclub_lanzadores = result1.data.boxscore.homeclub.lanzadores;
@@ -123,8 +126,7 @@ function runTemplateUpdate() {
                         if (parte === 0) {
                             const totalStrikesBolasFoul = lanzador_homeclub_strikes + lanzador_homeclub_bolas + lanzador_homeclub_foul;
                             numeroLanzamiento.innerText =   "L: " + totalStrikesBolasFoul;
-                            
-                                        //data / boxscore / homeclub /lanzador 
+                            //data / boxscore / homeclub /lanzador 
                             homeclub_lanzadores.forEach(element => {
                                 if(element.id_picher == id_lanzador_homeclub){
                                    let nombre = element.nombre;
@@ -135,8 +137,7 @@ function runTemplateUpdate() {
                                 }
                     
                                });
-       
-                                       //data / boxscore / visitante /visitante 
+                            //data / boxscore / visitante /visitante 
                                peloteros_visitante.forEach(element => {
                                if(element.id_pelotero == id_bateador_visitante){
                                    let nombres = element.nombre;
@@ -150,10 +151,6 @@ function runTemplateUpdate() {
                           });
                          
                         } if (parte === 1){
-                            
-                           
-    
-
                             //data / boxscore / homeclub /lanzador 
                             homeclub_peloteros.forEach(element => {
                              if(element.id_pelotero == id_bateador_homeclub){
@@ -186,15 +183,29 @@ function runTemplateUpdate() {
                         }
     
     
-                        let totalS = 0;
-                        let totalB = 0;
-    
+                            let totalS = 0;
+                            let totalB = 0;
+                            let totalF = 0;
+                        
                         for (let i = 0; i < secuencia_lanzamientos.length; i++) {
                             if (secuencia_lanzamientos[i] === 'S') {
                                 totalS++;
                             } else if (secuencia_lanzamientos[i] === 'B') {
                                 totalB++;
+                            } else if (secuencia_lanzamientos[i] === 'F') {
+                                totalF++;
                             }
+                        }
+                        
+                        if (totalF === 1 && totalS === 2) {
+                            totalS = 0;
+                            totalB = 0;
+                        } else if (totalF === 2 && totalS === 1) {
+                            totalS = 0;
+                            totalB = 0;
+                        } else if (totalF === 3 || totalS === 3 || totalB === 4) {
+                            totalS = 0;
+                            totalB = 0;
                         }
     
                        
@@ -209,28 +220,30 @@ function runTemplateUpdate() {
                             actualizarColor(Hombre_primera, hombre_primera);
                             actualizarColor(Hombre_segunda, hombre_segunda);
                             actualizarColor(Hombre_tercera, hombre_tercera);
-                       
-                    carreras_homeclub  ? carreras_homeclub  :carreras_homeclub=  '00' 
-                    carreras_visitante ? carreras_visitante  : carreras_visitante=  '00'
+                            
+                            carreras_homeclub  ? carreras_homeclub  :carreras_homeclub=  '00' 
+                            carreras_visitante ? carreras_visitante  : carreras_visitante=  '00'
     
-                     Carreras_homeclub.innerText = carreras_homeclub;
-                     Carreras_visitante.innerText = carreras_visitante;
-                     Id_equipo_homeclub.src = array_logo[id_equipo_homeclub].img_url;
-                     Id_equipo_visitante.src = array_logo[id_equipo_visitante].img_url;
-                     
-                     inning ? inning : inning = "0";
-                     Inning.innerText = inning;
-                    
-                     if(parte == 1){
-                        triangle.classList.add("down")
+                            Carreras_homeclub.innerText = carreras_homeclub;
+                            Carreras_visitante.innerText = carreras_visitante;
+                            Id_equipo_homeclub.src = array_logo[id_equipo_homeclub].img_url;
+                            Id_equipo_visitante.src = array_logo[id_equipo_visitante].img_url;
+                                
+                                inning ? inning : inning = "0";
+                                Inning.innerText = inning;
+                                
+                                if(parte === 1){
+                                    triangle.classList.add("down")
+                                    triangle.classList.remove("up")
 
-                     }else if(parte =0){
-                        triangle.classList.add("up")
-                     }
+                                }else if(parte === 0){
+                                    triangle.classList.add("up")
+                                    triangle.classList.remove("down")
+                                }
     
                    
     
-                     Outss = outs
+                         Outss = outs
     
                      if (Outss === 1) {
                         outs2.classList.add("activate");

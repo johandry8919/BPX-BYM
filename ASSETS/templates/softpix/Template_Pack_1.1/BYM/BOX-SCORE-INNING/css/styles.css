@@ -176,18 +176,24 @@ body{
   position: relative;
   display: flex;
   align-items: center;
-  font-size: 35px;
+  font-size: 28px;
   text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
  
 }
 .cont-1 .cont-right .text-cont .bfx {
   position: absolute;
   left: 25px;
+  
 }
 .cont-1 .cont-right .text-cont .bfp {
   position: absolute;
-  right: 30px;
-  letter-spacing: 3px;
+  right: 48px;
+  width: 65%;
+ 
 }
 .cont-1 .cont-logo {
   width: 370px;
