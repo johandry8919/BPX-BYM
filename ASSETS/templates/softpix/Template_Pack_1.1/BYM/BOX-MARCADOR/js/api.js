@@ -110,10 +110,11 @@ function runTemplateUpdate() {
                             lanzador_visitante_strikes
                         } = result1.data.juego;
 
+
+                        console.log(result1.data.juego)
+
                        
-                        
-
-
+    
             
                         let homeclub_lanzadores = result1.data.boxscore.homeclub.lanzadores;
                         let homeclub_peloteros =result1.data.boxscore.homeclub.peloteros;

@@ -112,7 +112,7 @@ function runTemplateUpdate() {
                const inicial_N = element.nombre.charAt(0);
                 const inicial_P= element.apellido.charAt(0);
 
-              Nombre.innerText = `${element.nombre} ${element.apellido}     ${inicial_N}${inicial_P}`;
+              Nombre.innerText = `${element.nombre} ${element.apellido}`;
 
 
               
@@ -154,11 +154,7 @@ function runTemplateUpdate() {
                const inicial_N = element.nombre.charAt(0);
                 const inicial_P= element.apellido.charAt(0);
 
-              Nombre.innerText = `${element.nombre} ${element.apellido}     ${inicial_N}${inicial_P}`;
-
-
-              
-
+              Nombre.innerText = `${element.nombre} ${element.apellido}`;
             }
           });
 
