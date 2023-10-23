@@ -6,6 +6,9 @@ function runTemplateUpdate() {
 const url2 = new URL("https://bss.qualitybeisbol.com/api/lineup");
 
 
+document.getElementById("info_button").innerText = htmlDecode(e('f1').innerText)
+
+
   if(e('f3')){
     if(e('f3').innerText == 'none'){
         e('logoPatrocinio').style="opacity: 0;"
