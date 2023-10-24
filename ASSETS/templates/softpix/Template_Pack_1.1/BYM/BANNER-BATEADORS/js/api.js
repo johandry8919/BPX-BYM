@@ -55,9 +55,6 @@ function runTemplateUpdate() {
   };
   
   const url1 = "https://bss.qualitybeisbol.com/api/boxscore";
-  const url2 = "https://bss.qualitybeisbol.com/api/anual-pelotero-ave";
-
-
 
   Promise.all([fetchApiData(url1, params)])
     .then(([result1]) => {
@@ -71,10 +68,9 @@ function runTemplateUpdate() {
 
         } = result1.data.juego;
 
+
         let iquipo_juega;
-
-        parte == 0 ? iquipo_juega = id_equipo_visitante : iquipo_juega = id_bateador_homeclub
-
+        parte == 0 ? iquipo_juega = id_bateador_visitante : iquipo_juega = id_bateador_homeclub
         const url = new URL(
           "https://bss.qualitybeisbol.com/api/anual-pelotero-ave"
       );
@@ -116,7 +112,6 @@ function runTemplateUpdate() {
           data_pelotero = result1.data.boxscore.homeclub.peloteros
           
           data_pelotero.forEach(element => {
-             
             if(element.id_pelotero == id_bateador_homeclub){
               let resultado = parseInt(element.HIT) + parseInt(element.H2) + parseInt(element.H3);
 
@@ -125,14 +120,6 @@ function runTemplateUpdate() {
               }else if(document.getElementById('fxt')){
                 document.getElementById('fxt').innerText = `HOY: ${element.VB} - ${resultado}  / ${element.HR} HR / ${element.HIT} H / ${element.SO} K / ${element.CI} CI`;
                 
-                if(document.getElementById('fxg')){
-                   document.getElementById('fxg').innerHTML = ` 
-              <div>
-              ${element.AVE == null?0:element.AVE} <span> AVE </span> / </div>
-               <div> ${element.HR== null?'0':element.HR} <span > HR </span>  / </div>
-                 <div>${element.CI== null?'0':element.CI} <span>CI </span>  / </div> 
-                  <div> ${element.OPS== null?'0':element.OPS} <span> OPS</span> </div>`;
-                }
               }
               Nombre.innerText = `${element.nombre} ${element.apellido}`;
             }
@@ -156,17 +143,12 @@ function runTemplateUpdate() {
             }
           });     
         }
-
          runAnimationIN();
 
     })
     .catch(error => {
       console.error("Error en una de las solicitudes:", error);
     });
-
-
-
-    
 
 }
 
