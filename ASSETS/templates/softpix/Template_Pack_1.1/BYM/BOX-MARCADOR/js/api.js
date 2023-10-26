@@ -262,10 +262,10 @@ function runTemplateUpdate() {
     
                    
     
-                         Outss = outs
+                         Outss = outs 
     
                      if (Outss === 1) {
-                        outs2.classList.add("activate");
+                        outs1.classList.add("activate");
                       } else if (Outss === 2) {
                         outs1.classList.add("activate");
                         outs2.classList.add("activate");

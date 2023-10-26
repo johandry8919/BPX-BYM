@@ -28,6 +28,7 @@ const fetchApiData = (url, params) => {
 function runTemplateUpdate() {
 var   id_peloteros;
 var id_equipo_jugado ; 
+var  parte ; 
   
 let bateadores1 = htmlDecode(e('f1').innerText)
 let bateadores2 = htmlDecode(e('f2').innerText)
@@ -40,7 +41,7 @@ if(bateadores1 != ''){
 }
 
 gapi.load('client', initClient);
-var SPREADSHEET_ID = '1kSVuoVD2Y7YON3ATTWGHzGCAA-Wz7sGmRFj0jxLizRY';
+var SPREADSHEET_ID = '1U9M3JB2U2NKqAGEB3jCie4Y50zjzzXpmZ2Q5kExSHLc';
 var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
 var SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly';
 
@@ -69,8 +70,8 @@ function getDataB() {
            var sheetName = sheet.properties.title;
            if (sheetName === 'bx') {
             let datos;
-            if(bateadores2 != '') datos = '!K17:M27'
-              else if(bateadores1 != '') datos = '!O17:Q27'
+            if(bateadores2 != '') datos = '!K17:M27' , parte = 0
+              else if(bateadores1 != '') datos = '!O17:Q27' , parte = 1
                gapi.client.sheets.spreadsheets.values.get({
                    spreadsheetId: SPREADSHEET_ID,
                    range: sheetName + datos
@@ -120,7 +121,6 @@ function getDataB() {
                     id_bateador_visitante,
                     id_equipo_homeclub,
                     id_equipo_visitante,
-                    parte
             
                     } = result1.data.juego;
             
@@ -159,16 +159,18 @@ function getDataB() {
                     })
             
                   });
+
+
+                
             
                     let id_jugador;
                     if(parte == 1){
-                      id_jugador = result1.data.juego.id_bateador_homeclub
-              
                       logos_equipos.src = Logos_equipos[id_equipo_jugado].img_url;
                       data_pelotero = result1.data.boxscore.homeclub.peloteros
-                      
                       data_pelotero.forEach(element => {
-                        if(element.id_pelotero == id_bateador_homeclub){
+
+                        console.log(element)
+                        if(element.id_pelotero == id_peloteros){
                           let resultado = parseInt(element.HIT) + parseInt(element.H2) + parseInt(element.H3);
             
                           if(e('primer_turno')){
@@ -181,14 +183,13 @@ function getDataB() {
                         }
                     });
             
-            
                     }else{
                       id_jugador = result1.data.juego.id_bateador_visitante
                       logos_equipos.src = Logos_equipos[id_equipo_jugado].img_url;
                       data_pelotero = result1.data.boxscore.visitante.peloteros
             
                       data_pelotero.forEach(element => {   
-                        if(element.id_pelotero == id_bateador_visitante){
+                        if(element.id_pelotero == id_peloteros){
                           let resultado = parseInt(element.HIT) + parseInt(element.H2) + parseInt(element.H3);
                           if(e('primer_turno')){
                             e('primer_turno').innerHTML = htmlDecode(e('f4').innerText)

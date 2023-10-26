@@ -1,0 +1,448 @@
+{
+  "templates": [
+    {
+      "description": "",
+      "playserver": "OVERLAY",
+      "playchannel": "1",
+      "playlayer": "1",
+      "webplayout": "1",
+      "out": "manual",
+      "dataformat": "json",
+      "uicolor": "3",
+      "DataFields": [
+        {
+          "field": "comment",
+          "ftype": "textfield",
+          "title": "BATEADOR-FULL",
+          "value": "BATEADOR-FULL"
+        },
+        {
+          "field": "f0",
+          "ftype": "textfield",
+          "title": "ID DEL JUEGO",
+          "value": "23+4+5++5"
+        },
+        {
+          "field": "f1",
+          "ftype": "dropdown",
+          "title": "BATEADORES HOMECLUB",
+          "value": "",
+          "items": [
+            {
+              "text": "bateador-N/A",
+              "value": ""
+            },
+            {
+              "text": "bateador-1",
+              "value": "0"
+            },
+            {
+              "text": "bateador-2",
+              "value": "1"
+            },
+            {
+              "text": "bateador-3",
+              "value": "2"
+            },
+            {
+              "text": "bateador-4",
+              "value": "3"
+            },
+            {
+              "text": "bateador-5",
+              "value": "4"
+            },
+            {
+              "text": "bateador-6",
+              "value": "5"
+            },
+            {
+              "text": "bateador-7",
+              "value": "6"
+            },
+            {
+              "text": "bateador-8",
+              "value": "7"
+            },
+            {
+              "text": "bateador-9",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "field": "f2",
+          "ftype": "dropdown",
+          "title": "BATEADORES VISITANTE",
+          "value": "",
+          "items": [
+            {
+              "text": "bateador-N/A",
+              "value": ""
+            },
+            {
+              "text": "bateador-1",
+              "value": "0"
+            },
+            {
+              "text": "bateador-2",
+              "value": "1"
+            },
+            {
+              "text": "bateador-3",
+              "value": "2"
+            },
+            {
+              "text": "bateador-4",
+              "value": "3"
+            },
+            {
+              "text": "bateador-5",
+              "value": "4"
+            },
+            {
+              "text": "bateador-6",
+              "value": "5"
+            },
+            {
+              "text": "bateador-7",
+              "value": "6"
+            },
+            {
+              "text": "bateador-8",
+              "value": "7"
+            },
+            {
+              "text": "bateador-9",
+              "value": "8"
+            }
+          ]
+        }
+      ],
+      "onair": "false",
+      "imported": "1698281511774",
+      "relpath": "/softpix/Template_Pack_1.1/BYM/BANNER-BATEADORS/BANNER-BATEADOR-FULL.html"
+    },
+    {
+      "description": "",
+      "playserver": "OVERLAY",
+      "playchannel": "1",
+      "playlayer": "1",
+      "webplayout": "1",
+      "out": "manual",
+      "dataformat": "json",
+      "uicolor": "3",
+      "DataFields": [
+        {
+          "field": "comment",
+          "ftype": "textfield",
+          "title": "BANNER-BATEADOR-SHORT-PRIMER-TURNO",
+          "value": "BANNER-BATEADOR-SHORT-PRIMER-TURNO"
+        },
+        {
+          "field": "f4",
+          "ftype": "textfield",
+          "title": "Texto dinamico",
+          "value": "PRIMER TURNO AL BATE"
+        },
+        {
+          "field": "f0",
+          "ftype": "textfield",
+          "title": "ID DEL JUEGO",
+          "value": "23+4+5++5"
+        },
+        {
+          "field": "f3",
+          "ftype": "filelist",
+          "title": "Elija la imagen del patrocinador",
+          "assetfolder": "/media/images/bg/",
+          "extension": "png",
+          "value": "none"
+        },
+        {
+          "field": "f1",
+          "ftype": "dropdown",
+          "title": "BATEADORES HOMECLUB",
+          "value": "",
+          "items": [
+            {
+              "text": "bateador-N/A",
+              "value": ""
+            },
+            {
+              "text": "bateador-1",
+              "value": "0"
+            },
+            {
+              "text": "bateador-2",
+              "value": "1"
+            },
+            {
+              "text": "bateador-3",
+              "value": "2"
+            },
+            {
+              "text": "bateador-4",
+              "value": "3"
+            },
+            {
+              "text": "bateador-5",
+              "value": "4"
+            },
+            {
+              "text": "bateador-6",
+              "value": "5"
+            },
+            {
+              "text": "bateador-7",
+              "value": "6"
+            },
+            {
+              "text": "bateador-8",
+              "value": "7"
+            },
+            {
+              "text": "bateador-9",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "field": "f2",
+          "ftype": "dropdown",
+          "title": "BATEADORES VISITANTE",
+          "value": "",
+          "items": [
+            {
+              "text": "bateador-N/A",
+              "value": ""
+            },
+            {
+              "text": "bateador-1",
+              "value": "0"
+            },
+            {
+              "text": "bateador-2",
+              "value": "1"
+            },
+            {
+              "text": "bateador-3",
+              "value": "2"
+            },
+            {
+              "text": "bateador-4",
+              "value": "3"
+            },
+            {
+              "text": "bateador-5",
+              "value": "4"
+            },
+            {
+              "text": "bateador-6",
+              "value": "5"
+            },
+            {
+              "text": "bateador-7",
+              "value": "6"
+            },
+            {
+              "text": "bateador-8",
+              "value": "7"
+            },
+            {
+              "text": "bateador-9",
+              "value": "8"
+            }
+          ]
+        }
+      ],
+      "onair": "false",
+      "imported": "1698281511919",
+      "relpath": "/softpix/Template_Pack_1.1/BYM/BANNER-BATEADORS/BANNER-BATEADOR-SHORT-PRIMER-TURNO.html"
+    },
+    {
+      "description": "",
+      "playserver": "OVERLAY",
+      "playchannel": "1",
+      "playlayer": "1",
+      "webplayout": "1",
+      "out": "manual",
+      "dataformat": "json",
+      "uicolor": "3",
+      "DataFields": [
+        {
+          "field": "comment",
+          "ftype": "textfield",
+          "title": "BATEADOR-SHORT-HOY",
+          "value": "BATEADOR-SHORT-HOY"
+        },
+        {
+          "field": "f0",
+          "ftype": "textfield",
+          "title": "ID DEL JUEGO",
+          "value": "23+4+5++5"
+        },
+        {
+          "field": "f1",
+          "ftype": "dropdown",
+          "title": "BATEADORES HOMECLUB",
+          "value": "",
+          "items": [
+            {
+              "text": "bateador-N/A",
+              "value": ""
+            },
+            {
+              "text": "bateador-1",
+              "value": "0"
+            },
+            {
+              "text": "bateador-2",
+              "value": "1"
+            },
+            {
+              "text": "bateador-3",
+              "value": "2"
+            },
+            {
+              "text": "bateador-4",
+              "value": "3"
+            },
+            {
+              "text": "bateador-5",
+              "value": "4"
+            },
+            {
+              "text": "bateador-6",
+              "value": "5"
+            },
+            {
+              "text": "bateador-7",
+              "value": "6"
+            },
+            {
+              "text": "bateador-8",
+              "value": "7"
+            },
+            {
+              "text": "bateador-9",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "field": "f2",
+          "ftype": "dropdown",
+          "title": "BATEADORES VISITANTE",
+          "value": "",
+          "items": [
+            {
+              "text": "bateador-N/A",
+              "value": ""
+            },
+            {
+              "text": "bateador-1",
+              "value": "0"
+            },
+            {
+              "text": "bateador-2",
+              "value": "1"
+            },
+            {
+              "text": "bateador-3",
+              "value": "2"
+            },
+            {
+              "text": "bateador-4",
+              "value": "3"
+            },
+            {
+              "text": "bateador-5",
+              "value": "4"
+            },
+            {
+              "text": "bateador-6",
+              "value": "5"
+            },
+            {
+              "text": "bateador-7",
+              "value": "6"
+            },
+            {
+              "text": "bateador-8",
+              "value": "7"
+            },
+            {
+              "text": "bateador-9",
+              "value": "8"
+            }
+          ]
+        }
+      ],
+      "onair": "false",
+      "imported": "1698281511999",
+      "relpath": "/softpix/Template_Pack_1.1/BYM/BANNER-BATEADORS/BATEADOR-SHORT-HOY.html"
+    },
+    {
+      "description": "bx-score left",
+      "playserver": "OVERLAY",
+      "playchannel": "1",
+      "playlayer": "1",
+      "webplayout": "5",
+      "out": "manual",
+      "dataformat": "json",
+      "uicolor": "7",
+      "DataFields": [
+        {
+          "field": "comment",
+          "ftype": "textfield",
+          "title": "bg-box-marcadores",
+          "value": "bg-box-marcadores"
+        },
+        {
+          "field": "f0",
+          "ftype": "textfield",
+          "title": "ID DEL JUEGO",
+          "value": "23+4+5++5"
+        },
+        {
+          "ftype": "instruction",
+          "value": "bx-score"
+        }
+      ],
+      "onair": "false",
+      "imported": "1698281524613",
+      "relpath": "/softpix/Template_Pack_1.1/BYM/BOX-MARCADOR/BOX-MARCADOR.html"
+    },
+    {
+      "description": "",
+      "playserver": "OVERLAY",
+      "playchannel": "1",
+      "playlayer": "1",
+      "webplayout": "1",
+      "out": "manual",
+      "dataformat": "json",
+      "uicolor": "1",
+      "DataFields": [
+        {
+          "field": "comment",
+          "ftype": "textfield",
+          "title": "lt-antesala",
+          "value": "lt-antesala"
+        },
+        {
+          "field": "f0",
+          "ftype": "textfield",
+          "title": "ID DEL JUEGO",
+          "value": "23+2+4++3"
+        }
+      ],
+      "onair": "false",
+      "imported": "1698281747208",
+      "relpath": "/softpix/Template_Pack_1.1/BYM/TL-ANTESALA/lt-antesala.html"
+    }
+  ],
+  "warning": "Modifications done in the SPX will overwrite this file.",
+  "copyright": "(c) 2020-2023 Softpix (https://spx.graphics)",
+  "updated": "2023-10-26T00:55:47.208Z"
+}
