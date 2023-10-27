@@ -89,65 +89,9 @@ function getDataB() {
                        id_equipo_jugado = primeraFila[2] 
                        Nombre.innerText = primeraFila[0];
 
-                       function convertirNumero(numero) {
-                        if (numero === null || typeof numero === "undefined") {
-                          numero =.000;
-                        }
-                        return numero.toString().substring(1);
-                      }
+               
 
-
-                       if(primeraFila[3] != 0){
-                        let AVE1 = convertirNumero(primeraFila[3]) 
-
-                        AVE =  'AVE ' +  ' ' + AVE1   
-                      
-
-                      }
-                      if(primeraFila[4] != 0){
-                        CA =  'CA' +  ' ' + primeraFila[4]   + ' '
-                      
-
-                      }
-                      if(primeraFila[5] != 0){
-                        HIT =  'H' +  ' ' + primeraFila[5]   + ' '
-                      
-
-                      }
-                      if(primeraFila[6] != 0){
-                        HR =  'HR' +  ' ' + primeraFila[6]   + ' '
-                      
-
-                      }
-                      if(primeraFila[7] != 0){
-                        CI = 'CI' + ' ' + primeraFila[7]   + ' '
-                      
-
-                      }
-                      if(primeraFila[8] != 0){
-
-                        let OPS1 = convertirNumero(primeraFila[8]) 
-
-                        OPS =  'OPS ' +  ' ' + OPS1  
-                       
-                       
-
-                      }
-
-
-                       if(document.getElementById('fxg')){
-                        document.getElementById('fxg').innerHTML = ` 
-                   <div>
-                     ${AVE} </div>
-                    <div> ${HR} </div>
-                      <div>${ CI} </div> 
-                       <div> ${OPS}  </div>`;
-              
-                     }
-
-                     if(e('primer_turno')){
-                      e('primer_turno').innerHTML = htmlDecode(e('f4').innerText)
-                    }
+                   
                    } 
 
                    if(e('f3')){
@@ -214,31 +158,48 @@ function getDataB() {
                   .then(datas => {
                     datas.data.forEach((element, index) => {
                       if(index == 0){
-                       
+
+                        function convertirNumero(numero) {
+                          if (numero === null || typeof numero === "undefined") {
+                            numero =.000;
+                          }
+                          return numero.toString().substring(1);
+                        }
+
+                       let AVE = convertirNumero(element.AVE)
+                       let HR = convertirNumero(element.HR)
+                       let CI = convertirNumero(element.CI)
+                       let OPS = convertirNumero(element.OPS)
+
+                        if(document.getElementById('fxg')){
+                          document.getElementById('fxg').innerHTML = ` 
+                     <div>
+                       ${AVE} <span> AVE </span> / </div>
+                      <div> ${element.HR== null?'0' :element.HR} <span > HR </span>  / </div>
+                        <div>${element.CI== null?'0':element.CI} <span>CI </span>  / </div> 
+                         <div> ${OPS} <span> OPS</span> </div>`;
+                
+                       }
                       }
                     })
             
                   });
 
-
-                
-            
                     let id_jugador;
                     if(parte == 1){
                       logos_equipos.src = Logos_equipos[id_equipo_jugado].img_url;
                       let data_pelotero = result1.data.boxscore.homeclub.peloteros
                       data_pelotero.forEach(element => {
-
-                  
-                      
                         if(element.id_pelotero == id_peloteros){
                           let resultado = parseInt(element.HIT) + parseInt(element.H2) + parseInt(element.H3);
             
-                          if(document.getElementById('fxt')){
+                          if(e('primer_turno')){
+                            e('primer_turno').innerHTML = htmlDecode(e('f4').innerText)
+                          }else if(document.getElementById('fxt')){
                             document.getElementById('fxt').innerText = `HOY: ${element.VB} - ${resultado}  / ${element.HR} HR / ${element.HIT} H / ${element.SO} K / ${element.CI} CI`;
-                            
+                           
                           }
-                         
+          
                         }
                     });
             
@@ -250,11 +211,14 @@ function getDataB() {
                       data_pelotero.forEach(element => {   
                         if(element.id_pelotero == id_peloteros){
                           let resultado = parseInt(element.HIT) + parseInt(element.H2) + parseInt(element.H3);
-                       
-                          if(document.getElementById('fxt')){
-                            document.getElementById('fxt').innerText = `  HOY: ${element.VB} - ${resultado}  / ${element.HR} HR / ${element.HIT} H / ${element.SO} K / ${element.CI} CI`;
+            
+                          if(e('primer_turno')){
+                            e('primer_turno').innerHTML = htmlDecode(e('f4').innerText)
+                          }else if(document.getElementById('fxt')){
+                            document.getElementById('fxt').innerText = `HOY: ${element.VB} - ${resultado}  / ${element.HR} HR / ${element.HIT} H / ${element.SO} K / ${element.CI} CI`;
+                           
                           }
-                         
+          
                         }
                       });     
                     }

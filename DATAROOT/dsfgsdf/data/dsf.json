@@ -1,7 +1,7 @@
 {
   "warning": "Modifications done in the SPX will overwrite this file.",
   "copyright": "(c) 2020-2023 Softpix (https://spx.graphics)",
-  "updated": "2023-10-27T13:34:21.280Z",
+  "updated": "2023-10-27T14:40:34.971Z",
   "templates": [
     {
       "description": "bx-score left",
@@ -61,7 +61,7 @@
           "field": "f1",
           "ftype": "dropdown",
           "title": "BATEADORES HOMECLUB",
-          "value": "0",
+          "value": "",
           "items": [
             {
               "text": "bateador-N/A",
@@ -109,7 +109,7 @@
           "field": "f2",
           "ftype": "dropdown",
           "title": "BATEADORES VISITANTE",
-          "value": "",
+          "value": "6",
           "items": [
             {
               "text": "bateador-N/A",
@@ -193,7 +193,7 @@
           "title": "Elija la imagen del patrocinador",
           "assetfolder": "/media/images/bg/",
           "extension": "png",
-          "value": "none"
+          "value": "/media/images/bg/LUCERNA-01.png"
         },
         {
           "field": "f1",
