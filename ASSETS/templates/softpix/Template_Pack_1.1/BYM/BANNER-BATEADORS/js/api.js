@@ -29,6 +29,12 @@ function runTemplateUpdate() {
 var   id_peloteros;
 var id_equipo_jugado ; 
 var  parte ; 
+var AVE = '';
+var CA = '' ;
+var HIT = '';
+var HR = '';
+var CI = '';
+var OPS = '';
   
 let bateadores1 = htmlDecode(e('f1').innerText)
 let bateadores2 = htmlDecode(e('f2').innerText)
@@ -70,8 +76,8 @@ function getDataB() {
            var sheetName = sheet.properties.title;
            if (sheetName === 'bx') {
             let datos;
-            if(bateadores2 != '') datos = '!K17:M27' , parte = 0
-              else if(bateadores1 != '') datos = '!O17:Q27' , parte = 1
+            if(bateadores2 != '') datos = '!K17:S25' , parte = 0
+              else if(bateadores1 != '') datos = '!K28:S36' , parte = 1
                gapi.client.sheets.spreadsheets.values.get({
                    spreadsheetId: SPREADSHEET_ID,
                    range: sheetName + datos
@@ -82,6 +88,66 @@ function getDataB() {
                        id_peloteros = primeraFila[1] 
                        id_equipo_jugado = primeraFila[2] 
                        Nombre.innerText = primeraFila[0];
+
+                       function convertirNumero(numero) {
+                        if (numero === null || typeof numero === "undefined") {
+                          numero =.000;
+                        }
+                        return numero.toString().substring(1);
+                      }
+
+
+                       if(primeraFila[3] != 0){
+                        let AVE1 = convertirNumero(primeraFila[3]) 
+
+                        AVE =  'AVE ' +  ' ' + AVE1   
+                      
+
+                      }
+                      if(primeraFila[4] != 0){
+                        CA =  'CA' +  ' ' + primeraFila[4]   + ' '
+                      
+
+                      }
+                      if(primeraFila[5] != 0){
+                        HIT =  'H' +  ' ' + primeraFila[5]   + ' '
+                      
+
+                      }
+                      if(primeraFila[6] != 0){
+                        HR =  'HR' +  ' ' + primeraFila[6]   + ' '
+                      
+
+                      }
+                      if(primeraFila[7] != 0){
+                        CI = 'CI' + ' ' + primeraFila[7]   + ' '
+                      
+
+                      }
+                      if(primeraFila[8] != 0){
+
+                        let OPS1 = convertirNumero(primeraFila[8]) 
+
+                        OPS =  'OPS ' +  ' ' + OPS1  
+                       
+                       
+
+                      }
+
+
+                       if(document.getElementById('fxg')){
+                        document.getElementById('fxg').innerHTML = ` 
+                   <div>
+                     ${AVE} </div>
+                    <div> ${HR} </div>
+                      <div>${ CI} </div> 
+                       <div> ${OPS}  </div>`;
+              
+                     }
+
+                     if(e('primer_turno')){
+                      e('primer_turno').innerHTML = htmlDecode(e('f4').innerText)
+                    }
                    } 
 
                    if(e('f3')){
@@ -96,6 +162,8 @@ function getDataB() {
                     } 
             
                  }
+
+
             
                  function ajustarCadena(cadena) {
                   cadena = cadena.replace(/\+/g, ' ');
@@ -146,15 +214,7 @@ function getDataB() {
                   .then(datas => {
                     datas.data.forEach((element, index) => {
                       if(index == 0){
-                        if(document.getElementById('fxg')){
-                          document.getElementById('fxg').innerHTML = ` 
-                     <div>
-                       ${element.AVE == null?'0':element.AVE} <span> AVE </span> / </div>
-                      <div> ${element.HR== null?'0' :element.HR} <span > HR </span>  / </div>
-                        <div>${element.CI== null?'0':element.CI} <span>CI </span>  / </div> 
-                         <div> ${element.OPS== null?'0':element.OPS} <span> OPS</span> </div>`;
-                
-                       }
+                       
                       }
                     })
             
@@ -166,16 +226,15 @@ function getDataB() {
                     let id_jugador;
                     if(parte == 1){
                       logos_equipos.src = Logos_equipos[id_equipo_jugado].img_url;
-                      data_pelotero = result1.data.boxscore.homeclub.peloteros
+                      let data_pelotero = result1.data.boxscore.homeclub.peloteros
                       data_pelotero.forEach(element => {
 
-                        console.log(element)
+                  
+                      
                         if(element.id_pelotero == id_peloteros){
                           let resultado = parseInt(element.HIT) + parseInt(element.H2) + parseInt(element.H3);
             
-                          if(e('primer_turno')){
-                            e('primer_turno').innerHTML = htmlDecode(e('f4').innerText)
-                          }else if(document.getElementById('fxt')){
+                          if(document.getElementById('fxt')){
                             document.getElementById('fxt').innerText = `HOY: ${element.VB} - ${resultado}  / ${element.HR} HR / ${element.HIT} H / ${element.SO} K / ${element.CI} CI`;
                             
                           }
@@ -186,14 +245,13 @@ function getDataB() {
                     }else{
                       id_jugador = result1.data.juego.id_bateador_visitante
                       logos_equipos.src = Logos_equipos[id_equipo_jugado].img_url;
-                      data_pelotero = result1.data.boxscore.visitante.peloteros
+                      let data_pelotero = result1.data.boxscore.visitante.peloteros
             
                       data_pelotero.forEach(element => {   
                         if(element.id_pelotero == id_peloteros){
                           let resultado = parseInt(element.HIT) + parseInt(element.H2) + parseInt(element.H3);
-                          if(e('primer_turno')){
-                            e('primer_turno').innerHTML = htmlDecode(e('f4').innerText)
-                          }else if(document.getElementById('fxt')){
+                       
+                          if(document.getElementById('fxt')){
                             document.getElementById('fxt').innerText = `  HOY: ${element.VB} - ${resultado}  / ${element.HR} HR / ${element.HIT} H / ${element.SO} K / ${element.CI} CI`;
                           }
                          

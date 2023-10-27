@@ -1,7 +1,7 @@
 {
   "warning": "Modifications done in the SPX will overwrite this file.",
   "copyright": "(c) 2020-2023 Softpix (https://spx.graphics)",
-  "updated": "2023-10-26T03:32:50.558Z",
+  "updated": "2023-10-27T13:34:21.280Z",
   "templates": [
     {
       "description": "bx-score left",
@@ -55,13 +55,13 @@
           "field": "f0",
           "ftype": "textfield",
           "title": "ID DEL JUEGO",
-          "value": "23+1+6+15"
+          "value": "23+8+6+19"
         },
         {
           "field": "f1",
           "ftype": "dropdown",
           "title": "BATEADORES HOMECLUB",
-          "value": "",
+          "value": "0",
           "items": [
             {
               "text": "bateador-N/A",
@@ -109,7 +109,7 @@
           "field": "f2",
           "ftype": "dropdown",
           "title": "BATEADORES VISITANTE",
-          "value": "1",
+          "value": "",
           "items": [
             {
               "text": "bateador-N/A",
@@ -179,7 +179,7 @@
           "field": "f4",
           "ftype": "textfield",
           "title": "Texto dinamico",
-          "value": "PRIMER TURNO AL BATE"
+          "value": "PRIMER TURNO AL"
         },
         {
           "field": "f0",
@@ -199,7 +199,7 @@
           "field": "f1",
           "ftype": "dropdown",
           "title": "BATEADORES HOMECLUB",
-          "value": "0",
+          "value": "6",
           "items": [
             {
               "text": "bateador-N/A",
@@ -317,13 +317,13 @@
           "field": "f0",
           "ftype": "textfield",
           "title": "ID DEL JUEGO",
-          "value": "23+3+7+13"
+          "value": "23+8+6+19"
         },
         {
           "field": "f1",
           "ftype": "dropdown",
           "title": "BATEADORES HOMECLUB",
-          "value": "2",
+          "value": "",
           "items": [
             {
               "text": "bateador-N/A",
@@ -371,7 +371,7 @@
           "field": "f2",
           "ftype": "dropdown",
           "title": "BATEADORES VISITANTE",
-          "value": "",
+          "value": "1",
           "items": [
             {
               "text": "bateador-N/A",
