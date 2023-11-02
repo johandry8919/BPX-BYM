@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>bg-box-marcadores</title>
+
+    <script src="../../js/gsap3.2.6.min.js"></script>
+    <script type="text/javascript" src="../../js/spx_interface.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      id="DynamicTheme"
+      href="themes/styles.css"
+    />
+
+    <script type="text/javascript">
+      window.SPXGCTemplateDefinition = {
+        description: "bx-score left",
+        playserver: "OVERLAY",
+        playchannel: "1",
+        playlayer: "1",
+        webplayout: "5",
+        out: "manual",
+        dataformat: "json",
+        uicolor: "7",
+        DataFields: [
+          {
+            field: "comment",
+            ftype: "textfield",
+            title: "bg-box-marcadores",
+            value: "bg-box-marcadores",
+          },
+
+          {
+          field: "f0",
+          ftype: "textfield",
+          title: "ID DEL JUEGO",
+          value: "23+2+4++3",
+        },
+
+
+        {
+                "field": "f6",
+                "ftype": "checkbox",
+                "title": "ACTIVAR CAMPO NOMBRE",
+                "value": "0",
+            },
+        ],
+      };
+    </script>
+  </head>
+
+  <body>
+    <div
+      class=""
+
+    >
+      <div id="miElemento"></div>
+      <div id="TG" class="container">
+        <div id="styles" class="styles"></div>
+        <div class="font1"></div>
+
+        <div style="display: none;" id="box-top" class="box-top">
+          <div id="boxscore1" class="boxscore1">
+            <span id="f1_gfx"></span>
+            <span id="numeroLanzamiento"></span>
+            <div class="boxscorebackground"></div>
+          </div>
+        </div>
+        <div style="display: none;" id="box-botton" class="box-botton">
+          <div id="visitante" class="visitante">
+            <span id="f0_gfx"></span>
+            <span id="ave"></span>
+          </div>
+        </div>
+
+        <div id="line1" class="">
+          <div id="" class="logos">
+            <!--fondo de los logo de equipo-->
+            <div id="fondoLogo1" class="fondoLogo">
+              <img
+                width="100%"
+                height="87px"
+               
+                id="id_equipo_visitante"
+                src=""
+              />
+            </div>
+
+            <div id="fondoLogo2" class="fondoLogo">
+              <img height="83px"  width="100%"  id="id_equipo_homeclub" src="" />
+            </div>
+            <!--fondo de los logo de equipo-->
+          </div>
+
+          <!--carreras-->
+          <div class="carreras">
+            <div class="carreras_visitante" id="carreras_visitante">00</div>
+            <div class="carreras_homeclub" id="carreras_homeclub">00</div>
+          </div>
+      
+          <div class="bases">
+
+            <div id="cont-base" class="cont-base">
+              <div id="hombre_primera"></div>
+              <div id="hombre_segunda"></div>
+              <div id="hombre_tercera"></div>
+            </div>
+            <div id="outs" class="outs">
+              <div class="outs1" id="outs1"></div>
+              <div class="outs2" id="outs2"></div>
+            </div>
+          </div>
+          <!--Base-->
+
+          <!--inning-strikes-->
+
+          <div id="inning-strikes" class="inning-strikes">
+            <p id="inning" class="inning"></p>
+            <div id="triangle" class="triangle"></div>
+            <p id="strikes" class="strikes"></p>
+          </div>
+
+          <!--inning-strikes-->
+        </div>
+      </div>
+      <div style="opacity:0;"  id="f99"></div>
+      <div style="opacity:0;"  id="f0"></div>
+      <div style="opacity:0;"  id="f6"></div>
+    </div >
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script type="text/javascript" src="js/api-backup.js"></script>
+    <script type="text/javascript" src="js/animaciones.js"></script>
+    <script type="text/javascript" src="js/temStyles.js"></script>
+
+  </body>
+</html>

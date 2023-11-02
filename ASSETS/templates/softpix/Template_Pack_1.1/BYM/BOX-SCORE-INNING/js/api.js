@@ -90,37 +90,82 @@ Promise.all([request1 ,request2])
                       posicion_bateo_visitante
                     } = result1.data.juego;
 
-                    let = posicion_bateo = 0;
+                    let  posicion_bateo;
                     var jugadores ;
                     var id_equipos;
-   
-          
+
+                  
                     if(parte == 1){
-                        posicion_bateo = posicion_bateo_homeclub == 9 ? posicion_bateo_homeclub = 8 : posicion_bateo_homeclub
+                         posicion_bateo_homeclub == 9 ? posicion_bateo_homeclub = 8 : posicion_bateo_homeclub
                         jugadores = result2.data.homeclub.peloteros
                         id_equipos = id_equipo_homeclub
 
+                        posicion_bateo = posicion_bateo_homeclub
+
                     }else{
                      
-                        posicion_bateo =  posicion_bateo_visitante == 9 ? posicion_bateo_visitante = 8 : posicion_bateo_visitante
+                         posicion_bateo_visitante == 9 ? posicion_bateo_visitante = 8 : posicion_bateo_visitante
                         jugadores = result2.data.visitante.peloteros
                         id_equipos = id_equipo_visitante
+
+                        posicion_bateo =  posicion_bateo_visitante 
 
                     }
 
                     posicion_poscampo =['BD' ,'BD' , ' C' , '1B', '2B' , '3B' ,' SS' , 'LF' ,'CF' , 'RF']
 
                     const contenedores =  document.getElementById('cont-right');
-                   
-                    function mostrarIndices(valor) {
-                        if (valor >= 0 && valor < jugadores.length) {
 
-                         
+
+                    function posicionBateo(array, valor) {
+                      // Ordenar el array de objetos por posicion_bateo de mayor a menor
+                      array.sort((b,a) => b.posicion_bateo - a.posicion_bateo);
+                    
+                      // Filtrar los tres siguientes elementos
+                        if (valor === 8) {
+                        // Filtrar los tres primeros elementos
+                        return array.filter(obj => obj.posicion_bateo <= 3);
+                      } else {
+                        // Filtrar los tres siguientes elementos
+                        return array.filter(obj => obj.posicion_bateo > valor).slice(0, 3);
+                      }
+                  
+                    }
+                    
+                    const arrayDeObjetos = jugadores
+                    
+                    const valorParametro =  posicion_bateo; // Cambia este valor según tus necesidades
+                    const resultado = posicionBateo(arrayDeObjetos, valorParametro);
+                
+
+                    resultado.forEach(element => {
+
+                          
+                      const inicial = element.nombre.charAt(0)
+                      let div = document.createElement("div")
+                      div.innerHTML = `
+
+                      <div class="text-cont ">
+                      <div class="bfx">${posicion_poscampo[element.posicion_campo]}</div>
+                      <div class="bfp">${inicial} . ${element.apellido}</div>
+                       </div>
+                      
+                      `
+                      contenedores.appendChild(div)
+                    });
+                   
+                   /*function mostrarIndices(valor) {
+
+                    
+                       
+                        if (valor >= 0 && valor < jugadores.length) {
                           var inicio = Math.max(0, valor -1);
-                          var fin = Math.min(valor + 2, jugadores.length);
+                          var fin = Math.min(valor + 1, jugadores.length);
                           var valoresAMostrar = jugadores.slice(inicio, fin);
 
                           valoresAMostrar.forEach(element => {
+
+                          
                             const inicial = element.nombre.charAt(0)
                             let div = document.createElement("div")
                             div.innerHTML = `
@@ -137,10 +182,8 @@ Promise.all([request1 ,request2])
                           console.log("El valor está fuera del rango de índices.");
                         }
                       }
-                      
                      
-                      mostrarIndices(posicion_bateo);
-                     
+                      mostrarIndices(posicion_bateo);*/
 
                     carreras_homeclub  ? carreras_homeclub:carreras_homeclub=  '0' 
                     carreras_visitante ? carreras_homeclub:carreras_homeclub=  '0'
@@ -164,11 +207,8 @@ Promise.all([request1 ,request2])
         console.error("Error en una de las solicitudes:", error);
     });
 
- 
 
-    //e('fxt').innerHTML = htmlDecode(e('f0').innerText)
-    
-
+     
     }
 
 

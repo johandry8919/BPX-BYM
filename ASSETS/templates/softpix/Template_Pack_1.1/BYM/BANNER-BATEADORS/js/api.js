@@ -106,6 +106,10 @@ function getDataB() {
                     } 
             
                  }
+                 
+                 if(e('primer_turno')){
+                  e('primer_turno').innerHTML = htmlDecode(e('f4').innerText)
+                }
 
 
             
@@ -135,7 +139,10 @@ function getDataB() {
                     id_equipo_visitante,
             
                     } = result1.data.juego;
-            
+
+
+                  
+                    console.log(result1.data)
             
                     let iquipo_juega;
                     parte == 0 ? iquipo_juega = id_bateador_visitante : iquipo_juega = id_bateador_homeclub
@@ -159,12 +166,17 @@ function getDataB() {
                     datas.data.forEach((element, index) => {
                       if(index == 0){
 
+
+                     
+
                         function convertirNumero(numero) {
                           if (numero === null || typeof numero === "undefined") {
                             numero =.000;
                           }
                           return numero.toString().substring(1);
                         }
+
+                   
 
                        let AVE = convertirNumero(element.AVE)
                        let HR = convertirNumero(element.HR)
@@ -191,11 +203,9 @@ function getDataB() {
                       let data_pelotero = result1.data.boxscore.homeclub.peloteros
                       data_pelotero.forEach(element => {
                         if(element.id_pelotero == id_peloteros){
-                          let resultado = parseInt(element.HIT) + parseInt(element.H2) + parseInt(element.H3);
+                          let resultado = parseInt(element.HIT) 
             
-                          if(e('primer_turno')){
-                            e('primer_turno').innerHTML = htmlDecode(e('f4').innerText)
-                          }else if(document.getElementById('fxt')){
+                           if(document.getElementById('fxt')){
                             document.getElementById('fxt').innerText = `HOY: ${element.VB} - ${resultado}  / ${element.HR} HR / ${element.HIT} H / ${element.SO} K / ${element.CI} CI`;
                            
                           }
@@ -210,11 +220,9 @@ function getDataB() {
             
                       data_pelotero.forEach(element => {   
                         if(element.id_pelotero == id_peloteros){
-                          let resultado = parseInt(element.HIT) + parseInt(element.H2) + parseInt(element.H3);
+                          let resultado = parseInt(element.HIT);
             
-                          if(e('primer_turno')){
-                            e('primer_turno').innerHTML = htmlDecode(e('f4').innerText)
-                          }else if(document.getElementById('fxt')){
+                           if(document.getElementById('fxt')){
                             document.getElementById('fxt').innerText = `HOY: ${element.VB} - ${resultado}  / ${element.HR} HR / ${element.HIT} H / ${element.SO} K / ${element.CI} CI`;
                            
                           }

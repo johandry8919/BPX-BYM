@@ -1,0 +1,83 @@
+{
+  "warning": "Modifications done in the SPX will overwrite this file.",
+  "copyright": "(c) 2020-2023 Softpix (https://spx.graphics)",
+  "updated": "2023-10-31T23:05:51.100Z",
+  "templates": [
+    {
+      "description": "",
+      "playserver": "OVERLAY",
+      "playchannel": "1",
+      "playlayer": "1",
+      "webplayout": "1",
+      "out": "manual",
+      "dataformat": "json",
+      "uicolor": "3",
+      "DataFields": [
+        {
+          "field": "comment",
+          "ftype": "textfield",
+          "title": "BOX SCORE INNING",
+          "value": "BOX SCORE INNING"
+        },
+        {
+          "field": "f0",
+          "ftype": "textfield",
+          "title": "Texto dinamico",
+          "value": "MITAD DEL SEGUNDO"
+        },
+        {
+          "field": "f1",
+          "ftype": "textfield",
+          "title": "ID DEL JUEGO",
+          "value": "23+1+6+35"
+        },
+        {
+          "field": "f3",
+          "ftype": "filelist",
+          "title": "Elija la imagen del patrocinador",
+          "assetfolder": "/media/images/bg/",
+          "extension": "png",
+          "value": "none"
+        }
+      ],
+      "onair": "false",
+      "imported": "1698793010847",
+      "relpath": "/softpix/Template_Pack_1.1/BYM/BOX-SCORE-INNING/BOX-SCORE-INNING.html",
+      "itemID": "1698793026340"
+    },
+    {
+      "description": "bx-score left",
+      "playserver": "OVERLAY",
+      "playchannel": "1",
+      "playlayer": "1",
+      "webplayout": "5",
+      "out": "manual",
+      "dataformat": "json",
+      "uicolor": "7",
+      "DataFields": [
+        {
+          "field": "comment",
+          "ftype": "textfield",
+          "title": "bg-box-marcadores",
+          "value": "bg-box-marcadores"
+        },
+        {
+          "field": "f0",
+          "ftype": "textfield",
+          "title": "ID DEL JUEGO",
+          "value": "23+1+6+35"
+        },
+        {
+          "field": "f6",
+          "ftype": "checkbox",
+          "title": "ACTIVAR CAMPO NOMBRE",
+          "value": "0"
+        }
+      ],
+      "onair": "false",
+      "imported": "1698793536268",
+      "relpath": "/softpix/Template_Pack_1.1/BYM/BOX-MARCADOR-OFF-BYM/BOX-MARCADOR-dataOff-BYM.html",
+      "itemID": "1698793546572"
+    }
+  ]
+}
