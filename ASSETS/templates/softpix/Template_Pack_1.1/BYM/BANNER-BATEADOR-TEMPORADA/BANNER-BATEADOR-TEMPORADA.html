@@ -1,0 +1,248 @@
+<head>
+  <script src="../../js/gsap3.2.6.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../css/spx_layout.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/spx_fonts.css" />
+  <script type="text/javascript" src="../../js/spx_interface.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+
+  <link
+    rel="stylesheet"
+    type="text/css"
+    id="DynamicTheme"
+    href="css/styles.css"
+  />
+  
+    <link
+      rel="stylesheet"
+      type="text/css"
+      id="DynamicTheme"
+      href="css/styles.css"
+    />
+  
+    <script>
+      // Template settings
+      var dev = false,
+        gotVideo = false,
+        gotImage = false,
+        gotLoop = false,
+        gotWipe = false,
+        gotContent = true,
+        fadeIn = true,
+        fadeOut = false;
+    </script>
+  
+    <script type="text/javascript">
+      window.SPXGCTemplateDefinition = {
+        description: "",
+        playserver: "OVERLAY",
+        playchannel: "1",
+        playlayer: "1",
+        webplayout: "1",
+        out: "manual",
+        dataformat: "json",
+        uicolor: "3",
+        DataFields: [
+          {
+            field: "comment",
+            ftype: "textfield",
+            title: "BATEADOR-SHORT-TEMPORADA",
+            value: "BATEADOR-SHORT-TEMPORADA",
+          },
+
+          {
+          field: "f0",
+          ftype: "textfield",
+          title: "ID DEL JUEGO",
+          value: "23+2+4++3",
+        },
+
+        {
+                "field": "f1",
+                "ftype": "dropdown",
+                "title": "BATEADORES HOMECLUB",
+                "value": "",
+                "items": [
+
+                  {
+                        "text": "bateador-N/A",
+                        "value": ""
+                    },
+                    {
+                        "text": "bateador-1",
+                        "value": "0"
+                    },
+                    {
+                        "text": "bateador-2",
+                        "value": "1"
+                    },
+                    {
+                        "text": "bateador-3",
+                        "value": "2"
+                    },
+                    {
+                        "text": "bateador-4",
+                        "value": "3"
+                    },
+                    {
+                        "text": "bateador-5",
+                        "value": "4"
+                    },
+                    {
+                        "text": "bateador-6",
+                        "value": "5"
+                    },
+                    {
+                        "text": "bateador-7",
+                        "value": "6"
+                    },
+                    {
+                        "text": "bateador-8",
+                        "value": "7"
+                    },
+                    {
+                        "text": "bateador-9",
+                        "value": "8"
+                    },
+                   
+                ]
+            },
+
+            {
+                "field": "f2",
+                "ftype": "dropdown",
+                "title": "BATEADORES VISITANTE",
+                "value": "",
+                "items": [
+                   {
+                        "text": "bateador-N/A",
+                        "value": ""
+                    },
+                    {
+                        "text": "bateador-1",
+                        "value": "0"
+                    },
+                    {
+                        "text": "bateador-2",
+                        "value": "1"
+                    },
+                    {
+                        "text": "bateador-3",
+                        "value": "2"
+                    },
+                    {
+                        "text": "bateador-4",
+                        "value": "3"
+                    },
+                    {
+                        "text": "bateador-5",
+                        "value": "4"
+                    },
+                    {
+                        "text": "bateador-6",
+                        "value": "5"
+                    },
+                    {
+                        "text": "bateador-7",
+                        "value": "6"
+                    },
+                    {
+                        "text": "bateador-8",
+                        "value": "7"
+                    },
+                    {
+                        "text": "bateador-9",
+                        "value": "8"
+                    },
+                   
+                ]
+            },
+
+            {
+                "field": "f6",
+                "ftype": "dropdown",
+                "title": "TEMPORADA",
+                "value": "2023",
+                "items": [
+
+                  {
+                        "text": "TEMPORADA-2023",
+                        "value": "2023"
+                    },
+                  {
+                        "text": "TEMPORADA-2022",
+                        "value": "2022"
+                    },
+                  {
+                        "text": "TEMPORADA-2021",
+                        "value": "2021"
+                    },
+                    {
+                        "text": "TEMPORADA-2020",
+                        "value": "2020"
+                    },
+                    {
+                        "text": "TEMPORADA-2019",
+                        "value": "2019"
+                    },
+
+                    {
+                        "text": "TEMPORADA-2018",
+                        "value": "2018"
+                    },
+                   
+                   
+                ]
+            },
+
+
+
+         
+          
+
+        ],
+      };
+    </script>
+  </head>
+  <body>
+    <div
+      id="container"
+      class="container SPXWindow SPX_AUTOSIZE"
+      data-spx-remember="Use either SPX_AUTOSIZE or SPX_FIXSIZE"
+    >
+
+    
+    <div id="cont-1" class="SHORT-HOY">
+      <div class="logo">
+        <img id="logos_equipos" height="50" alt="" />
+      </div>
+
+      <div class="cont-2">
+
+        <img width="715" height="151"  id="fondo_equipos" src="fondo_equipo/logo_team_1.png" style="position: absolute; left: 17%; z-index: 1000;" alt="">
+      
+          <div style="position: relative; left: 5%; z-index: 1000;">
+            <h1 class="name" id="name"></h1>
+          <div  style="color: black; margin-left: 25px;"  id="fxt" class="text-name"></div>
+          </div>
+        
+      
+      </div>
+    </div>
+
+     
+    
+      <div  style="opacity:0;"  id="f0"></div>
+      <div  style="opacity:0;"  id="f1"></div>
+      <div  style="opacity:0;"  id="f2"></div>
+      <div  style="opacity:0;"  id="f6"></div>
+    
+    </div>
+    <script src="../_js/jquery-3.0.0.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="js/animaciones.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/temStyles.js"></script>
+  </body>
+  

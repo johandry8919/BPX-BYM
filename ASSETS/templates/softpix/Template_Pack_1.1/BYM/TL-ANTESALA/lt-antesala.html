@@ -43,19 +43,134 @@
       "dataformat": "json",
       "uicolor": "1",
       "DataFields": [
-          {
+      {
               "field" : "comment",
               "ftype" : "textfield",
-              "title" : "lt-antesala",
-              "value" : "lt-antesala"
+              "title" : "LT-ANTESALA",
+              "value" : "LT-ANTESALA"
           },
 
+
+       
           {
-          field: "f0",
+          field: "f1",
           ftype: "textfield",
-          title: "ID DEL JUEGO",
-          value: "23+2+4++3",
+          title: "RECORD_LEFT_VISITANTE",
+          value: "0-0",
         },
+          {
+          field: "f2",
+          ftype: "textfield",
+          title: "RECORD_LEFT_HOMECLUP",
+          value: "0-0",
+        },
+          {
+          field: "f3",
+          ftype: "textfield",
+          title: "FECHA",
+          value: "JUEVES 2 DE NOVIEMBRE",
+        },
+          {
+          field: "f4",
+          ftype: "textfield",
+          title: "ESTADIO",
+          value: "ESTADIO MUNUMENTAL SIMON BOLIVAR",
+        },
+
+        {
+                "field": "f5",
+                "ftype": "dropdown",
+                "title": "ID VISITANTE LEFT",
+                "value": "1",
+                "items": [
+                   {
+                        "text": "EQUIPOS-LEFT",
+                        "value": "1"
+                    },
+                    {
+                        "text": "TIGRE",
+                        "value": "1"
+                    },
+                    {
+                        "text": "AGUILA",
+                        "value": "2"
+                    },
+                    {
+                        "text": "NAVEGANTES",
+                        "value": "3"
+                    },
+                    {
+                        "text": "LEONE",
+                        "value": "4"
+                    },
+                    {
+                        "text": "TIBURONES",
+                        "value": "5"
+                    },
+                    {
+                        "text": "CARDENALES",
+                        "value": "6"
+                    },
+                    {
+                        "text": "CARIBES",
+                        "value": "7"
+                    },
+                    {
+                        "text": "BRAVO",
+                        "value": "8"
+                    },
+                   
+                   
+                ]
+            },
+
+
+            {
+                "field": "f6",
+                "ftype": "dropdown",
+                "title": "ID HOMECLUP-RIGHT",
+                "value": "1",
+                "items": [
+                   {
+                        "text": "EQUIPOS-RIGHT",
+                        "value": "1"
+                    },
+                    {
+                        "text": "TIGRE",
+                        "value": "1"
+                    },
+                    {
+                        "text": "AGUILA",
+                        "value": "2"
+                    },
+                    {
+                        "text": "NAVEGANTES",
+                        "value": "3"
+                    },
+                    {
+                        "text": "LEONE",
+                        "value": "4"
+                    },
+                    {
+                        "text": "TIBURONES",
+                        "value": "5"
+                    },
+                    {
+                        "text": "CARDENALES",
+                        "value": "6"
+                    },
+                    {
+                        "text": "CARIBES",
+                        "value": "7"
+                    },
+                    {
+                        "text": "BRAVO",
+                        "value": "8"
+                    },
+                   
+                   
+                ]
+            },
 
       ]
   };
@@ -82,7 +197,7 @@
        
 
         <div class="box-descricion">
-          <h1>A CONTINUACION</h1>
+          <h1>A CONTINUACIÓN</h1>
           <p id="nombre_estadio">ESTADIO MUNUMENTAL SIMON BOLIVAR</p>
          
 
@@ -95,7 +210,13 @@
 
       </div>
 
-      <div style="opacity: 0;" id="f0"> </div>
+      <div style="opacity: 0; position: absolute;" id="f0"></div>
+      <div style="opacity: 0; position: absolute;" id="f1"></div>
+      <div style="opacity: 0 ; position: absolute;" id="f2"></div>
+      <div style="opacity: 0;position: absolute;" id="f3"></div>
+      <div style="opacity: 0;position: absolute;" id="f4"></div>
+      <div style="opacity: 0;position: absolute;" id="f5"></div>
+      <div style="opacity: 0;position: absolute;" id="f6"></div>
 </div >
 <script src="../_js/jquery-3.0.0.min.js"></script>
 <script src="animaciones.js"></script>

@@ -118,6 +118,7 @@ body{
   z-index: 0;
   opacity: 0;
 
+
 }
 
 .cont-3 .cont {
@@ -126,7 +127,7 @@ body{
   height: auto;
   overflow: hidden;
   box-sizing: border-box;
-  margin-top: 15px;
+  margin-top: 2px;
 }
 .cont-3 .cont .info {
   position: relative;

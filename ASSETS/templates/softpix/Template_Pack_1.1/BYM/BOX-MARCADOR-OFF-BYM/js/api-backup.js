@@ -114,7 +114,7 @@ function getDataB() {
                 var out = valueData['VALOR'][10];
 
 
-                console.log(valueData)
+            
 
              
                 if (out == '1') {

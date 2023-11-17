@@ -65,6 +65,24 @@ function initClient() {
 }
 
 function getDataB() {
+  const url = new URL(
+    "https://bss.qualitybeisbol.com/api/lineup"
+);
+
+
+  function ajustarCadena(cadena) {
+    cadena = cadena.replace(/\+/g, ' ');
+    cadena = cadena.replace(/\+/g, ' ');
+    return cadena;
+  }
+  
+  const expresion = htmlDecode(e('f0').innerText);
+  const cadenaAjustada = ajustarCadena(expresion);
+
+
+const params = {
+    id_juego:  `${cadenaAjustada}`,
+};
    gapi.client.sheets.spreadsheets.get({
        spreadsheetId: SPREADSHEET_ID
    }).then(function (response) {
@@ -87,12 +105,38 @@ function getDataB() {
                        var primeraFila = data[seleciono];
                        id_peloteros = primeraFila[1] 
                        id_equipo_jugado = primeraFila[2] 
-                       Nombre.innerText = primeraFila[0];
+                         Nombre.innerText = primeraFila[0]
+        
+                
+                    Object.keys(params)
+                        .forEach(key => url.searchParams.append(key, params[key]));
+                    fetch(url, {
+                        method: "GET",
+                        headers,
+                    }).then(response => response.json())
+                    .then(data => {
+                      let result ;
+                    parte == 0 ?  result = data.data.visitante.peloteros :  result =  data.data.homeclub.peloteros
+                     posicion_poscampo =['BD' ,'BD' , ' C' , '1B', '2B' , '3B' ,' SS' , 'LF' ,'CF' , 'RF']
 
-               
+                     result.forEach(element => {
+
+                      
+
+                      if(element.id_jugador == id_peloteros ){
 
                    
+                      
+                        Nombre.innerText = primeraFila[0] + ' ' + posicion_poscampo[element.posicion_campo];
+                      }
+                        
+                      });
+                    });
+               
                    } 
+
+
+             
 
                    if(e('f3')){
                     if(e('f3').innerText == 'none'){
@@ -113,19 +157,7 @@ function getDataB() {
 
 
             
-                 function ajustarCadena(cadena) {
-                  cadena = cadena.replace(/\+/g, ' ');
-                  cadena = cadena.replace(/\+/g, ' ');
-                  return cadena;
-                }
-                
-                const expresion = htmlDecode(e('f0').innerText);
-                const cadenaAjustada = ajustarCadena(expresion);
               
-            
-              const params = {
-                  id_juego:  `${cadenaAjustada}`,
-              };
               
               const url1 = "https://bss.qualitybeisbol.com/api/boxscore";
             
@@ -140,10 +172,6 @@ function getDataB() {
             
                     } = result1.data.juego;
 
-
-                  
-                    console.log(result1.data)
-            
                     let iquipo_juega;
                     parte == 0 ? iquipo_juega = id_bateador_visitante : iquipo_juega = id_bateador_homeclub
                     const url = new URL(

@@ -47,7 +47,7 @@ body{
   font-size: 30px;
 }
 .star .fecha {
-  font-size: 30px;
+  font-size: 25px;
 }
 .star .record-homeclub {
   margin-right: 10%;
@@ -103,6 +103,8 @@ body{
   text-align: center;
   padding-left: 10px;
   padding-right: 10px;
+  text-wrap: wrap;
+  font-size: 30px;
 }
 
 

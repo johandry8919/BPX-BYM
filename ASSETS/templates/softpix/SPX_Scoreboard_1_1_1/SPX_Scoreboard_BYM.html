@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>bg-box-marcadores</title>
+
+    <script src="../Template_Pack_1.1/js/gsap3.2.6.min.js"></script>
+    <script type="text/javascript" src="jss/spx_interface.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      id="DynamicTheme"
+      href="themes/styles.css"
+    />
+
+    <script type="text/javascript">
+      window.SPXGCTemplateDefinition = {
+        "defversion": "1",
+        description: "bx-score left",
+        playserver: "OVERLAY",
+        playchannel: "1",
+        playlayer: "19",
+        webplayout: "19",
+        out: "manual",
+        dataformat: "json",
+        uicolor: "7",
+        DataFields: [
+          {
+            field: "comment",
+            ftype: "textfield",
+            title: "bg-box-marcadores",
+            value: "bg-box-marcadores",
+          },
+
+         
+       
+        ],
+      };
+    </script>
+  </head>
+
+  <body>
+    <div
+      class="gfx"
+
+    >
+
+  <spxcol>
+
+    <div id="period"></div>
+    <spxcol style="flex: 2;" class="clock">
+        <span id="clock">00:00</span>
+        
+    </spxcol>
+  
+    <spxcol id="hometeam" class="team" style="flex: 4; text-align: center;" >
+      <span id="homeTeam">Tigres</span>
+  </spxcol>
+  
+  <spxcol id="awayteam" class="team" style="flex: 4; text-align: center;">
+    <span id="awayTeam">Tigres</span>
+  </spxcol>
+  
+    <spxcol style="flex: 1;">
+        <span id="spacer"></span>
+    </spxcol>
+      <div id="miElemento"></div>
+      <div id="TG" class="container">
+        <div id="styles" class="styles"></div>
+        <div class="font1"></div>
+
+        <div style="display: none;" id="box-top" class="box-top">
+          <div id="boxscore1" class="boxscore1">
+            <span id="f1_gfx"></span>
+            <span id="numeroLanzamiento"></span>
+            <div class="boxscorebackground"></div>
+          </div>
+        </div>
+        <div style="display: none;" id="box-botton" class="box-botton">
+          <div id="visitante" class="visitante">
+            <span id="f0_gfx"></span>
+            <span id="ave"></span>
+          </div>
+        </div>
+
+        <div id="line1" class="">
+          <div id="" class="logos">
+            <!--fondo de los logo de equipo-->
+            <div id="fondoLogo1" class="fondoLogo">
+              <img
+                width="100%"
+                height="87px"
+               
+                id="id_equipo_visitante"
+                src=""
+              />
+            </div>
+
+            <div id="fondoLogo2" class="fondoLogo">
+              <img height="83px"  width="100%"  id="id_equipo_homeclub" src="" />
+            </div>
+            <!--fondo de los logo de equipo-->
+          </div>
+
+          <!--carreras-->
+          <div class="carreras">
+      
+            
+            <spxcol id="hometeam" >
+        
+              <div class="carreras_visitante" id="homeScore">0</div>
+          </spxcol>
+          <spxcol id="" >
+            
+              <div class="carreras_homeclub" id="awayScore">0</div>
+          </spxcol>
+  
+          
+  
+            </div>
+      
+          <div class="bases">
+
+            <div id="cont-base" class="cont-base">
+              <div id="hombre_primera"></div>
+              <div id="hombre_segunda"></div>
+              <div id="hombre_tercera"></div>
+            </div>
+            <div id="outs" class="outs">
+              <div class="outs1" id="outs1"></div>
+              <div class="outs2" id="outs2"></div>
+            </div>
+          </div>
+          <!--Base-->
+
+          <!--inning-strikes-->
+
+          <div id="inning-strikes" class="inning-strikes">
+            <p id="INNING" class="inning"></p>
+            <div id="triangle" class="triangle">
+              
+            </div>
+            
+
+            <div style="display: flex; width: 80px;justify-content: space-between; position: absolute ; right: 0; align-items: center;">
+              <div class="BOLA" id="BOLAScore">0</div>
+
+              <div>-</div>
+
+              <div class="BOLA" id="STRIKESScore">0</div>
+            </div>
+          </div>
+
+          <!--inning-strikes-->
+        </div>
+      </div>
+      <div style="opacity:0;"  id="f99"></div>
+
+
+      <spxrow id="parte">
+        <div style="opacity: 0;" id="PARTE" class="PARTE">BAJA</div>
+      </spxrow>
+    
+
+    </spxcol>
+    </div >
+
+
+    <script>
+      let durationIN = 500
+      let durationOUT = 200
+
+      function runAnimationOUT() {
+          // STOP
+          const tlOut = anime.timeline({duration: durationOUT})
+          tlOut
+              .add( { targets: '#gfx', translateY:[0,'-100%'], easing: 'easeInCirc'} )
+              .add( { targets: '#gfx', opacity:[1,0], easing: 'linear'}, 100 )
+          tlOut.play()
+      }
+
+      function updateTemplateField(element,str) {
+
+       let PARTE =  document.getElementById('PARTE').innerText
+   
+       if(PARTE=='ALTA'){
+                    triangle.classList.add("up");
+                    triangle.classList.remove("down");
+                }else{
+                    triangle.classList.add("down");
+                    triangle.classList.remove("up");
+                }
+
+
+        const Id_equipo_homeclub = document.getElementById("id_equipo_homeclub");
+        const Id_equipo_visitante = document.getElementById("id_equipo_visitante");
+
+        
+        const teamNames = ['Tigres', 'Águilas', 'Navegantes', 'Leones', 'Tiburones', 'Cardenales', 'Caribes', 'Bravos'];
+          const homeclub = document.getElementById('awayTeam').innerText;
+
+          const teamIndex = teamNames.indexOf(homeclub);
+
+          if (teamIndex !== -1) {
+            Id_equipo_homeclub.src = array_logo[teamIndex + 1].img_url;
+          }
+            const visitante = document.getElementById('homeTeam').innerText
+
+            const teamIndex2 = teamNames.indexOf(visitante);
+
+          if (teamIndex2 !== -1) {
+            Id_equipo_visitante.src = array_logo[teamIndex2 + 1].img_url;
+          }
+
+          
+          // Handle incoming text updates from the Scoreboard plugin
+          if ( !element || !str ) {
+              console.log('Missing data! Expecting 2 parameters');
+              return
+          }
+
+          if (element.includes('Score')) {
+              setTimeout(() => { e(element).innerText = htmlDecode(str); }, 100);
+              const scoreFX = anime.timeline({duration: 100})
+              const TeamEle = e(element);
+              scoreFX
+                  .add( { targets: TeamEle, scale: [1,0], easing: 'easeInOutBack'} )
+                  .add( { targets: TeamEle, scale: [2,1], easing: 'easeOutBack'}, '100' )
+              scoreFX.play()
+              return
+          }
+          e(element).innerHTML = htmlDecode(str);
+      }
+
+      function updateSponsorLogo(imgName) {
+       
+      }
+      const colorDeBase = "#fff";
+
+      function periodDisplay(str) {
+        const Hombre_primera = document.getElementById("hombre_primera");
+        
+            if (str) {
+              Hombre_primera.style.backgroundColor = colorDeBase;
+              
+            } else if(!str) {
+              Hombre_primera.style.backgroundColor = ''
+            }
+            
+        }
+
+        function footerTextDisplay(segunda) {
+          const Hombre_segunda = document.getElementById("hombre_segunda");
+            if (!segunda) {
+              Hombre_segunda.style.backgroundColor = '';
+            } else {
+              Hombre_segunda.style.backgroundColor = colorDeBase;
+               
+            }
+
+
+           
+        }
+
+        function updateSponsorLogo(tercera) {
+          const Hombre_tercera = document.getElementById("hombre_tercera");
+            if (!tercera) {
+              Hombre_tercera.style.backgroundColor = '';
+            } else {
+              Hombre_tercera.style.backgroundColor = colorDeBase;
+               
+            }
+
+        }
+
+
+        function updateSOUTS(out){
+          const outs1 = document.getElementById("outs1");
+          const outs2 = document.getElementById("outs2");
+
+          if (out == 1) {
+                    outs1.classList.add("activate");
+                } else if (out == 2) {
+                    outs1.classList.add("activate");
+                    outs2.classList.add("activate");
+                } else {
+                    outs1.classList.remove("activate");
+                    outs2.classList.remove("activate");
+                }
+
+        }
+
+      function scoreboardStyle(value) {
+          // This is an example handler of an extra item of Scoreboard plugin
+          let curClipPath = e('gfx').style.clipPath;
+          switch (value) {
+              case 'full':
+                  anime({
+                      targets: '#gfx',
+                      webkitClipPath: [curClipPath, 'inset(0% 0% 0% 0%)'],
+                      duration: 500, easing: 'easeInQuad'
+                  } )
+                  break;
+              
+              case 'clock':
+                  anime({
+                      targets: '#gfx',
+                      webkitClipPath: [curClipPath, 'inset(0% 0% 0% 80%)'],
+                      duration: 500, easing: 'easeOutQuad'
+                  } )
+                  break;
+          
+              default:
+                  console.log('Unknown value ' + value);
+                  break;
+          }
+      }
+  </script>
+ 
+   
+ <script type="text/javascript" src="jss/animaciones.js"></script> 
+ <script type="text/javascript" src="jss/temStyles.js"></script>
+ <script src="js/spx_scoreboard.js"></script>
+ <script src="js/lib/anime.min.js"></script>
+
+  </body>
+</html>

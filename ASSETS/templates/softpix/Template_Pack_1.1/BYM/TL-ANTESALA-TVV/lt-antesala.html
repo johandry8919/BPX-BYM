@@ -1,0 +1,225 @@
+<head>
+
+  
+      <!-- ### CASPAR ### -->
+      <script src="../../js/gsap3.2.6.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/spx_layout.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/spx_fonts.css" />
+    <script type="text/javascript" src="../../js/spx_interface.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+   
+    <link
+      rel="stylesheet"
+      type="text/css"
+      id="DynamicTheme"
+      href="styles.css"
+    />
+
+
+  <script>
+    
+    // Template settings
+    var dev = false,
+    gotVideo = false,
+    gotImage = false,
+    gotLoop = false,
+    gotWipe = false,
+    gotContent = true,
+    fadeIn = true,
+    fadeOut = false;
+
+  </script>
+
+<script type="text/javascript">
+  window.SPXGCTemplateDefinition = {
+      "description": "",
+      "playserver": "OVERLAY",
+      "playchannel": "1",
+      "playlayer": "1",
+      "webplayout": "1",
+      "out": "manual",
+      "dataformat": "json",
+      "uicolor": "1",
+      "DataFields": [
+          {
+              "field" : "comment",
+              "ftype" : "textfield",
+              "title" : "LT-ANTESALA",
+              "value" : "LT-ANTESALA"
+          },
+
+
+       
+          {
+          field: "f1",
+          ftype: "textfield",
+          title: "RECORD_LEFT_VISITANTE",
+          value: "0-0",
+        },
+          {
+          field: "f2",
+          ftype: "textfield",
+          title: "RECORD_LEFT_HOMECLUP",
+          value: "0-0",
+        },
+          {
+          field: "f3",
+          ftype: "textfield",
+          title: "FECHA",
+          value: "JUEVES 2 DE NOVIEMBRE",
+        },
+          {
+          field: "f4",
+          ftype: "textfield",
+          title: "ESTADIO",
+          value: "ESTADIO MUNUMENTAL SIMON BOLIVAR",
+        },
+
+        {
+                "field": "f5",
+                "ftype": "dropdown",
+                "title": "ID VISITANTE LEFT",
+                "value": "1",
+                "items": [
+                   {
+                        "text": "EQUIPOS-LEFT",
+                        "value": "1"
+                    },
+                    {
+                        "text": "TIGRE",
+                        "value": "1"
+                    },
+                    {
+                        "text": "AGUILA",
+                        "value": "2"
+                    },
+                    {
+                        "text": "NAVEGANTES",
+                        "value": "3"
+                    },
+                    {
+                        "text": "LEONE",
+                        "value": "4"
+                    },
+                    {
+                        "text": "TIBURONES",
+                        "value": "5"
+                    },
+                    {
+                        "text": "CARDENALES",
+                        "value": "6"
+                    },
+                    {
+                        "text": "CARIBES",
+                        "value": "7"
+                    },
+                    {
+                        "text": "BRAVO",
+                        "value": "8"
+                    },
+                   
+                   
+                ]
+            },
+
+
+            {
+                "field": "f6",
+                "ftype": "dropdown",
+                "title": "ID HOMECLUP-RIGHT",
+                "value": "1",
+                "items": [
+                   {
+                        "text": "EQUIPOS-RIGHT",
+                        "value": "1"
+                    },
+                    {
+                        "text": "TIGRE",
+                        "value": "1"
+                    },
+                    {
+                        "text": "AGUILA",
+                        "value": "2"
+                    },
+                    {
+                        "text": "NAVEGANTES",
+                        "value": "3"
+                    },
+                    {
+                        "text": "LEONE",
+                        "value": "4"
+                    },
+                    {
+                        "text": "TIBURONES",
+                        "value": "5"
+                    },
+                    {
+                        "text": "CARDENALES",
+                        "value": "6"
+                    },
+                    {
+                        "text": "CARIBES",
+                        "value": "7"
+                    },
+                    {
+                        "text": "BRAVO",
+                        "value": "8"
+                    },
+                   
+                   
+                ]
+            },
+
+      ]
+  };
+
+  
+</script>
+
+
+</head>
+<body>
+<div id="container" class="container   SPXWindow SPX_AUTOSIZE" data-spx-remember="Use either SPX_AUTOSIZE or SPX_FIXSIZE">
+      <div id="star" class="star">
+      
+        <div class="record-visitante" id="record_visitante">30-10</div>
+        <div class="fecha" id="fecha"></div>
+        <div class="record-homeclub" id="record_homeclub">30-10</div>
+      </div>
+  
+  <div id="box-left"  class="box-left">
+    <div id="styles-left" class="styles-left"></div>
+    <img width="100%" id="id_equipo_visitante" src="" alt="visitante">
+  </div>
+      <div id="box-center"   class="box-center">
+       
+
+        <div class="box-descricion">
+          <h1 >A CONTINUACIÓN</h1>
+          <p style="text-wrap: wrap;" id="nombre_estadio">ESTADIO MUNUMENTAL SIMON BOLIVAR</p>
+          
+        </div>
+
+      </div>
+      <div id="box-right"  class="box-right">
+        <div id="styles-right" class="styles-right"></div>
+        <img width="100%"  id="id_equipo_homeclub" src="" alt="homeclub">
+
+      </div>
+
+      <div style="opacity: 0; position: absolute;" id="f0"></div>
+      <div style="opacity: 0; position: absolute;" id="f1"></div>
+      <div style="opacity: 0 ; position: absolute;" id="f2"></div>
+      <div style="opacity: 0;position: absolute;" id="f3"></div>
+      <div style="opacity: 0;position: absolute;" id="f4"></div>
+      <div style="opacity: 0;position: absolute;" id="f5"></div>
+      <div style="opacity: 0;position: absolute;" id="f6"></div>
+</div >
+<script src="../_js/jquery-3.0.0.min.js"></script>
+<script src="animaciones.js"></script>
+<script src="api.js"></script>
+<script src="temStyles.js"></script>
+
+</body>

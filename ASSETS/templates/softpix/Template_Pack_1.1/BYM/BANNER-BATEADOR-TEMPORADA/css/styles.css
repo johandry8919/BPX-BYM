@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+
+*{
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+
+}
+
+
+.container{
+    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 1500px;
+    height: 151px;
+    bottom: 135px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+    color: white;
+   
+    
+}
+.logo{
+    width: 146px;
+    height: 151px;
+    
+}
+.logo img{
+    width: 100%;
+    height: 151px;
+    opacity: 0;
+    
+}
+
+.cont-1{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   position: absolute;
+   left: 0;
+   opacity: 0;
+}
+
+
+.cont-1 .cont-2{
+    width: 711px;
+    height: 151px;
+    text-align: center;
+    text-transform: uppercase;
+    z-index:0;
+   
+}
+ .name{
+    font-size: 60px;
+    text-align: start;
+     margin-left: 25px;
+    z-index: 1000;
+    padding: 0;
+    margin-top: 15px;
+}
+ .text-name{
+    letter-spacing: 1px;
+    font-size: 28px;
+    text-align: start;
+    margin-left: 3%;
+    margin-top: 20px;
+    overflow: hidden;
+    
+ 
+}
+
+.cont-3{
+    width: 647px;
+    height: 151px;
+    background-image: url('../img/cont-3.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+    z-index: 0;
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+   
+    
+
+    
+}
+.cont-3 .cont-1{
+    width:90%;
+    height: auto;
+    z-index: 0;
+    opacity: 1;
+    position: absolute;
+    top: 25px;
+    display: flex;
+    font-size: 43px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    
+}
+.cont-3 .cont-1 div{ margin-left: 15px;}
+.cont-3 .cont-1 div span{font-size: 20px;letter-spacing: 5px;}
+
+.cont-3 .cont-2{
+    width:250px;
+    z-index: 0;
+    opacity: 1;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+     bottom: 25px;
+    font-size: 25px;
+    text-align: center;
+    background-color: red;
+
+}
+
+
+
+
+
+
+.contcenter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    opacity: 0;
+   
+ }
+
+ .contcenter .cont-2{
+    width: 711px;
+    height: 151px;
+    text-align: center;
+    text-transform: uppercase;
+    z-index:0;
+  
+}
+
+
+
+
+.cont-4{
+    width: 647px;
+    height: 151px;
+    position: absolute;
+    right: 0;
+    background-image: url('../img/cont-3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    z-index: 0;
+   
+}
+
+.SHORT-HOY{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    left: 20%;
+ }
+ 
+ .SHORT-HOY .cont-2{
+     width: 711px;
+     height: 151px;
+     text-align: center;
+     text-transform: uppercase;
+     z-index:0;
+ }
+

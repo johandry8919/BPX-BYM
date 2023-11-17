@@ -55,6 +55,54 @@ function getDataB() {
                        id_peloteros = primeraFila[1] 
                        id_equipo_jugado = primeraFila[2] 
 
+                       posicion_poscampo =['BD' ,'BD' , ' C' , '1B', '2B' , '3B' ,' SS' , 'LF' ,'CF' , 'RF']
+
+                       function processNextPlayer() {
+                        if (currentIndex < jugadores.length) {
+                            const element = id_peloteros;
+                            const url = new URL("https://bss.qualitybeisbol.com/api/anual-pelotero-ave");
+                
+                            const params = {
+                                id_bateador: element.id_jugador,
+                                periodo: "TR",
+                                temporada: "2023",
+                            };
+                
+                            for (const key in params) {
+                                url.searchParams.append(key, params[key]);
+                            }
+                
+                            fetch(url, {
+                                method: "GET",
+                                headers,
+                            })
+                                .then((response) => response.json())
+                                .then((data) => {
+
+                                    console.log(  posicion_poscampo[element.posicion_campo])
+
+                                    if(currentIndex >= 8 ){
+                                      
+
+                                     runAnimationIN(); // Inicia el proceso con el primer jugador
+
+                                    }
+                
+                                   
+                                    currentIndex++;
+                                    processNextPlayer(); // Llama a la siguiente iteración
+                                    
+                                })
+                                .catch((error) => {
+                                    console.error("Error:", error);
+                                    currentIndex++;
+                                    processNextPlayer(); // Llama a la siguiente iteración
+                                });
+                        }
+                    }
+                    
+                    processNextPlayer();
+
                        document.getElementById('f1_gfx2').innerHTML = primeraFila[0]
 
                    } 

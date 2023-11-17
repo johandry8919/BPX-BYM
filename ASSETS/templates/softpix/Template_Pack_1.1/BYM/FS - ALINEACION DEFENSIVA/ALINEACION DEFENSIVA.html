@@ -1,0 +1,150 @@
+<head>
+    <!-- ### CASPAR ### -->
+    <script src="../../js/gsap3.2.6.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/spx_layout.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/spx_fonts.css" />
+    <script type="text/javascript" src="../../js/spx_interface.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+  
+    <link
+      rel="stylesheet"
+      type="text/css"
+      id="DynamicTheme"
+      href="css/styles.css"
+    />
+  
+      
+  
+  
+    <script type="text/javascript">
+      window.SPXGCTemplateDefinition = {
+        description: "",
+        playserver: "OVERLAY",
+        playchannel: "1",
+        playlayer: "1",
+        webplayout: "1",
+        out: "manual",
+        dataformat: "json",
+        uicolor: "3",
+        DataFields: [
+          {
+            field: "comment",
+            ftype: "textfield",
+            title: "ALINEACION DEFENSIVA",
+            value: "ALINEACION DEFENSIVA",
+          },
+
+          {
+          field: "f0",
+          ftype: "textfield",
+          title: "ID DEL JUEGO",
+          value: "23+1+8+60",
+        },
+
+        {
+                "field": "f1",
+                "ftype": "dropdown",
+                "title": "EQUIPO QUE JUEGA",
+                "value": "",
+                "items": [
+
+                  {
+                        "text": "visitante",
+                        "value": "0"
+                    },
+                    {
+                        "text": "homeclub",
+                        "value": "1"
+                    },
+                   
+                   
+                ]
+            },
+
+
+          {
+                  "field": "f3",
+                  "ftype": "filelist",
+                  "title": "Elija la imagen del patrocinador",
+                  "assetfolder" : "/media/images/bg/" ,
+                  "extension" : "png",
+                  "value": "none",
+              },
+  
+         
+        ],
+      };
+    </script>
+  </head>
+  <body>
+  
+    
+    <div
+      id="container"
+      class="container SPXWindow SPX_AUTOSIZE"
+      data-spx-remember="Use either SPX_AUTOSIZE or SPX_FIXSIZE"
+    >
+
+    <div id="video-container" class="video-container">
+      <video class="videos"  id="video">
+        
+      </video>
+
+
+      <div style="display: none;" id="cont-2" class="cont2 " id="animacion"></div>
+
+
+     
+
+      <div class="cont-1">
+
+        <div class="logo">
+          <img id="logoPatrocinio" height="95" width="290" src="" alt="">
+        </div>
+
+
+        <div id="cont" class="cont"> 
+
+          <div class="posicion posicion1">
+            <div id="text_posicion_1" ><p id="posicion_8"></p></div>
+            <div id="text_posicion_1" ><p id="posicion_7"></p></div>
+            <div id="text_posicion_1" ><p id="posicion_9"></p></div>
+          </div>
+
+          <div class="posicion-b posicion2">
+            <div id="text_posicion_2" ><p id="posicion_6"></p></div>
+            <div id="text_posicion_2" ><p id="posicion_4"></p></div>
+          </div>
+          <div class="posicion-c posicion3">
+            <div id="text_posicion_3" ><p id="posicion_5"></p></div>
+            <div id="text_posicion_3" ><p id="posicion_1"></p></div>
+            <div id="text_posicion_3" ><p id="posicion_3"></p></div>
+          </div>
+
+          <div class="posicion-e posicion4">
+            <div  id="text_posicion_9"><p id="posicion_2"></p></div>
+           
+          </div>
+        
+          </div>
+
+
+       
+      </div>
+  </div>
+
+  
+  <div style="opacity: 0" id="f3"></div>
+  <div style="opacity: 0" id="f0"></div>
+  <div style="opacity: 0" id="f1"></div>
+  
+    </div>
+    <script src="../_js/jquery-3.0.0.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="js/animaciones.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/temStyles.js"></script>
+   
+  </body>
