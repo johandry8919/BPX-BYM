@@ -36,6 +36,7 @@ var  parte;
 let bateadores1 = htmlDecode(e('f1').innerText)
 let bateadores2 = htmlDecode(e('f2').innerText)
 let Temporada = htmlDecode(e('f6').innerText)
+let periodo = htmlDecode(e('f7').innerText)
 let seleciono;
 
 if(bateadores1 != ''){
@@ -146,7 +147,7 @@ function getDataB() {
                   
                   const params = {
                       "id_bateador": id_peloteros,
-                      "periodo": "TR",
+                      "periodo": periodo,
                       "temporada":Temporada,
                       
                       
@@ -163,8 +164,13 @@ function getDataB() {
 
                   
                     logos_equipos.src = Logos_equipos[id_equipo_jugado].img_url;
+
+                    if(periodo == "RR" &&  Temporada == "2023" ) Temporada = "2024"
+                    else if (periodo == "F" &&  Temporada == "2023") Temporada = "2024"
+                  if(periodo == "RR" &&  Temporada == "2018" ) Temporada = "2019"
+                    else if (periodo == "F" &&  Temporada == "2018") Temporada = "2019"
                    
-                    document.getElementById('fxt').innerText = `${Temporada}  :    AVG  ${0} /  CA ${0} /  H ${0} / HR ${0}  / CI ${0} `;
+                    document.getElementById('fxt').innerText = `${periodo} ${Temporada}   AVG  ${0} /  CA ${0} /  H ${0} / HR ${0}  / CI ${0} `;
                     datas.data.forEach((element, index) => {
 
                         function convertirNumero(numero) {
@@ -186,7 +192,7 @@ function getDataB() {
 
                     if(parte == 1){
                       if(document.getElementById('fxt')){ 
-                        document.getElementById('fxt').innerText = ` ${Temporada}  :    AVG  ${AVE} /  CA ${element.CA} /  H ${element.HIT} / HR ${element.HR}  / CI ${element.CI} `;
+                        document.getElementById('fxt').innerText = `${periodo} ${Temporada}    AVG  ${AVE} /  CA ${element.CA} /  H ${element.HIT} / HR ${element.HR}  / CI ${element.CI} `;
                        
                       }
             
@@ -197,7 +203,7 @@ function getDataB() {
                      
             
                       if(document.getElementById('fxt')){
-                        document.getElementById('fxt').innerText = ` ${Temporada}  :    AVG  ${AVE} /  CA ${element.CA} /  H ${element.HIT} / HR ${element.HR}  / CI ${element.CI} `;
+                        document.getElementById('fxt').innerText = `${periodo} ${Temporada}    AVG  ${AVE} /  CA ${element.CA} /  H ${element.HIT} / HR ${element.HR}  / CI ${element.CI} `;
                        
                       }
                       

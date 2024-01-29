@@ -1,0 +1,62 @@
+#gfx {
+    display:                    block;
+    position:                   absolute;
+    left:                       var(--edge-margin-left);
+    right:                      var(--edge-margin-right);
+    top:                        var(--edge-margin-top);
+    height:                     var(--scoreboard-height);
+    border:                     0px solid rgb(255, 0, 0);
+    opacity:                    0; /* animated */
+    color:                      white;
+    font-family:                'BOLD';
+    font-size:                  3em;
+    background-color:           var(--background-color);
+    background-image:           var(--background-image);
+    background-position:        top right;
+    clip-path:                  inset(0% 0% 0% 0%); /* animated */
+}
+
+spxrow {
+    position: relative;
+    display: flex;
+    gap: 1em;
+    flex: 0 0 auto;
+    flex-direction: row;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: 0px dotted green;
+    padding: 0 0 0 1em;
+}
+
+spxcol {
+    flex: 1;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.team {
+    font-family: var(--teamname-font);
+    font-size: var(--teamname-fontsize);
+    color: var(--teamname-color);
+    text-shadow: var(--teamname-shadow);
+}
+
+.score {
+    font-family: var(--score-font);
+    font-size: var(--score-fontsize);
+    color: var(--score-color);
+    text-shadow: var(--score-shadow);
+}
+
+.clock {
+    font-family: var(--clock-font);
+    font-size: var(--clock-fontsize);
+    color: var(--clock-color);
+    text-shadow: var(--clock-shadow);
+}

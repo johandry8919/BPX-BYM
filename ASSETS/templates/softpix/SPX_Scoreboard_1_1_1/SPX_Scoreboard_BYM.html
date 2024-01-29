@@ -52,16 +52,16 @@
   <spxcol>
 
     <div id="period"></div>
-    <spxcol style="flex: 2;" class="clock">
+    <spxcol style="flex: 2; opacity: 0;" class="clock">
         <span id="clock">00:00</span>
         
     </spxcol>
   
-    <spxcol id="hometeam" class="team" style="flex: 4; text-align: center;" >
+    <spxcol id="hometeam" class="team" style="flex: 4; text-align: center; opacity: 0;" >
       <span id="homeTeam">Tigres</span>
   </spxcol>
   
-  <spxcol id="awayteam" class="team" style="flex: 4; text-align: center;">
+  <spxcol id="awayteam" class="team" style="flex: 4; text-align: center; opacity: 0;">
     <span id="awayTeam">Tigres</span>
   </spxcol>
   
@@ -73,16 +73,26 @@
         <div id="styles" class="styles"></div>
         <div class="font1"></div>
 
-        <div style="display: none;" id="box-top" class="box-top">
+        <div style="display: none" id="box-top" class="box-top">
+          <p
+            style="
+              position: absolute;
+              right: 55px;
+              font-size: 30px;
+              top: -28px;
+            "
+          >
+            L
+          </p>
           <div id="boxscore1" class="boxscore1">
-            <span id="f1_gfx"></span>
-            <span id="numeroLanzamiento"></span>
+            <span id="LANZADOR"></span>
+            <span id="lanzaminto"> </span>
             <div class="boxscorebackground"></div>
           </div>
         </div>
-        <div style="display: none;" id="box-botton" class="box-botton">
+        <div style="display: none" id="box-botton" class="box-botton">
           <div id="visitante" class="visitante">
-            <span id="f0_gfx"></span>
+            <span id="BATIADOR"></span>
             <span id="ave"></span>
           </div>
         </div>
@@ -164,6 +174,33 @@
       <spxrow id="parte">
         <div style="opacity: 0;" id="PARTE" class="PARTE">BAJA</div>
       </spxrow>
+
+          <spxrow id="primera">
+      <div style="opacity: 0;" id="PRIMERA" class="PRIMERA">0</div>
+    </spxrow>
+    <spxrow id="segunda">
+      <div style="opacity: 0;" id="SEGUNDA" class="PRIMERA">0</div>
+    </spxrow>
+    <spxrow id="tercera">
+      <div style="opacity: 0;" id="TERCERA" class="TERCERA">0</div>
+    </spxrow>
+    <spxrow id="outs">
+      <div style="opacity: 0;" id="OUTS" class="OUTS">0</div>
+    </spxrow>
+
+    <spxrow>
+      <div style="opacity: 0" id="NOMBRE"></div>
+    </spxrow>
+    <spxrow>
+      <div style="opacity: 0" id="id_juego"></div>
+    </spxrow>
+    <spxrow>
+      <div style="opacity: 0" id="Lanzamientohome">0</div>
+    </spxrow>
+    <spxrow>
+      <div style="opacity: 0" id="numeroLanzamiento">0</div>
+    </spxrow>
+ 
     
 
     </spxcol>
@@ -171,156 +208,273 @@
 
 
     <script>
-      let durationIN = 500
-      let durationOUT = 200
-
+      let durationIN = 500;
+      let durationOUT = 200;
       function runAnimationOUT() {
-          // STOP
-          const tlOut = anime.timeline({duration: durationOUT})
-          tlOut
-              .add( { targets: '#gfx', translateY:[0,'-100%'], easing: 'easeInCirc'} )
-              .add( { targets: '#gfx', opacity:[1,0], easing: 'linear'}, 100 )
-          tlOut.play()
+        // STOP
+        const tlOut = anime.timeline({ duration: durationOUT });
+        tlOut
+          .add({
+            targets: "#gfx",
+            translateY: [0, "-100%"],
+            easing: "easeInCirc",
+          })
+          .add({ targets: "#gfx", opacity: [1, 0], easing: "linear" }, 100);
+        tlOut.play();
       }
 
-      function updateTemplateField(element,str) {
+      function updateTemplateField(element, str) {
+        let PARTE = document.getElementById("PARTE").innerText;
+        if (PARTE == "BAJA" && element != "Lanzamientohome")
+          document.getElementById("lanzaminto").innerText =
+            document.getElementById("Lanzamientohome").innerText;
+        if (PARTE == "ALTA" && element != "numeroLanzamiento")
+          document.getElementById("lanzaminto").innerText =
+            document.getElementById("numeroLanzamiento").innerText;
 
-       let PARTE =  document.getElementById('PARTE').innerText
-   
-       if(PARTE=='ALTA'){
-                    triangle.classList.add("up");
-                    triangle.classList.remove("down");
-                }else{
-                    triangle.classList.add("down");
-                    triangle.classList.remove("up");
+        if (element == "Lanzamientohome" && PARTE == "BAJA") {
+          document.getElementById("lanzaminto").innerText = str;
+        } else if (element == "numeroLanzamiento" && PARTE == "ALTA") {
+          document.getElementById("lanzaminto").innerText = str;
+        }
+
+        let nombre = document.getElementById("NOMBRE").innerText;
+        if (nombre == "ACTIVO") {
+          document.getElementById("box-top").style.display = "block";
+          document.getElementById("box-botton").style.display = "block";
+        }
+
+        let lanzador = document.getElementById("LANZADOR").innerText;
+        let batiador = document.getElementById("BATIADOR").innerText;
+
+        let primera = document.getElementById("PRIMERA").innerText;
+        let segunda = document.getElementById("SEGUNDA").innerText;
+        let tercera = document.getElementById("TERCERA").innerText;
+        const out = document.getElementById("OUTS").innerText;
+        const Hombre_primera = document.getElementById("hombre_primera");
+        const Hombre_segunda = document.getElementById("hombre_segunda");
+        const Hombre_tercera = document.getElementById("hombre_tercera");
+
+        if (primera === "1") {
+          Hombre_primera.style.backgroundColor = colorDeBase;
+        } else if (primera === "0") {
+          Hombre_primera.style.backgroundColor = "";
+        }
+
+        if (segunda === "1") {
+          Hombre_segunda.style.backgroundColor = colorDeBase;
+        } else if (segunda === "0") {
+          Hombre_segunda.style.backgroundColor = "";
+        }
+
+        if (tercera === "1") {
+          Hombre_tercera.style.backgroundColor = colorDeBase;
+        } else if (tercera === "0") {
+          Hombre_tercera.style.backgroundColor = "";
+        }
+
+        const outs1 = document.getElementById("outs1");
+        const outs2 = document.getElementById("outs2");
+
+        if (out == "1") {
+          outs1.classList.add("activate");
+        } else if (out == "2") {
+          outs1.classList.add("activate");
+          outs2.classList.add("activate");
+        } else {
+          outs1.classList.remove("activate");
+          outs2.classList.remove("activate");
+        }
+
+        if (PARTE == "ALTA") {
+          triangle.classList.add("up");
+          triangle.classList.remove("down");
+        } else {
+          triangle.classList.add("down");
+          triangle.classList.remove("up");
+        }
+
+        const Id_equipo_homeclub =
+          document.getElementById("id_equipo_homeclub");
+        const Id_equipo_visitante = document.getElementById(
+          "id_equipo_visitante"
+        );
+
+        const teamNames = [
+          "Tigres",
+          "Águilas",
+          "Navegantes",
+          "Leones",
+          "Tiburones",
+          "Cardenales",
+          "Caribes",
+          "Bravos",
+        ];
+        const homeclub = document.getElementById("awayTeam").innerText;
+
+        const teamIndex = teamNames.indexOf(homeclub);
+
+        if (teamIndex !== -1) {
+          Id_equipo_homeclub.src = array_logo[teamIndex + 1].img_url;
+        }
+        const visitante = document.getElementById("homeTeam").innerText;
+
+        const teamIndex2 = teamNames.indexOf(visitante);
+
+        if (teamIndex2 !== -1) {
+          Id_equipo_visitante.src = array_logo[teamIndex2 + 1].img_url;
+        }
+
+        // Handle incoming text updates from the Scoreboard plugin
+        if (!element || !str) {
+          console.log("Missing data! Expecting 2 parameters");
+          return;
+        }
+
+        if (element.includes("Score")) {
+          setTimeout(() => {
+            e(element).innerText = htmlDecode(str);
+          }, 100);
+          const scoreFX = anime.timeline({ duration: 100 });
+          const TeamEle = e(element);
+          scoreFX
+            .add({ targets: TeamEle, scale: [1, 0], easing: "easeInOutBack" })
+            .add(
+              { targets: TeamEle, scale: [2, 1], easing: "easeOutBack" },
+              "100"
+            );
+          scoreFX.play();
+          return;
+        }
+        e(element).innerHTML = htmlDecode(str);
+
+        let id_juegos = document.getElementById("id_juego").innerText;
+
+        var fechaActual = new Date();
+        var diaDelMes = fechaActual.getDate();
+
+        const firstRequest = fetch(
+          `https://statsapi.mlb.com/api/v1/schedule?sportId=17&leagueId=135&startDate=2023-11-${diaDelMes}&endDate=2023-11-${diaDelMes}&gameType=E&&gameType=S&&gameType=R`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            return id_juegos;
+          })
+          .catch((error) => {
+            console.error("Error en la primera solicitud:", error);
+            throw error;
+          });
+
+        const secondRequest = firstRequest.then((id_juego) => {
+          return fetch(
+            `https://statsapi.mlb.com/api/v1.1/game/${id_juego}/feed/live`
+          )
+            .then((response) => response.json())
+            .catch((error) => {
+              console.error("Error en la segunda solicitud:", error);
+              throw error;
+            });
+        });
+
+        Promise.all([firstRequest, secondRequest])
+          .then(([id_juego, result]) => {
+            //BATIADOR  defense
+            //LANZADOR  offense
+
+            let PARTE = document.getElementById("PARTE").innerText;
+            let defense;
+            let offense;
+            let avg;
+
+            if (PARTE == "ALTA") {
+              offense = result.liveData.linescore.offense.batter.fullName;
+              defense = result.liveData.linescore.defense.pitcher.fullName;
+              const id_jugador_data =
+                result.liveData.linescore.offense.batter.id;
+              const datos_pelotero =
+                result.liveData.boxscore.teams.away.players;
+
+              for (const key in datos_pelotero) {
+                if (Object.hasOwnProperty.call(datos_pelotero, key)) {
+                  const element = datos_pelotero[key];
+                  if (element.person.id === id_jugador_data) {
+                    document.getElementById("ave").innerText =
+                      element.seasonStats.batting.avg;
+                  }
                 }
+              }
+            } else if (PARTE == "BAJA") {
+              offense = result.liveData.linescore.offense.batter.fullName;
+              defense = result.liveData.linescore.defense.pitcher.fullName;
+              let id_jugador_data = result.liveData.linescore.offense.batter.id;
+              const datos_pelotero =
+                result.liveData.boxscore.teams.home.players;
 
+            
 
-        const Id_equipo_homeclub = document.getElementById("id_equipo_homeclub");
-        const Id_equipo_visitante = document.getElementById("id_equipo_visitante");
+              for (const key in datos_pelotero) {
+                if (Object.hasOwnProperty.call(datos_pelotero, key)) {
+                  const element = datos_pelotero[key];
+                  if (element.person.id == id_jugador_data) {
+                    document.getElementById("ave").innerText =
+                      element.seasonStats.batting.avg;
+                  }
+                }
+              }
+            }
 
-        
-        const teamNames = ['Tigres', 'Águilas', 'Navegantes', 'Leones', 'Tiburones', 'Cardenales', 'Caribes', 'Bravos'];
-          const homeclub = document.getElementById('awayTeam').innerText;
+            function obtenerInicialApellido(nombreCompleto) {
+              const partes = nombreCompleto.split(" ");
+              const inicialNombre = partes[0].charAt(0).toUpperCase();
+              const apellido =
+                partes.length > 1 ? partes.slice(1).join(" ") : partes[0];
+              const resultado = inicialNombre + " . " + apellido;
 
-          const teamIndex = teamNames.indexOf(homeclub);
+              return resultado;
+            }
 
-          if (teamIndex !== -1) {
-            Id_equipo_homeclub.src = array_logo[teamIndex + 1].img_url;
-          }
-            const visitante = document.getElementById('homeTeam').innerText
+            const nombreCompleto1 = offense;
+            const nombreCompleto2 = defense;
+            const resultado1 = obtenerInicialApellido(nombreCompleto1);
+            const resultado2 = obtenerInicialApellido(nombreCompleto2);
 
-            const teamIndex2 = teamNames.indexOf(visitante);
-
-          if (teamIndex2 !== -1) {
-            Id_equipo_visitante.src = array_logo[teamIndex2 + 1].img_url;
-          }
-
-          
-          // Handle incoming text updates from the Scoreboard plugin
-          if ( !element || !str ) {
-              console.log('Missing data! Expecting 2 parameters');
-              return
-          }
-
-          if (element.includes('Score')) {
-              setTimeout(() => { e(element).innerText = htmlDecode(str); }, 100);
-              const scoreFX = anime.timeline({duration: 100})
-              const TeamEle = e(element);
-              scoreFX
-                  .add( { targets: TeamEle, scale: [1,0], easing: 'easeInOutBack'} )
-                  .add( { targets: TeamEle, scale: [2,1], easing: 'easeOutBack'}, '100' )
-              scoreFX.play()
-              return
-          }
-          e(element).innerHTML = htmlDecode(str);
+            document.getElementById("BATIADOR").innerText = resultado1;
+            document.getElementById("LANZADOR").innerText = resultado2;
+          })
+          .catch((error) => console.error("Error en Promise.all:", error));
       }
 
-      function updateSponsorLogo(imgName) {
-       
-      }
+      function updateSponsorLogo(imgName) {}
       const colorDeBase = "#fff";
 
-      function periodDisplay(str) {
-        const Hombre_primera = document.getElementById("hombre_primera");
-        
-            if (str) {
-              Hombre_primera.style.backgroundColor = colorDeBase;
-              
-            } else if(!str) {
-              Hombre_primera.style.backgroundColor = ''
-            }
-            
-        }
-
-        function footerTextDisplay(segunda) {
-          const Hombre_segunda = document.getElementById("hombre_segunda");
-            if (!segunda) {
-              Hombre_segunda.style.backgroundColor = '';
-            } else {
-              Hombre_segunda.style.backgroundColor = colorDeBase;
-               
-            }
-
-
-           
-        }
-
-        function updateSponsorLogo(tercera) {
-          const Hombre_tercera = document.getElementById("hombre_tercera");
-            if (!tercera) {
-              Hombre_tercera.style.backgroundColor = '';
-            } else {
-              Hombre_tercera.style.backgroundColor = colorDeBase;
-               
-            }
-
-        }
-
-
-        function updateSOUTS(out){
-          const outs1 = document.getElementById("outs1");
-          const outs2 = document.getElementById("outs2");
-
-          if (out == 1) {
-                    outs1.classList.add("activate");
-                } else if (out == 2) {
-                    outs1.classList.add("activate");
-                    outs2.classList.add("activate");
-                } else {
-                    outs1.classList.remove("activate");
-                    outs2.classList.remove("activate");
-                }
-
-        }
-
       function scoreboardStyle(value) {
-          // This is an example handler of an extra item of Scoreboard plugin
-          let curClipPath = e('gfx').style.clipPath;
-          switch (value) {
-              case 'full':
-                  anime({
-                      targets: '#gfx',
-                      webkitClipPath: [curClipPath, 'inset(0% 0% 0% 0%)'],
-                      duration: 500, easing: 'easeInQuad'
-                  } )
-                  break;
-              
-              case 'clock':
-                  anime({
-                      targets: '#gfx',
-                      webkitClipPath: [curClipPath, 'inset(0% 0% 0% 80%)'],
-                      duration: 500, easing: 'easeOutQuad'
-                  } )
-                  break;
-          
-              default:
-                  console.log('Unknown value ' + value);
-                  break;
-          }
+        // This is an example handler of an extra item of Scoreboard plugin
+        let curClipPath = e("gfx").style.clipPath;
+        switch (value) {
+          case "full":
+            anime({
+              targets: "#gfx",
+              webkitClipPath: [curClipPath, "inset(0% 0% 0% 0%)"],
+              duration: 500,
+              easing: "easeInQuad",
+            });
+            break;
+
+          case "clock":
+            anime({
+              targets: "#gfx",
+              webkitClipPath: [curClipPath, "inset(0% 0% 0% 80%)"],
+              duration: 500,
+              easing: "easeOutQuad",
+            });
+            break;
+
+          default:
+            console.log("Unknown value " + value);
+            break;
+        }
       }
-  </script>
- 
+    </script>
    
  <script type="text/javascript" src="jss/animaciones.js"></script> 
  <script type="text/javascript" src="jss/temStyles.js"></script>

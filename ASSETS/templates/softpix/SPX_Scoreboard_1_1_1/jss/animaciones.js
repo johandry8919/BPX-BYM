@@ -140,7 +140,7 @@ function runAnimationIN() {
       );
       
       gsap.fromTo(
-        "#carreras_homeclub",
+        ".carreras_homeclub",
         { opacity: 0 },
         {
           delay: 0.2,
@@ -151,13 +151,13 @@ function runAnimationIN() {
       );
   
       gsap.fromTo(
-        "#carreras_homeclub",
+        ".carreras_homeclub",
         { y: -50 },
         { delay: 0.2, duration: dur - 0.2, y: 0, ease: "back.out(0.1)" }
       );
   
       gsap.fromTo(
-        "#carreras_visitante",
+        ".carreras_visitante",
         { opacity: 0 },
         {
           delay: 0.2,
@@ -168,7 +168,7 @@ function runAnimationIN() {
       );
   
       gsap.fromTo(
-        "#carreras_visitante",
+        ".carreras_visitante",
         { y: 50 },
         { delay: 0.2, duration: dur - 0.2, y: 0, ease: "back.out(0.1)" }
       );

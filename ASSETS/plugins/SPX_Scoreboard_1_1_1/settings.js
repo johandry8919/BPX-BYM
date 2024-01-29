@@ -64,55 +64,55 @@ window.SETTINGS = {
 
     'extras': [
 
-        {
-            'title': 'OUTS',
-            'templatefunctioncall': 'updateSOUTS',
-            'options': [
-                {
-                    'text': 'OUTS-1',
-                    'value': 1
-                },
-                {
-                    'text': 'OUTS-2',
-                    'value': 2
-                },
+        // {
+        //     'title': 'OUTS',
+        //     'templatefunctioncall': 'updateSOUTS',
+        //     'options': [
+        //         {
+        //             'text': 'OUTS-1',
+        //             'value': 1
+        //         },
+        //         {
+        //             'text': 'OUTS-2',
+        //             'value': 2
+        //         },
                 
-            ],
-        },
-        {
-            'title': 'PRIMERA',
-            'templatefunctioncall': 'periodDisplay',
-            'options': [
-                {
-                    'text' : 'PRIMERA',
-                    'value': 1
-                },
+        //     ],
+        // },
+        // {
+        //     'title': 'PRIMERA',
+        //     'templatefunctioncall': 'periodDisplay',
+        //     'options': [
+        //         {
+        //             'text' : 'PRIMERA',
+        //             'value': 1
+        //         },
                
-            ],
-        },
-        {
-            'title': 'SEGUNDA',
-            'templatefunctioncall': 'footerTextDisplay',
-            'options': [
-                {
-                    'text': 'SEGUNDA',
-                    'value': 1
-                },
+        //     ],
+        // },
+        // {
+        //     'title': 'SEGUNDA',
+        //     'templatefunctioncall': 'footerTextDisplay',
+        //     'options': [
+        //         {
+        //             'text': 'SEGUNDA',
+        //             'value': 1
+        //         },
                
-            ],
-        },
+        //     ],
+        // },
         
-        {
-            'title': 'TERCERA',
-            'templatefunctioncall': 'updateSponsorLogo',
-            'options': [
-                {
-                    'text': 'TERCERA',
-                    'value': 1
-                },
+        // {
+        //     'title': 'TERCERA',
+        //     'templatefunctioncall': 'updateSponsorLogo',
+        //     'options': [
+        //         {
+        //             'text': 'TERCERA',
+        //             'value': 1
+        //         },
                 
-            ],
-        },
+        //     ],
+        // },
        
     ]
 }

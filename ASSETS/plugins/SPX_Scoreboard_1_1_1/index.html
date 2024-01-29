@@ -36,7 +36,7 @@
 
                 <div style="border: 0px solid red; width: 100%; padding: 0.4em;">
                     <!-- logo as an image -->
-                    <A href="https://spx.graphics"  TARGET="spx"><img width="150" height="50" alt="logo" src="https://inter.com.ve/blog/wp-content/uploads/2021/05/LOGOS-BYM-ALARGADO.jpg"></A> 
+                    <A href="https://spx.graphics"  TARGET="spx"><img width="150" height="50" alt="logo" src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/2c/f4/44/2cf444a1-b136-e61b-7343-ff3539e160de/AppIcon-1x_U007epad-85-220.png/1200x600wa.png"></A> 
                     <!-- logo as text
                         <div class="name">SCOREBOARD</div>
                         <div class="slog">Configure with settings.js</div
@@ -77,8 +77,33 @@
                         STOP
                     </button>
                 </div>
+                
             </div>
         </section>
+
+        <div style="display: flex; flex-direction: row; gap: 0.1em; align-items: center; margin-bottom: 20px;">
+            <label style="font-size: 20px; text-wrap: nowrap; margin-left: 10px;" for="">CAMPO NOMBRE</label>
+                <select
+                
+                    id="NOMBRE"
+                    onChange="sendUpdate('NOMBRE');"
+                    class="gcinput select larger"
+                    style="width: 100%;">
+                    <option>SELECIONE UN OPCION</option>
+                    <option>ACTIVO</option>
+                    <option selected>INACTIVO</option>
+                </select>
+          
+            
+        </div>
+        
+        <div style="display: flex; flex-direction: row; gap: 0.1em; align-items: center; margin-bottom: 20px;">
+            <label style="font-size: 20px; text-wrap: nowrap; margin-left: 10px;" for="">ID JUEGO</label>
+              <input   onchange="scoreBolaStraing('id_juego')" class="gcinput select larger"
+              style="width: 100%;" placeholder="id del juego" id="id_juego" type="number">
+          
+            
+        </div>
 
         <section data-name="Teams">
             <div class="col roundedLight">
@@ -137,11 +162,49 @@
             </div>
         </section>
 
+
+
+        <section data-name="Teams" style="margin: auto; margin-bottom: 10px;">
+            <div class="col roundedLight">
+                LANZADOR VIST
+                <spxrow>
+                    <spxcol class="flexauto" style="margin-bottom: 0.3em;">
+                        <input
+                        onchange="lazaminto('numeroLanzamiento')"
+                        id="numeroLanzamiento" type="number" class="gcinput"
+                        style="font-family: 'UI-Bold';
+                            font-size: 1.5em;
+                            text-align: center;"
+                        value="0">
+                    </spxcol>
+                </spxrow>
+
+            </div>
+            <div class="col roundedLight">
+                LANZADOR HOME
+                <spxrow>
+                    <spxcol class="flexauto" style="margin-bottom: 0.3em;">
+                        <input
+                        onchange="lazaminto('Lanzamientohome')"
+                        id="Lanzamientohome" type="number" class="gcinput"
+                        style="font-family: 'UI-Bold';
+                            font-size: 1.5em;
+                            text-align: center;"
+                        value="0">
+                    </spxcol>
+                </spxrow>
+           
+
+          
+            </div>
+
+        
+        </section>
+
         <div id="extrasDiv">
             <section data-name="Teams">
                 <div class="col roundedLight">
                     BOLAS<BR>
-                   
                     <spxrow>
                         <spxcol class="flexauto" style="margin-bottom: 0.3em;">
                             <input
@@ -172,18 +235,84 @@
                             value="0">
                         </spxcol>
                     </spxrow>
-                    <spxrow id="awayScoreButtons">
-                        <!-- Away team -/+ score buttons injected here -->
-                </spxrow>
-                </div>
+               
 
+              
+                </div>
+                
+            
+
+             
+                
             
             </section>
+            <button class="btn bg_green "  name="resetButton" id="resetButton" type="reset">RESECT</button>
+            <br>
+             <br>
 
+             
+
+             <section data-name="Teams">
+
+                <div class="col roundedLight ">
+                    BASES
+
+                     <select
+                         id="PRIMERA"
+                         onChange="sendUpdate('PRIMERA');"
+                         class="gcinput select larger"
+                         style="width: 100%; cursor: pointer;">
+                         <option value="0">-</option>
+                         <option value="1" >PRIMERA</option>
+                        
      
+                     </select>
+
+                     <br>
+
+                    
+                     <select
+                     id="SEGUNDA"
+                     onChange="sendUpdate('SEGUNDA');"
+                     class="gcinput select larger"
+                     style="width: 100%; cursor: pointer; ">
+                     <option value="0">-</option>
+                         <option value="1" >SEGUNDA</option>
+                    
+ 
+                 </select>
+                 <br>
+                 <select
+                 id="TERCERA"
+                 onChange="sendUpdate('TERCERA');"
+                 class="gcinput select larger"
+                 style="width: 100%; cursor: pointer; ">
+                 <option value="0">-</option>
+                     <option value="1" >TERCERA</option>
+                
+
+             </select>
+
+              <button class="btn bg_green ripple"  style="width: 100%; cursor: pointer; padding: 0px ; " onclick="sendUpdate('PRIMERA')">UPDATE-BASES</button>
+                 </div>
+
+                <div class="col roundedLight ">
+                    OUTS
+                    <select
+                    id="OUTS"
+                    onChange="sendUpdate('OUTS');"
+                    class="gcinput select larger"
+                    style="width: 100%; ">
+                    <option value="0">-</option>
+                    <option value="1" >OUTS-1</option>
+                    <option value="2" >OUTS-2</option>
+                </select>
+
+                    <button class="btn bg_green ripple"  style="width: 100%; cursor: pointer; padding: 0px ; " onclick="sendUpdate('OUTS')">UPDATE-OUTS</button>
+                 </div> 
+            </section>
 
             <section data-name="Teams">
-
                 <div class="col roundedLight">
                     PARTE
                      <select
@@ -192,14 +321,8 @@
                          class="gcinput select larger"
                          style="width: 100%; ">
                          <option>ALTA</option>
-                         <option>BAJA</option>
-                        
-     
+                         <option selected >BAJA</option>
                      </select>
-                    
-                     <spxrow id="awayScoreButtons">
-                         <!-- Away team -/+ score buttons injected here -->
-                 </spxrow>
                  </div>
                  
                 <div class="col roundedLight">
@@ -220,11 +343,9 @@
                         <!-- Home team -/+ score buttons injected here -->
                 </spxrow>
                 </div>
-    
-                
             </section>
-       
         </div>
+
 
         <section style="opacity: 0;"   data-name="Clock spxrow" class="roundedLight">
             <spxrow>
@@ -304,14 +425,15 @@
     
 
       
-      
     </div>
     <script defer src="settings.js"></script>
+   
     <script defer src="js/spx_scoreboard.js"></script>
 
-    <script>
-        // URL del archivo JSON
-    
-      </script>
+
+
 </body>
 </html>
+
+
+

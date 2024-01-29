@@ -122,6 +122,60 @@
                    
                 ]
             },
+           
+            {
+                "field": "f6",
+                "ftype": "dropdown",
+                "title": "TEMPORADA",
+                "value": "2023",
+                "items": [
+
+                  {
+                        "text": "2023",
+                        "value": "2023"
+                    },
+                  {
+                        "text": "2022",
+                        "value": "2022"
+                    },
+                  {
+                        "text": "2021",
+                        "value": "2021"
+                    },
+                    {
+                        "text": "2020",
+                        "value": "2020"
+                    },
+                   
+                   
+                   
+                ]
+            },
+
+            {
+                "field": "f7",
+                "ftype": "dropdown",
+                "title": "PERIODO",
+                "value": "",
+                "items": [
+
+                  {
+                        "text": "TEMPORADA REGULAR",
+                        "value": "TR"
+                    },
+                  {
+                        "text": "ROUND ROBIN",
+                        "value": "RR"
+                    },
+                  {
+                        "text": "FINAL",
+                        "value": "F"
+                    },
+                    
+                   
+                   
+                ]
+            },
 
       ],
     };
@@ -149,17 +203,10 @@
         </div>
 
         <div class="info">
-          <div
-          id="name"
-            style="
-              display: flex;
-              align-items: center;
-              text-align: center;
-              justify-content: center;
-            "
-          >
-           
-          </div>
+          <div id="name"></div>
+
+          <div id="Tenporada" style="color:#000236; margin-top: 10px; font-weight: bold;" ></div>
+         
         </div>
       </div>
     </div>
@@ -193,6 +240,8 @@
     <div  style="opacity:0;"  id="f0"></div>
     <div  style="opacity:0;"  id="f1"></div>
     <div  style="opacity:0;"  id="f2"></div>
+    <div  style="opacity:0;"  id="f6"></div>
+    <div  style="opacity:0;"  id="f7"></div>
   </div>
   <script src="../_js/jquery-3.0.0.min.js"></script>
   <script src="https://apis.google.com/js/api.js"></script>

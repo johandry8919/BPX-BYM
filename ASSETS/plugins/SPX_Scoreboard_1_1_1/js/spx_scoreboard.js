@@ -26,6 +26,29 @@ const LS_ASCOR="SPX_Scoreboard_awayScore";
 const LS_CLOCK="SPX_Scoreboard_totalSeconds";
 const LS_PARTE="SPX_Scoreboard_parte";
 const LS_PRIMERA="SPX_Scoreboard_primera";
+const LS_SEGUNDA="SPX_Scoreboard_segunda";
+const LS_TERCERA="SPX_Scoreboard_tercera";
+const LS_OUTS="SPX_Scoreboard_outs";
+
+
+
+
+
+document.getElementById("resetButton").addEventListener("click", function () {
+    // Restablecer los valores de los marcadores a cero
+    updateScoreInput("BOLAScore", 0);
+    updateScoreInput("STRIKESScore", 0);
+
+    // También puedes llamar a sendUpdate si es necesario
+    sendUpdate("BOLAScore", 0);
+    sendUpdate("STRIKESScore", 0);
+});
+// document.getElementById("resetButton").addEventListener("click", function () {
+//     // Restablecer los valores de los marcadores a cero
+//     updateScoreInput("numeroLanzamiento", 0);
+//     sendUpdate("numeroLanzamiento", 0);
+   
+// });
 
 
 
@@ -37,20 +60,28 @@ function updateScoreInput(elementId, newValue) {
     }
 }
 
-// Función para manejar la puntuación de BOLA y STRINGG
 function scoreBolaStraing(scoreType, change = 0) {
     let currentVal = parseInt(e(scoreType).value) || 0;
     let newVal = currentVal + change;
 
-    // Asegurarse de que el valor no sea negativo si no se permite
     if (!SETTINGS.allowNegativeDisplay) {
         newVal = Math.max(0, newVal);
     }
 
-    // Actualizar el valor del input correspondiente
     updateScoreInput(scoreType, newVal);
 
-    // Enviar la actualización al servidor si es necesario
+    sendUpdate(scoreType, newVal);
+}
+
+function lazaminto(scoreType, change = 0) {
+    let currentVal = parseInt(e(scoreType).value) || 0;
+    let newVal = currentVal + change;
+
+    if (!SETTINGS.allowNegativeDisplay) {
+        newVal = Math.max(0, newVal);
+    }
+
+    updateScoreInput(scoreType, newVal);
     sendUpdate(scoreType, newVal);
 }
 
@@ -152,19 +183,7 @@ function extraFactory(data){
             return curHrs*3600+curMin*60+curSec
         }
 
-
-
             function initPlugin(){
-
-                if (SETTINGS.bolaButton) {
-                    e("bolaButtons").insertAdjacentHTML("beforeend", bolaButtonFactory(SETTINGS.bolaButton));
-                }
-                
-                if (SETTINGS.straingButton) {
-                    e("straingButtons").insertAdjacentHTML("beforeend", straingButtonFactory(SETTINGS.straingButton));
-                }
-
-
                 if(SETTINGS.popup.overlay){
                     overlay.innerText=SETTINGS.popup.overlay;
                     overlay.style.display="inline-block"
@@ -259,6 +278,10 @@ function extraFactory(data){
                                     localStorage.setItem(LS_BOLA,BOLAScoreScoreVal.value);
                                     localStorage.setItem(LS_STRIKES,STRIKESScoreVal.value);
                                     localStorage.setItem(LS_PARTE,PARTEcoreScoreVal.value);
+                                    localStorage.setItem(LS_PRIMERA,PRIMERAcoreScoreVal.value);
+                                    localStorage.setItem(LS_SEGUNDA,SEGUNDAcoreScoreVal.value);
+                                    localStorage.setItem(LS_TERCERA,TERCERAcoreScoreVal.value);
+                                    localStorage.setItem(LS_OUTS,OUTScoreScoreVal.value);
                                     
                                     localStorage.setItem(LS_CLOCK,getCurrentSeconds())}
                                     function playClock(){
@@ -274,8 +297,6 @@ function extraFactory(data){
                                 }
                                     function playItem(){
                                         let data=defaultData();
-
-                                       
                                         data.fields=[
                                             {
                                                 field:"homeTeam",
@@ -309,6 +330,39 @@ function extraFactory(data){
                                             field:"PARTE",
                                             value:PARTEcoreScoreVal.value
                                         },
+                                        {
+                                            field:"PRIMERA",
+                                            value:PRIMERAcoreScoreVal.value
+                                        },
+                                        {
+                                            field:"SEGUNDA",
+                                            value:SEGUNDAcoreScoreVal.value
+                                        },
+                                        {
+                                            field:"TERCERA",
+                                            value:TERCERAcoreScoreVal.value
+                                        },
+                                        {
+                                            field:"OUTS",
+                                            value:OUTScoreScoreVal.value
+                                        },
+                                        {
+                                            field:"numeroLanzamiento",
+                                            value:LcoreScoreVal.value
+                                        },
+                                        {
+                                            field:"NOMBRE",
+                                            value:NOMBREcoreScoreVal.value
+                                        },
+                                        {
+                                            field:"id_juego",
+                                            value:id_juegocoreScoreVal.value
+                                        },
+                                        {
+                                            field:"Lanzamientohome",
+                                            value:homecoreVal.value
+                                        },
+                                        
                                        
                                         
                                         {
@@ -365,6 +419,31 @@ function extraFactory(data){
                                                 case"PARTE":tgt="PARTE";
                                                 str=PARTEcoreScoreVal.value;
                                                 break;
+                                                case"PRIMERA":tgt="PRIMERA";
+                                                str=PRIMERAcoreScoreVal.value;
+                                                break;
+                                                case"SEGUNDA":tgt="SEGUNDA";
+                                                str=SEGUNDAcoreScoreVal.value;
+                                                break;
+                                                case"TERCERA":tgt="TERCERA";
+                                                str=TERCERAcoreScoreVal.value;
+                                                break;
+                                                case"OUTS":tgt="OUTS";
+                                                str=OUTScoreScoreVal.value;
+                                                break;
+                                                case"numeroLanzamiento":tgt="numeroLanzamiento";
+                                                str=LcoreScoreVal.value;
+                                                break;
+                                                case"NOMBRE":tgt="NOMBRE";
+                                                str=NOMBREcoreScoreVal.value;
+                                                break;
+                                                case"id_juego":tgt="id_juego";
+                                                str=id_juegocoreScoreVal.value;
+                                                break;
+                                                case"Lanzamientohome":tgt="Lanzamientohome";
+                                                str=homecoreVal.value;
+                                                break;
+                                                
                                                
                                                
 
@@ -445,6 +524,15 @@ function extraFactory(data){
                                                                                 const BOLAScoreScoreVal=e("BOLAScore");
                                                                                 const INNINGcoreScoreVal=e("INNING");
                                                                                 const PARTEcoreScoreVal=e("PARTE");
+                                                                                const PRIMERAcoreScoreVal=e("PRIMERA");
+                                                                                const SEGUNDAcoreScoreVal=e("SEGUNDA");
+                                                                                const TERCERAcoreScoreVal=e("TERCERA");
+                                                                                const OUTScoreScoreVal=e("OUTS");
+                                                                                const LcoreScoreVal=e("numeroLanzamiento");
+                                                                                const homecoreVal=e("Lanzamientohome");
+                                                                                const NOMBREcoreScoreVal=e("NOMBRE");
+                                                                                const id_juegocoreScoreVal=e("id_juego");
+                                                                               
                                                                               
                                                                                
                                                                                 const STRIKESScoreVal=e("STRIKESScore");

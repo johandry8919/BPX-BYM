@@ -1,0 +1,29 @@
+
+/* GLOBAL */
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.SPXWindow {
+  position: absolute; 
+  overflow: hidden;
+  width: 1920px;
+  height: 1080px;
+}
+
+
+.brd {
+  border: 8px solid green !important;
+}

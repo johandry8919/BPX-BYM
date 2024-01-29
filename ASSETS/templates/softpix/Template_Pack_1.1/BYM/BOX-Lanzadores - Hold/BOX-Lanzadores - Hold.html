@@ -1,0 +1,251 @@
+<head>
+  <script src="../../js/gsap3.2.6.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../css/spx_layout.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/spx_fonts.css" />
+  <script type="text/javascript" src="../../js/spx_interface.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+
+  <link
+    rel="stylesheet"
+    type="text/css"
+    id="DynamicTheme"
+    href="css/styles.css"
+  />
+
+  <script>
+    // Template settings
+    var dev = false,
+      gotVideo = false,
+      gotImage = false,
+      gotLoop = false,
+      gotWipe = false,
+      gotContent = true,
+      fadeIn = true,
+      fadeOut = false;
+  </script>
+
+  <script type="text/javascript">
+    window.SPXGCTemplateDefinition = {
+      description: "",
+      playserver: "OVERLAY",
+      playchannel: "1",
+      playlayer: "1",
+      webplayout: "1",
+      out: "manual",
+      dataformat: "json",
+      uicolor: "3",
+      DataFields: [
+        {
+          field: "comment",
+          ftype: "textfield",
+          title: "BOX-Lanzadores - Hold",
+          value: "BOX-Lanzadores - Hold",
+        },
+
+        {
+                "field": "f3",
+                "ftype": "filelist",
+                "title": "Elija la imagen del patrocinador",
+                "assetfolder" : "/media/images/bg/" ,
+                "extension" : "png",
+                "value": "none",
+            },
+
+            {
+          field: "f0",
+          ftype: "textfield",
+          title: "ID DEL JUEGO",
+          value: "23+2+4++3",
+        },
+
+        {
+                "field": "f1",
+                "ftype": "dropdown",
+                "title": "Lanzador HOMECLUB",
+                "value": "",
+                "items": [
+
+                  {
+                        "text": "Lanzador-N/A",
+                        "value": ""
+                    },
+                    {
+                        "text": "Lanzador-1",
+                        "value": "0"
+                    },
+                    {
+                        "text": "Lanzador-2",
+                        "value": "1"
+                    },
+                    {
+                        "text": "Lanzador-3",
+                        "value": "2"
+                    },
+                    {
+                        "text": "Lanzador-4",
+                        "value": "3"
+                    },
+                   
+                   
+                ]
+            },
+        {
+                "field": "f2",
+                "ftype": "dropdown",
+                "title": "Lanzador VISITANTE",
+                "value": "",
+                "items": [
+
+                  {
+                        "text": "Lanzador-N/A",
+                        "value": ""
+                    },
+                    {
+                        "text": "Lanzador-1",
+                        "value": "0"
+                    },
+                    {
+                        "text": "Lanzador-2",
+                        "value": "1"
+                    },
+                    {
+                        "text": "Lanzador-3",
+                        "value": "2"
+                    },
+                    {
+                        "text": "Lanzador-4",
+                        "value": "3"
+                    },
+                   
+                   
+                ]
+            },
+           
+            {
+                "field": "f6",
+                "ftype": "dropdown",
+                "title": "TEMPORADA",
+                "value": "2023",
+                "items": [
+
+                  {
+                        "text": "2023",
+                        "value": "2023"
+                    },
+                  {
+                        "text": "2022",
+                        "value": "2022"
+                    },
+                  {
+                        "text": "2021",
+                        "value": "2021"
+                    },
+                    {
+                        "text": "2020",
+                        "value": "2020"
+                    },
+                   
+                   
+                   
+                ]
+            },
+
+            {
+                "field": "f7",
+                "ftype": "dropdown",
+                "title": "PERIODO",
+                "value": "",
+                "items": [
+
+                  {
+                        "text": "TEMPORADA REGULAR",
+                        "value": "TR"
+                    },
+                  {
+                        "text": "ROUND ROBIN",
+                        "value": "RR"
+                    },
+                  {
+                        "text": "FINAL",
+                        "value": "F"
+                    },
+                    
+                   
+                   
+                ]
+            },
+
+      ],
+    };
+  </script>
+</head>
+<body>
+  <div
+    id="container"
+    class="container SPXWindow SPX_AUTOSIZE"
+    data-spx-remember="Use either SPX_AUTOSIZE or SPX_FIXSIZE"
+  >
+    <div class="bx-lanzador">
+      <div id="cont-1" class="cont-1">
+        <img   id="logoPatrocinio" width="100%" src="" >
+      </div>
+      <div id="cont-2" class="cont-2">
+        <div class="logo">
+          <img
+          id="id_equipo_visitante"
+            height="117"
+            width="100%"
+            src=""
+            alt=""
+          />
+        </div>
+
+        <div class="info">
+          <div id="name"></div>
+
+          <div id="Tenporada" style="color:#000236; margin-top: 10px; font-weight: bold;" ></div>
+         
+        </div>
+      </div>
+    </div>
+    <div id="cont-3" class="cont-3">
+      <div class="cont">
+        <div class="info">
+          <p id="apariciones_left">HOLD:</p>
+          <p id="apariciones_right">0</p>
+        </div>
+        <div class="info">
+          <p id="GP_left">G-P:</p>
+          <p id="GP">0</p>
+        </div>
+        <div class="info">
+          <p id="efec_left">efec:</p>
+          <p id="efec_right">0</p>
+          <div id="color" class="color"></div>
+        </div>
+        <div class="info">
+          <p id="ip_left">ip:</p>
+          <p id="ip_right">0</p>
+        </div>
+        <div class="info">
+          <p id="k_left">k:</p>
+          <p id="k_right">0</p>
+        </div>
+       
+      </div>
+    </div>
+    <div  style="opacity:0;"  id="f3"></div>
+    <div  style="opacity:0;"  id="f0"></div>
+    <div  style="opacity:0;"  id="f1"></div>
+    <div  style="opacity:0;"  id="f2"></div>
+    <div  style="opacity:0;"  id="f6"></div>
+    <div  style="opacity:0;"  id="f7"></div>
+  </div>
+  <script src="../_js/jquery-3.0.0.min.js"></script>
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script src="js/animaciones.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/temStyles.js"></script>
+</body>

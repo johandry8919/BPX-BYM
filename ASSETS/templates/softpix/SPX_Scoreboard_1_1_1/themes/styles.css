@@ -224,17 +224,18 @@ body{
   text-align: center;
   letter-spacing: 3px;
   left: 0;
+
 }
 
 .carreras .carreras_homeclub {
   bottom: 15px;
-  opacity: 1;
+  opacity: 0;
   text-align: center;
 }
 
 .carreras .carreras_visitante {
   top: 15px;
-  opacity: 1;
+  opacity: 0;
 }
 
 .outs {

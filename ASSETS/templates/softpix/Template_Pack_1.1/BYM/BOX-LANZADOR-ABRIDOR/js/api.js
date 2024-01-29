@@ -45,6 +45,29 @@ let parte  ;
 let bateadores1 = htmlDecode(e('f1').innerText)
 let bateadores2 = htmlDecode(e('f2').innerText)
 
+let temporada = htmlDecode(e('f6').innerText)
+let periodo = htmlDecode(e('f7').innerText)
+let EstaTemporada = document.getElementById("Tenporada")
+
+
+switch (temporada) {
+  case "2023":
+    EstaTemporada.innerText = (periodo == "TR") ? "ESTA TEMPORADA" : (periodo == "RR") ? "ROUND ROBIN 2024" : (periodo == "F") ? "FINAL 2024" : "";
+    break;
+  case "2022":
+    EstaTemporada.innerText = (periodo == "TR") ? "TEMPORADA 2022" : (periodo == "RR") ? "ROUND ROBIN 2023" : (periodo == "F") ? "FINAL 2023" : "";
+    break;
+  case "2021":
+    EstaTemporada.innerText = (periodo == "TR") ? "TEMPORADA 2021" : (periodo == "RR") ? "ROUND ROBIN 2022" : (periodo == "F") ? "FINAL 2021" : "";
+    break;
+  case "2020":
+    EstaTemporada.innerText = (periodo == "TR") ? "TEMPORADA 2020" : (periodo == "RR") ? "ROUND ROBIN 2021" : (periodo == "F") ? "FINAL 2021" : "";
+    break;
+  default:
+    EstaTemporada.innerText = "";
+    break;
+}
+
 let seleciono;
 
 if(bateadores1 != ''){
@@ -138,8 +161,8 @@ function getDataB() {
                                       );
                                       
                                       const params = {
-                                        "periodo": "TR",
-                                        "temporada": "2023",
+                                        "periodo": periodo,
+                                        "temporada": temporada,
                                       
                                       };
                                       Object.keys(params)
@@ -152,21 +175,6 @@ function getDataB() {
                                       }).then(response => response.json())
                                       .then(datas => {
 
-                                        // function convertirNumero(numero) {
-                                        //   if (numero === null || typeof numero === "undefined") {
-                                        //     numero = .000;
-                                        //   }
-                                        //   if (numero > 0) {
-                                        //     if (numero % 1 === 0) {
-                                        //       return numero.toFixed(2);
-                                        //     } else {
-                                        //       return (Math.ceil(numero * 100) / 100).toFixed(2);
-                                        //     }
-                                        //   } else {
-                                        //     return numero = '.000';
-                                        //   }
-                                        // }
-                                        
                 
                                         datas.data.forEach((element, index) => {
                 

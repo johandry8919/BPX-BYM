@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+    
+
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> Scoreboard</title>
+
+<!-- <script src="./js/lib/luxon.min.js"></script> -->
+<script src="/js/axios.min.js"></script>
+
+<link rel="icon" type="image/png" href="/img/spx-gc.ico">
+<link rel="stylesheet" type="text/css" href="css/spx_scoreboard.css">
+
+<link rel="stylesheet" type="text/css" href="/css/spx_fonts.css">
+<link rel="stylesheet" type="text/css" href="/css/spx_layout.css">
+<link rel="stylesheet" type="text/css" href="/css/spx_forms.css">
+<link rel="stylesheet" type="text/css" href="/css/spx_colors.css">
+
+
+</head>
+<body style="font-size:1.2em; background-color: #2A3641;">
+    <div class="page skroll">
+        <div id="overlay" onClick="hideOverlay();"></div>
+
+        <section data-name="Header spxrow">
+            <div style="
+                    display: flex; 
+                    align-items: center !important;
+                    justify-content: center !important;
+                    flex-basis: 40%;
+                    ">
+
+                <div style="border: 0px solid red; width: 100%; padding: 0.4em;">
+                    <!-- logo as an image -->
+                    <A href="https://spx.graphics"  TARGET="spx"><img width="150" height="50" alt="logo" src="https://inter.com.ve/blog/wp-content/uploads/2021/05/LOGOS-BYM-ALARGADO.jpg"></A> 
+                    <!-- logo as text
+                        <div class="name">SCOREBOARD</div>
+                        <div class="slog">Configure with settings.js</div
+                    -->
+                </div>
+
+            </div>
+
+            <div style="display: flex;
+                        flex-grow: 1;
+                        padding: 0.4em;
+                        flex-direction: column;
+                        border: 0px solid red;
+                        gap: 0.4em;
+                        font-size: 0.8em;">
+                <select
+                    id="templateList"
+                    onChange="sendUpdate('changeAwayTeam');"
+                    class="gcinput select larger"
+                    title="Select template"
+                    style="width: 100%;">
+                    <option>Will update from settings.js</option>
+                    <option>Will update from settings.js</option>
+                    <option>Will update from settings.js</option>
+                </select>
+                <div style="display: flex; flex-direction: row; gap: 0.4em;">
+                    <button
+                        id="playButton"
+                        class="btn bg_green ripple wide"
+                        style="margin-bottom:0.4em;"
+                        onClick="playItem();">
+                        PLAY
+                    </button>
+                    <button
+                        id="stopButton"
+                        class="btn bg_red ripple wide"
+                        onClick="stopItem();">
+                        STOP
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section data-name="Teams">
+            <div class="col roundedLight">
+                VISITANTE<BR>
+                <select
+                
+                    id="homeTeams"
+                    onChange="sendUpdate('changeHomeTeam');"
+                    class="gcinput select larger"
+                    style="width: 100%;">
+                    <option>Aaaaa</option>
+                    <option>Bbbb</option>
+                </select>
+                <spxrow>
+                    <spxcol class="flexauto" style="margin-bottom: 0.3em;">
+                        <input
+                        onchange="score('homeScore')"
+                        id="homeScore" type="number" class="gcinput"
+                        style="font-family: 'UI-Bold';
+                            font-size: 1.5em;
+                            text-align: center;"
+                        value="0">
+                    </spxcol>
+                </spxrow>
+                <spxrow id="homeScoreButtons">
+                    <!-- Home team -/+ score buttons injected here -->
+            </spxrow>
+            </div>
+
+            <div class="col roundedLight">
+                HOMECLUB
+                <select
+                    id="awayTeams"
+                    onChange="sendUpdate('changeAwayTeam');"
+                    class="gcinput select larger"
+                    style="width: 100%; ">
+                    <option>Cccc</option>
+                    <option>Ddddd</option>
+                    <option>Eee</option>
+
+                </select>
+                <spxrow>
+                    <spxcol class="flexauto" style="margin-bottom: 0.3em;">
+                        <input
+                        onchange="score('awayScore')"
+                        id="awayScore" type="number" class="gcinput"
+                        style="font-family: 'UI-Bold';
+                            font-size: 1.5em;
+                            text-align: center;"
+                        value="0">
+                    </spxcol>
+                </spxrow>
+                <spxrow id="awayScoreButtons">
+                    <!-- Away team -/+ score buttons injected here -->
+            </spxrow>
+            </div>
+        </section>
+
+        <div id="extrasDiv">
+            <section data-name="Teams">
+                <div class="col roundedLight">
+                    BOLAS<BR>
+                   
+                    <spxrow>
+                        <spxcol class="flexauto" style="margin-bottom: 0.3em;">
+                            <input
+                            onchange="scoreBolaStraing('BOLAScore')"
+                            id="BOLAScore" type="number" class="gcinput"
+                            style="font-family: 'UI-Bold';
+                                font-size: 1.5em;
+                                text-align: center;"
+                            value="0">
+                        </spxcol>
+                    </spxrow>
+                    <spxrow id="homeScoreButtons">
+                        <!-- Home team -/+ score buttons injected here -->
+                </spxrow>
+                </div>
+    
+                <div class="col roundedLight">
+                    STRIKES
+                   
+                    <spxrow>
+                        <spxcol class="flexauto" style="margin-bottom: 0.3em;">
+                            <input
+                            onchange="scoreBolaStraing('STRIKESScore')"
+                            id="STRIKESScore" type="number" class="gcinput"
+                            style="font-family: 'UI-Bold';
+                                font-size: 1.5em;
+                                text-align: center;"
+                            value="0">
+                        </spxcol>
+                    </spxrow>
+               
+
+              
+                </div>
+                
+            
+
+             
+                
+            
+            </section>
+            <button class="btn bg_green "  name="resetButton" id="resetButton" type="reset">RESECT</button>
+            <br>
+             <br>
+
+             <section data-name="Teams">
+
+                <div class="col roundedLight ">
+                    BASES
+
+                     <select
+                         id="PRIMERA"
+                         onChange="sendUpdate('PRIMERA');"
+                         class="gcinput select larger"
+                         style="width: 100%; cursor: pointer;">
+                         <option value="0">-</option>
+                         <option value="1" >PRIMERA</option>
+                        
+     
+                     </select>
+
+                     <br>
+
+                    
+                     <select
+                     id="SEGUNDA"
+                     onChange="sendUpdate('SEGUNDA');"
+                     class="gcinput select larger"
+                     style="width: 100%; cursor: pointer; ">
+                     <option value="0">-</option>
+                         <option value="1" >SEGUNDA</option>
+                    
+ 
+                 </select>
+                 <br>
+                 <select
+                 id="TERCERA"
+                 onChange="sendUpdate('TERCERA');"
+                 class="gcinput select larger"
+                 style="width: 100%; cursor: pointer; ">
+                 <option value="0">-</option>
+                     <option value="1" >TERCERA</option>
+                
+
+             </select>
+                    
+               
+              <button class="btn bg_green ripple"  style="width: 100%; cursor: pointer; padding: 0px ; " onclick="sendUpdate('PRIMERA')">UPDATE-BASES</button>
+                 </div>
+
+                <div class="col roundedLight ">
+                    OUTS
+                    <select
+                    id="OUTS"
+                    onChange="sendUpdate('OUTS');"
+                    class="gcinput select larger"
+                    style="width: 100%; ">
+                    <option value="0">-</option>
+                    <option value="1" >OUTS-1</option>
+                    <option value="2" >OUTS-2</option>
+                </select>
+
+                    <button class="btn bg_green ripple"  style="width: 100%; cursor: pointer; padding: 0px ; " onclick="sendUpdate('OUTS')">UPDATE-OUTS</button>
+                 </div> 
+            </section>
+
+     
+     
+
+            <section data-name="Teams">
+
+                <div class="col roundedLight">
+                    PARTE
+                     <select
+                         id="PARTE"
+                         onChange="sendUpdate('PARTE');"
+                         class="gcinput select larger"
+                         style="width: 100%; ">
+                         <option>ALTA</option>
+                         <option>BAJA</option>
+                        
+     
+                     </select>
+                    
+                     <spxrow id="awayScoreButtons">
+                         <!-- Away team -/+ score buttons injected here -->
+                 </spxrow>
+                 </div>
+                 
+                <div class="col roundedLight">
+                    INNING<BR>
+                   
+                    <spxrow>
+                        <spxcol class="flexauto" style="margin-bottom: 0.3em;">
+                            <input
+                            onchange="score('INNING')"
+                            id="INNING" type="number" class="gcinput"
+                            style="font-family: 'UI-Bold';
+                                font-size: 1.5em;
+                                text-align: center;"
+                            value="0">
+                        </spxcol>
+                    </spxrow>
+                    <spxrow id="homeScoreButtons">
+                        <!-- Home team -/+ score buttons injected here -->
+                </spxrow>
+                </div>
+    
+                
+            </section>
+
+    
+
+        </div>
+
+
+   
+
+        <section style="opacity: 0;"   data-name="Clock spxrow" class="roundedLight">
+            <spxrow>
+                <spxcol class="aleft" id="clockStatus" style="flex: 2;">
+                    &nbsp;
+                </spxcol>
+
+                <spxcol style="flex: 3;">
+                    <spxrow>
+                        <spxcol style="display: none;" id="hoursField">
+                            <input
+                            id="hours"
+                            type="number"
+                            class="gcinput"
+                            style="font-family: 'UI-Bold';
+                                margin:2px auto;
+                                font-size: 2.0em;
+                                width: 100%;
+                                text-align: center;
+                                padding: 0;"
+                            value="00">
+                        </spxcol>
+
+                        <spxcol >
+                            <input
+                            id="minutes"
+                            type="number"
+                            class="gcinput"
+                            style="font-family: 'UI-Bold';
+                                margin:2px auto;
+                                font-size: 2.0em;
+                                width: 100%;
+                                text-align: center;
+                                padding: 0;"
+                            value="00">
+                        </spxcol>
+
+                        <spxcol>
+                            <input
+                            id="seconds"
+                            type="number"
+                            class="gcinput"
+                            style="font-family: 'UI-Bold';
+                                margin:2px auto;
+                                font-size: 2.0em;
+                                width: 100%;
+                                text-align: center;
+                                padding: 0;"
+                            value="00">
+                        </spxcol>
+                    </spxrow>
+                </spxcol>
+
+                <spxcol class="aright" style="flex: 2;">
+                    <button
+                        onclick="updateClock(true)"
+                        class="btn bg_blue ripple"
+                        id="clockUpdate" 
+                        style="padding:0 1em; width:80%;
+                            margin-bottom: 4px;
+                            font-size: 0.8em;"> UPDATE </button>
+                    <button
+                        onclick="toggleTimer()"
+                        class="btn bg_green ripple"
+                        id="clockToggle" 
+                        style="padding:0 1em;
+                            width:80%; margin-bottom: 4px;
+                            font-size: 0.8em;"> START </button>
+                </spxcol>
+
+
+                
+            </spxrow>
+        </section>
+
+
+    
+
+      
+      
+    </div>
+    <script defer src="settings.js"></script>
+    <script defer src="js/spx_scoreboard.js"></script>
+
+    <script>
+        // URL del archivo JSON
+    
+      </script>
+</body>
+</html>
