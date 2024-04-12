@@ -1107,7 +1107,7 @@ function focusRow(rowitemOrIndex) {
         if (document.getElementById('previewMode').value==='selected') {
             if (TargetElement.getAttribute('data-spx-previewing')!='true') {
                 TargetElement.setAttribute('data-spx-previewing', 'true'); // added in 1.1.1 to avoid double previewing
-                previewItem(); // preview selected item
+                // previewItem(); // preview selected item
             }
         }
 
@@ -1499,7 +1499,7 @@ function previewItem(itemrow='') {
     data = {};
     data.datafile      = document.getElementById('datafile').value;
     data.epoch         = itemrow.getAttribute('data-spx-epoch') || 0;
-    data.command       = 'preview'; // added in 1.1.0
+    data.command       = 'play'; // added in 1.1.0
     working('Sending ' + data.command + ' request.');
     ajaxpost('/gc/playout',data);
     heartbeat(308); // identifier

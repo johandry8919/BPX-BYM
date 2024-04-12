@@ -1024,6 +1024,76 @@
 
 
   </script>
+
+
+    <script>
+    var currentIndex = 0;
+    var playlistItems;
+    var intervalId;
+    TargetElement = ''
+    function playNextItem() {
+      previewItem();
+
+      var previousIndex = (currentIndex === 0) ? playlistItems.length - 1 : currentIndex - 1;
+      playlistItems[previousIndex].setAttribute('data-spx-onair', 'false');
+
+
+      playlistItems[currentIndex].click();
+      playlistItems[currentIndex].setAttribute('data-spx-onair', 'true');
+      currentIndex = (currentIndex + 1) % playlistItems.length;
+      var button = document.getElementById('MasterTOGGLE');
+
+      updateButtonColor();
+    }
+
+    function startPlayback() {
+
+  
+
+
+
+      intervalId = setInterval(playNextItem, 5000);
+
+    }
+
+    function stopPlayback() {
+
+      clearInterval(intervalId);
+      intervalId = null;
+
+      updateButtonColor();
+    }
+    function playItem() {
+
+      if (!intervalId) {
+
+        playlistItems = document.querySelectorAll('.itemrow');
+        playlistItems[0].setAttribute('data-spx-onair', 'true');
+
+        currentIndex = 0;
+
+
+        startPlayback();
+      } else {
+
+        stopPlayback();
+      }
+    }
+
+    function updateButtonColor() {
+      var button = document.getElementById('MasterTOGGLE');
+      if (intervalId) {
+        button.classList.remove('bg_green', 'ripple');
+        button.classList.add('btn', 'ripple', 'bg_red');
+        button.innerText = 'Stop';
+      } else {
+        button.classList.remove('bg_red', 'ripple');
+        button.classList.add('btn', 'ripple', 'bg_green');
+        button.innerText = 'Play';
+      }
+    }
+
+  </script>
 </body>
 
 </html>
