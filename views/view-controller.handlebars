@@ -1056,15 +1056,16 @@ var currentIndex = 1;
 var playlistItems;
 var intervalId;
 var timerId;
-var visibilityTime = 10000; // Valor por defecto
-var stope = false  ; 
-document.getElementById('visibilityInput'+0).style.display = "none"
+var visibilityTime = 10; // Valor por defecto en segundos
+var stopped = false;
+
+document.getElementById('visibilityInput' + 0).style.display = "none";
 
 function playNextItem() {
   var currentItem = playlistItems[currentIndex];
   var visibilityInput = currentItem.querySelector('.data-visibility');
-  var visibilityTimee = parseInt(visibilityInput.value) || 10000;
-  var remainingTime = visibilityTimee;
+  var visibilityTimee = parseInt(visibilityInput.value) || 10; // Valor por defecto en segundos
+  var remainingTime = visibilityTimee * 1000; // Convertir a milisegundos
   var timerId;
 
   previewItem();
@@ -1072,68 +1073,61 @@ function playNextItem() {
   var previousIndex = (currentIndex === 1) ? playlistItems.length - 1 : currentIndex - 1;
   playlistItems[previousIndex].setAttribute('data-spx-onair', 'false');
 
-console.log( )
+  console.log();
 
   currentItem.click();
   currentItem.setAttribute('data-spx-onair', 'true');
 
   var timerElement = currentItem.querySelector('.timer');
   timerId = setInterval(function() {
-    timerElement.textContent = 'Tiempo restante: ' + remainingTime / 10000 + ' segundos';
+    timerElement.textContent = 'Tiempo restante: ' + Math.ceil(remainingTime / 1000) + ' segundos'; // Mostrar tiempo en segundos
 
     remainingTime -= 1000;
 
-    if ( remainingTime  <= 1 ) {
+    if (remainingTime <= 0) {
       clearInterval(timerId);
     }
   }, 1000);
 
   // Cambio de clase para el ítem actual
-  document.getElementById("playIcon"+currentIndex).classList.add("playTrue");
-  document.getElementById("playIcon"+currentIndex).classList.remove("playFalse");
+  document.getElementById("playIcon" + currentIndex).classList.add("playTrue");
+  document.getElementById("playIcon" + currentIndex).classList.remove("playFalse");
 
   // Cambio de clase para el ítem anterior
   var previousItemIndex = (previousIndex === 0) ? playlistItems.length - 1 : previousIndex;
-  document.getElementById("playIcon"+previousItemIndex).classList.add("playFalse");
-  document.getElementById("playIcon"+previousItemIndex).classList.remove("playTrue");
+  document.getElementById("playIcon" + previousItemIndex).classList.add("playFalse");
+  document.getElementById("playIcon" + previousItemIndex).classList.remove("playTrue");
 
+  currentIndex = (currentIndex === playlistItems.length - 1) ? 1 : currentIndex + 1;
 
-
-
-  currentIndex = (currentIndex === playlistItems.length - 1) ? 1 : currentIndex + 1; 
-
-  intervalId = setTimeout(playNextItem, visibilityTimee); 
+  intervalId = setTimeout(playNextItem, visibilityTimee * 1000); // Convertir a milisegundos
   updateButtonColor();
 }
 
 function startPlayback() {
   playlistItems = document.querySelectorAll('.itemrow');
-  playNextItem(); 
+  playNextItem();
 }
 
 function stopPlayback() {
-  stope = true 
+  stopped = true;
   var previousIndex = (currentIndex === 1) ? playlistItems.length - 1 : currentIndex - 1;
   playlistItems[previousIndex].setAttribute('data-spx-onaire', 'false');
-   clearInterval(intervalId);
-  clearInterval(timerId); 
+  clearInterval(intervalId);
+  clearInterval(timerId);
   intervalId = null;
-  timerId = null; 
+  timerId = null;
   updateButtonColor();
-
-
-  
 }
 
 function playIteme() {
-  visibilityTime = parseInt(document.getElementById('visibilityInput'+currentIndex).value) || 10000;
+  visibilityTime = parseInt(document.getElementById('visibilityInput' + currentIndex).value) || 10; // Valor por defecto en segundos
   playlistItems = document.querySelectorAll('.itemrow');
   playlistItems.forEach(function(item) {
     item.setAttribute('data-visibility', visibilityTime);
   });
 
   if (!intervalId) {
-    playlistItems = document.querySelectorAll('.itemrow');
     playlistItems[1].setAttribute('data-spx-onair', 'true');
     currentIndex = 1;
     startPlayback();
@@ -1154,7 +1148,7 @@ function updateButtonColor() {
     button.innerText = 'playlist';
   }
 }
-  </script>
+</script>
 
 </body>
 
