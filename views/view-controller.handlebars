@@ -1056,7 +1056,7 @@ var currentIndex = 1;
 var playlistItems;
 var intervalId;
 var timerId;
-var visibilityTime = 10; // Valor por defecto en segundos
+var visibilityTime = 10; 
 var stopped = false;
 
 document.getElementById('visibilityInput' + 0).style.display = "none";
@@ -1064,9 +1064,12 @@ document.getElementById('visibilityInput' + 0).style.display = "none";
 function playNextItem() {
   var currentItem = playlistItems[currentIndex];
   var visibilityInput = currentItem.querySelector('.data-visibility');
-  var visibilityTimee = parseInt(visibilityInput.value) || 10; // Valor por defecto en segundos
-  var remainingTime = visibilityTimee * 1000; // Convertir a milisegundos
-  var timerId;
+  var visibilityTimee = parseInt(visibilityInput.value) || 10;
+  var remainingTime = visibilityTimee * 1000; 
+
+  if (currentItem.timerId) {
+    clearInterval(currentItem.timerId);
+  }
 
   previewItem();
 
@@ -1077,13 +1080,13 @@ function playNextItem() {
   currentItem.setAttribute('data-spx-onair', 'true');
 
   var timerElement = currentItem.querySelector('.timer');
-  timerId = setInterval(function() {
+  currentItem.timerId = setInterval(function() {
     timerElement.textContent = 'Tiempo restante: ' + Math.ceil(remainingTime / 1000) + ' segundos'; // Mostrar tiempo en segundos
 
     remainingTime -= 1000;
 
     if (remainingTime <= 0) {
-      clearInterval(timerId);
+      clearInterval(currentItem.timerId);
     }
   }, 1000);
 
@@ -1109,8 +1112,9 @@ function startPlayback() {
 
 function stopPlayback() {
   stopped = true;
-  var previousIndex = (currentIndex === 1) ? playlistItems.length - 1 : currentIndex - 1;
-  playlistItems[previousIndex].setAttribute('data-spx-onaire', 'false');
+  for (var i = 0; i < playlistItems.length; i++) {
+    clearInterval(playlistItems[i].timerId);
+  }
   clearInterval(intervalId);
   clearInterval(timerId);
   intervalId = null;
@@ -1124,7 +1128,6 @@ function playIteme() {
     var visibilityInput = document.getElementById('visibilityInput' + index);
     var visibilityTime = parseInt(visibilityInput.value) || 10; // Valor por defecto en segundos
     item.setAttribute('data-visibility', visibilityTime);
-    // Guardar el valor en el Local Storage
     localStorage.setItem('visibilityInputValue_' + index, visibilityTime);
   });
 
