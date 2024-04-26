@@ -1128,11 +1128,11 @@ function playIteme() {
     var visibilityInput = document.getElementById('visibilityInput' + index);
     var visibilityTime = parseInt(visibilityInput.value) || 10; // Valor por defecto en segundos
     item.setAttribute('data-visibility', visibilityTime);
+    item.setAttribute('data-spx-onair', 'false'); // Asegúrate de establecer a 'false' para todos los elementos
     localStorage.setItem('visibilityInputValue_' + index, visibilityTime);
   });
 
   if (!intervalId) {
-    playlistItems[1].setAttribute('data-spx-onair', 'true');
     currentIndex = 1;
     startPlayback();
   } else {
