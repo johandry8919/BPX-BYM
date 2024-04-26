@@ -1437,7 +1437,6 @@ function moveFocus(nro) {
 function nextItem(itemrow='') {
     // Next / continue command.
 
-    console.log('nextItem()', itemrow);
 
     if (!itemrow) {
         // itemrow not given, get focused row
@@ -2057,6 +2056,7 @@ function setMasterButtonStates(itemrow, debugMessage='') {
     // this triggers when row focuses or when Play or Stop pressed or item changed.
 
     if (!document.getElementById('MasterTOGGLE')) return; // this page does not have buttons...
+    if (!document.getElementById('MasterTOGGLEE')) return; // this page does not have buttons...
 
     let TOGGLEBUTTON = document.getElementById('MasterTOGGLE');
     let UPDATEBUTTON = document.getElementById('MasterUPDATE');
@@ -2086,10 +2086,13 @@ function setMasterButtonStates(itemrow, debugMessage='') {
     var stepsleft= itemrow.getAttribute('data-spx-stepsleft');
     var steps = parseInt(stepsVal);
     var onAirState = String(itemrow.getAttribute('data-spx-onair') || false)
+    var onAirStatee = String(itemrow.getAttribute('data-spx-onaire') || false)
     var changState = String(itemrow.getAttribute('data-spx-changed') || false)
     onAirState = onAirState.toLowerCase();
+    onAirStatee = onAirStatee.toLowerCase();
     changState = changState.toLowerCase();
     var onair = (onAirState == 'true'); // make bool
+    var onair = (onAirStatee == 'true'); // make bool
     var chngd = (changState == 'true'); // make bool
     
     // console.log('Onair', onair, 'Changed', chngd, 'Steps', steps );

@@ -289,10 +289,20 @@
                               </span>
                           </TD>
                           <TD class="vtop aright spxTableHeadsmall">
+
                             <i id="deleteSmall{{@index}}" data-spx-name="deletesmall" class="fas fa-times" onClick="removeItemFromRundown(this.closest('.itemrow'));" onmouseover="tip('{{lang 'hover.delete'}}');"></i>
+                               
+                                <div style="margin-top: 10px;" class="mt-5 p-5">
+                               
+                                <div class="timer"></div>
+                                 <br>
+                               <input value="" class="data-visibility mt-5"  type="number" id="visibilityInput{{@index}}" placeholder="Tiempo de visibilidad (en milisegundos)">
+                              </div>
                           </TD>
                         </TR>
                       </table>
+
+                    
                       <div style="width:100%; " class="truncate">
 
                         {{{ generateCollapsedHeadline DataFields }}}
@@ -313,6 +323,8 @@
                           <TD width="65%" class="vtop">
 
                             {{#each DataFields}}
+
+                          
 
                               <!-- COMMON FIELD DATA -->
                               <div class="wide HIDE">
@@ -640,7 +652,7 @@
 
 
                 <div class="wide" style="text-align: center; padding:0.5rem;">
-                  <button type="button" data-tooltip="{{lang 'hover.addrundownitem'}}" data-position="right center" class="addbtn bg_blue ripple" onClick="ModalOn('overlayTemplatePicker');" onmouseover="tip('{{lang 'hover.addrundownitem'}}');">+</button> <!-- + Add Template To Rundown -->
+                  <button type="button" data-tooltip="{{lang 'hover.addrundownitem'}}" data-position="right center" class="addbtn bg_blue ripple mt-5" onClick="ModalOn('overlayTemplatePicker');" onmouseover="tip('{{lang 'hover.addrundownitem'}}');">+</button> <!-- + Add Template To Rundown -->
                 </div>
             </div>
 
@@ -659,11 +671,22 @@
                   onClick="playItem();"
                   onmouseover="tip('{{lang 'hover.masterplay'}}');"
                   >{{lang 'button.playmaster'}}</button>
+                  
+                <button
+                  id="MasterTOGGLEE"
+                  class="btn bg_green ripple "
+                  style="width:45%;"
+                  data-spx-graphic="name_left"
+                  data-spx-playtext="{{lang 'button.playmaster'}}"
+                  data-spx-stoptext="{{lang 'button.stopmaster'}}"
+                  onClick="playIteme();"
+                  onmouseover="tip('{{lang 'hover.masterplay'}}');"
+                  >PLAYLIST</button>
 
                 <button
                   id="MasterCONTINUE"
                   class="btn bg_green ripple disabled"
-                  style="width:45%;"
+                  style="width:45%; display:none;"
                   onClick="nextItem();"
                    onmouseover="tip('{{lang 'hover.mastercontinue'}}');"
                   >{{lang 'button.continue'}}</button>
@@ -1026,74 +1049,96 @@
   </script>
 
 
-    <script>
-    var currentIndex = 0;
-    var playlistItems;
-    var intervalId;
-    TargetElement = ''
-    function playNextItem() {
-      previewItem();
+<script>
+var currentIndex = 1;
+var playlistItems;
+var intervalId;
+var timerId;
+var visibilityTime = 10000; // Valor por defecto
+var stope = false  ; 
+document.getElementById('visibilityInput'+0).style.display = "none"
 
-      var previousIndex = (currentIndex === 0) ? playlistItems.length - 1 : currentIndex - 1;
-      playlistItems[previousIndex].setAttribute('data-spx-onair', 'false');
+function playNextItem() {
+  var currentItem = playlistItems[currentIndex];
+  var visibilityInput = currentItem.querySelector('.data-visibility');
+  var visibilityTimee = parseInt(visibilityInput.value) || 10000;
+  var remainingTime = visibilityTimee;
+  var timerId;
 
+  previewItem();
 
-      playlistItems[currentIndex].click();
-      playlistItems[currentIndex].setAttribute('data-spx-onair', 'true');
-      currentIndex = (currentIndex + 1) % playlistItems.length;
-      var button = document.getElementById('MasterTOGGLE');
+  var previousIndex = (currentIndex === 1) ? playlistItems.length - 1 : currentIndex - 1;
+  playlistItems[previousIndex].setAttribute('data-spx-onair', 'false');
 
-      updateButtonColor();
+  currentItem.click();
+  currentItem.setAttribute('data-spx-onair', 'true');
+
+  var timerElement = currentItem.querySelector('.timer');
+  timerId = setInterval(function() {
+    timerElement.textContent = 'Tiempo restante: ' + remainingTime / 10000 + ' segundos';
+
+    remainingTime -= 1000;
+
+    if ( remainingTime  <= 0 ) {
+      clearInterval(timerId);
     }
+  }, 1000);
 
-    function startPlayback() {
+  currentIndex = (currentIndex === playlistItems.length - 1) ? 1 : currentIndex + 1; 
+  intervalId = setTimeout(playNextItem, visibilityTimee); 
+  updateButtonColor();
+}
+
+function startPlayback() {
+  playlistItems = document.querySelectorAll('.itemrow');
+  playNextItem(); 
+}
+
+function stopPlayback() {
+  stope = true 
+  var previousIndex = (currentIndex === 1) ? playlistItems.length - 1 : currentIndex - 1;
+  playlistItems[previousIndex].setAttribute('data-spx-onaire', 'false');
+   clearInterval(intervalId);
+  clearInterval(timerId); 
+  intervalId = null;
+  timerId = null; 
+  updateButtonColor();
+
 
   
+}
 
+function playIteme() {
+  visibilityTime = parseInt(document.getElementById('visibilityInput'+currentIndex).value) || 10000;
+  playlistItems = document.querySelectorAll('.itemrow');
+  playlistItems.forEach(function(item) {
+    item.setAttribute('data-visibility', visibilityTime);
+  });
 
+  if (!intervalId) {
+    playlistItems = document.querySelectorAll('.itemrow');
+    playlistItems[1].setAttribute('data-spx-onair', 'true');
+    currentIndex = 1;
+    startPlayback();
+  } else {
+    stopPlayback();
+  }
+}
 
-      intervalId = setInterval(playNextItem, 5000);
-
-    }
-
-    function stopPlayback() {
-
-      clearInterval(intervalId);
-      intervalId = null;
-
-      updateButtonColor();
-    }
-    function playItem() {
-
-      if (!intervalId) {
-
-        playlistItems = document.querySelectorAll('.itemrow');
-        playlistItems[0].setAttribute('data-spx-onair', 'true');
-
-        currentIndex = 0;
-
-
-        startPlayback();
-      } else {
-
-        stopPlayback();
-      }
-    }
-
-    function updateButtonColor() {
-      var button = document.getElementById('MasterTOGGLE');
-      if (intervalId) {
-        button.classList.remove('bg_green', 'ripple');
-        button.classList.add('btn', 'ripple', 'bg_red');
-        button.innerText = 'Stop';
-      } else {
-        button.classList.remove('bg_red', 'ripple');
-        button.classList.add('btn', 'ripple', 'bg_green');
-        button.innerText = 'Play';
-      }
-    }
-
+function updateButtonColor() {
+  var button = document.getElementById('MasterTOGGLEE');
+  if (intervalId) {
+    button.classList.remove('bg_green', 'ripple');
+    button.classList.add('btn', 'ripple', 'bg_red');
+    button.innerText = 'STOP PLAYLIST';
+  } else {
+    button.classList.remove('bg_red', 'ripple');
+    button.classList.add('btn', 'ripple', 'bg_green');
+    button.innerText = 'playlist';
+  }
+}
   </script>
+
 </body>
 
 </html>
