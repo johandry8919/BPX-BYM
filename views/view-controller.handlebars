@@ -1123,8 +1123,9 @@ function stopPlayback() {
 function playIteme() {
   visibilityTime = parseInt(document.getElementById('visibilityInput' + currentIndex).value) || 10; // Valor por defecto en segundos
   playlistItems = document.querySelectorAll('.itemrow');
-  playlistItems.forEach(function(item) {
+  playlistItems.forEach(function(item, index) {
     item.setAttribute('data-visibility', visibilityTime);
+    localStorage.setItem('visibilityInputValue_' + index, visibilityTime);
   });
 
   if (!intervalId) {
@@ -1135,7 +1136,6 @@ function playIteme() {
     stopPlayback();
   }
 }
-
 function updateButtonColor() {
   var button = document.getElementById('MasterTOGGLEE');
   if (intervalId) {
@@ -1148,6 +1148,16 @@ function updateButtonColor() {
     button.innerText = 'playlist';
   }
 }
+
+window.onload = function() {
+  for (var i = 0; i < playlistItems.length; i++) {
+    var visibilityInput = document.getElementById('visibilityInput' + i);
+    var visibilityValue = localStorage.getItem('visibilityInputValue_' + i);
+    if (visibilityValue !== null) {
+      visibilityInput.value = visibilityValue;
+    }
+  }
+};
 </script>
 
 </body>
