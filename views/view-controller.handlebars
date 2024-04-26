@@ -276,7 +276,7 @@
                     <div id="Collapsed" style="position:relative;">
                       <div style="position:absolute; right:10px; z-index:50; font-size:1.5em; top:0.6em;">
 
-                        <i id="playIcon{{@index}}" data-spx-name="icon" class="fas fa-play {{{playIconClass onair}}}"></i>
+                      
                         <!-- Normal play="fas fa-play", Auto play="far fa-play-circle" -->
                       </div>
                       <table class="wide" style="border-spacing: 2px; margin-top: 2px;">
@@ -297,6 +297,8 @@
                                 <div class="timer"></div>
                                  <br>
                                <input value="" class="data-visibility mt-5"  type="number" id="visibilityInput{{@index}}" placeholder="Tiempo de visibilidad (en milisegundos)">
+
+                                 <i id="playIcon{{@index}}" data-spx-name="icon" class="fas fa-play {{{playIconClass onair}}}"></i>
                               </div>
                           </TD>
                         </TR>
@@ -1070,6 +1072,8 @@ function playNextItem() {
   var previousIndex = (currentIndex === 1) ? playlistItems.length - 1 : currentIndex - 1;
   playlistItems[previousIndex].setAttribute('data-spx-onair', 'false');
 
+console.log( )
+
   currentItem.click();
   currentItem.setAttribute('data-spx-onair', 'true');
 
@@ -1079,12 +1083,25 @@ function playNextItem() {
 
     remainingTime -= 1000;
 
-    if ( remainingTime  <= 0 ) {
+    if ( remainingTime  <= 1 ) {
       clearInterval(timerId);
     }
   }, 1000);
 
+  // Cambio de clase para el ítem actual
+  document.getElementById("playIcon"+currentIndex).classList.add("playTrue");
+  document.getElementById("playIcon"+currentIndex).classList.remove("playFalse");
+
+  // Cambio de clase para el ítem anterior
+  var previousItemIndex = (previousIndex === 0) ? playlistItems.length - 1 : previousIndex;
+  document.getElementById("playIcon"+previousItemIndex).classList.add("playFalse");
+  document.getElementById("playIcon"+previousItemIndex).classList.remove("playTrue");
+
+
+
+
   currentIndex = (currentIndex === playlistItems.length - 1) ? 1 : currentIndex + 1; 
+
   intervalId = setTimeout(playNextItem, visibilityTimee); 
   updateButtonColor();
 }
